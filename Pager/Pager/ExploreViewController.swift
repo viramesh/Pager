@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExploreViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ExploreViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
 
     @IBOutlet weak var exploreTableView: UITableView!
     var exploreTableViewCell: ExploreTableViewCell!
@@ -26,6 +26,15 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
     var newGradientAlpha:CGFloat = 0.2
     let GRADIENT_ALPHA_START:CGFloat = 1
     let GRADIENT_ALPHA_END:CGFloat = 0.2
+    
+    //for custom transition into this VC
+    var isPresenting: Bool = true
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        modalPresentationStyle = UIModalPresentationStyle.Custom
+        transitioningDelegate = self
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +70,59 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         var controller = storyboard.instantiateViewControllerWithIdentifier("SearchVC") as! SearchViewController
         self.presentViewController(controller, animated: true, completion: nil)
     }
+    
+    
+    /******************
+    //  CUSTOM TRANSITION
+    //  This part contains code for custom transitions into this VC
+    *******************/
+    
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        isPresenting = true
+        return self
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        isPresenting = false
+        return self
+    }
+    
+    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+        // The value here should be the duration of the animations scheduled in the animationTransition method
+        return 0.4
+    }
+    
+    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+        println("animating transition")
+        var containerView = transitionContext.containerView()
+        var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
+        var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
+        
+        if (isPresenting) {
+            containerView.addSubview(toViewController.view)
+            toViewController.view.alpha = 0
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
+                toViewController.view.alpha = 1
+                }) { (finished: Bool) -> Void in
+                    transitionContext.completeTransition(true)
+            }
+        } else {
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
+                fromViewController.view.alpha = 0
+                }) { (finished: Bool) -> Void in
+                    transitionContext.completeTransition(true)
+                    fromViewController.view.removeFromSuperview()
+            }
+        }
+    }
+
+    
+    
+    
+    /******************
+    //  TABLE VIEW
+    //  This part contains code to populate the table view
+    *******************/
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //
