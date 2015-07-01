@@ -11,7 +11,12 @@ import UIKit
 class ExploreTableViewCell: UITableViewCell {
 
     @IBOutlet weak var exploreImageContainer: UIView!
+    @IBOutlet weak var exploreImageOverlayView: UIView!
+    
+    @IBOutlet weak var exploreImageOverlayGradient: UIImageView!
+    @IBOutlet weak var exploreImageOverlayLabel: UILabel!
     var exploreImage: UIImageView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -13,13 +13,19 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var exploreTableView: UITableView!
     var exploreTableViewCell: ExploreTableViewCell!
     var exploreImages = [String]()
+    var exploreImageLabels = [String]()
     
     //for parallax-ing the images
     var topIndexRow:Int = 0
+    
     var newYPos:CGFloat = 0
     let YPOS_START:CGFloat = -80
     let YPOS_END:CGFloat = 0
-    let SECOND_IMAGE_HEIGHT:CGFloat = 40
+    let SECOND_IMAGE_HEIGHT:CGFloat = 80
+    
+    var newGradientAlpha:CGFloat = 0.2
+    let GRADIENT_ALPHA_START:CGFloat = 1
+    let GRADIENT_ALPHA_END:CGFloat = 0.2
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +34,8 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         exploreTableView.delegate = self
         
         exploreImages = ["crack", "holes", "leak", "locks", "plumbing", "wallpainting"]
+    
+        exploreImageLabels = ["Fix cracks", "Patch holes", "Fix leaks", "Change locks", "Plumbing Issues", "Paint walls"]
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,26 +71,31 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         exploreTableViewCell = tableView.dequeueReusableCellWithIdentifier("ExploreTableViewCellid") as! ExploreTableViewCell
         
         var yPos: CGFloat = 0
-        
+        var gradientAlpha:CGFloat = GRADIENT_ALPHA_END
         if(exploreTableViewCell.exploreImage == nil) {
             exploreTableViewCell.exploreImage = UIImageView()
         }
         
         if(indexPath.row < topIndexRow) {
-            yPos = YPOS_END;
+            yPos = YPOS_END
+            gradientAlpha = GRADIENT_ALPHA_END
             let screenSize: CGRect = UIScreen.mainScreen().bounds
             var exploreImageFrame: CGRect = CGRectMake(0, yPos, screenSize.width, screenSize.height)
             exploreTableViewCell.exploreImage.frame = exploreImageFrame
+            
+            
 
         }
         else if(indexPath.row == topIndexRow) {
-            yPos = newYPos;
+            yPos = newYPos
+            gradientAlpha = newGradientAlpha
             let screenSize: CGRect = UIScreen.mainScreen().bounds
             var exploreImageFrame: CGRect = CGRectMake(0, yPos, screenSize.width, screenSize.height)
             exploreTableViewCell.exploreImage.frame = exploreImageFrame
         }
         else {
-            yPos = YPOS_START;
+            yPos = YPOS_START
+            gradientAlpha = GRADIENT_ALPHA_START
             let screenSize: CGRect = UIScreen.mainScreen().bounds
             var exploreImageFrame: CGRect = CGRectMake(0, yPos, screenSize.width, screenSize.height)
             exploreTableViewCell.exploreImage.frame = exploreImageFrame
@@ -93,6 +106,10 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         exploreTableViewCell.exploreImage.contentMode = UIViewContentMode.ScaleAspectFill
         
         exploreTableViewCell.exploreImageContainer.addSubview(exploreTableViewCell.exploreImage)
+        
+        exploreTableViewCell.exploreImageOverlayGradient.alpha = gradientAlpha
+        
+        exploreTableViewCell.exploreImageOverlayLabel.text = exploreImageLabels[indexPath.row] as String
         
         return exploreTableViewCell
     }
@@ -122,6 +139,9 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         let screenHeight = screenSize.height
         
         newYPos = CGFloat(convertValue(Float(rectInSuperview.origin.y), 0, Float(screenHeight-SECOND_IMAGE_HEIGHT), Float(YPOS_END), Float(YPOS_START)))
+        
+        newGradientAlpha = CGFloat(convertValue(Float(rectInSuperview.origin.y), 0, Float(screenHeight-SECOND_IMAGE_HEIGHT), Float(GRADIENT_ALPHA_END), Float(GRADIENT_ALPHA_START)))
+        
         topIndexRow = visibleImages[1].row
         
         exploreTableView.reloadData()
