@@ -19,6 +19,8 @@
 		2FA30CAB1B4264C100FC1D27 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA30CAA1B4264C100FC1D27 /* MainViewController.swift */; };
 		2FA30CAD1B4266CE00FC1D27 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA30CAC1B4266CE00FC1D27 /* ExploreViewController.swift */; };
 		2FA30CAF1B42672000FC1D27 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA30CAE1B42672000FC1D27 /* SearchViewController.swift */; };
+		2FD97D991B43A639000F7342 /* ExploreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD97D981B43A639000F7342 /* ExploreTableViewCell.swift */; };
+		2FD97D9B1B43B712000F7342 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD97D9A1B43B712000F7342 /* Common.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		2FA30CAA1B4264C100FC1D27 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2FA30CAC1B4266CE00FC1D27 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		2FA30CAE1B42672000FC1D27 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		2FD97D981B43A639000F7342 /* ExploreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreTableViewCell.swift; sourceTree = "<group>"; };
+		2FD97D9A1B43B712000F7342 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 				2FA30C9D1B42584A00FC1D27 /* Search */,
 				2FA30C9C1B42583D00FC1D27 /* Login */,
 				2FA30C7C1B41DBAB00FC1D27 /* AppDelegate.swift */,
+				2FD97D9A1B43B712000F7342 /* Common.swift */,
 				2FA30C801B41DBAB00FC1D27 /* Main.storyboard */,
 				2FA30C831B41DBAB00FC1D27 /* Images.xcassets */,
 				2FA30C851B41DBAB00FC1D27 /* LaunchScreen.xib */,
@@ -150,6 +155,7 @@
 			children = (
 				2FA30CA41B42591F00FC1D27 /* Explore.storyboard */,
 				2FA30CAC1B4266CE00FC1D27 /* ExploreViewController.swift */,
+				2FD97D981B43A639000F7342 /* ExploreTableViewCell.swift */,
 			);
 			name = Explore;
 			sourceTree = "<group>";
@@ -267,8 +273,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FA30C7D1B41DBAB00FC1D27 /* AppDelegate.swift in Sources */,
+				2FD97D991B43A639000F7342 /* ExploreTableViewCell.swift in Sources */,
 				2FA30CAB1B4264C100FC1D27 /* MainViewController.swift in Sources */,
 				2FA30CAF1B42672000FC1D27 /* SearchViewController.swift in Sources */,
+				2FD97D9B1B43B712000F7342 /* Common.swift in Sources */,
 				2FA30CAD1B4266CE00FC1D27 /* ExploreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,6 +473,7 @@
 				2FA30C981B41DBAB00FC1D27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2FA30C991B41DBAB00FC1D27 /* Build configuration list for PBXNativeTarget "PagerTests" */ = {
 			isa = XCConfigurationList;
@@ -473,6 +482,7 @@
 				2FA30C9B1B41DBAB00FC1D27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
