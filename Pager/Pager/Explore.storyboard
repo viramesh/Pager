@@ -26,20 +26,49 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VgM-6O-lxQ" id="RaI-Tm-Xep">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ICs-bg-ynJ">
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ICs-bg-ynJ" userLabel="image">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="329"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RtO-l2-Pmy" userLabel="overlay">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="330"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="gradient-overlay" translatesAutoresizingMaskIntoConstraints="NO" id="ktb-Dd-XNI">
+                                                            <rect key="frame" x="20" y="115" width="240" height="128"/>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wK-iq-UyJ">
+                                                            <rect key="frame" x="20" y="175" width="154" height="31"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="40"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="ktb-Dd-XNI" firstAttribute="top" secondItem="RtO-l2-Pmy" secondAttribute="top" id="1yk-JR-Ecc"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ktb-Dd-XNI" secondAttribute="trailing" id="4vg-AF-fRR"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ktb-Dd-XNI" secondAttribute="bottom" id="T1L-e5-msV"/>
+                                                        <constraint firstItem="ktb-Dd-XNI" firstAttribute="leading" secondItem="RtO-l2-Pmy" secondAttribute="leading" id="UCH-dG-W5e"/>
+                                                        <constraint firstItem="0wK-iq-UyJ" firstAttribute="leading" secondItem="RtO-l2-Pmy" secondAttribute="leading" constant="20" id="kMt-KX-iB2"/>
+                                                        <constraint firstAttribute="bottom" secondItem="0wK-iq-UyJ" secondAttribute="bottom" constant="80" id="yns-aK-3kv"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="RtO-l2-Pmy" firstAttribute="top" secondItem="RaI-Tm-Xep" secondAttribute="top" id="ARn-UW-w0s"/>
                                                 <constraint firstItem="ICs-bg-ynJ" firstAttribute="top" secondItem="RaI-Tm-Xep" secondAttribute="top" id="B0K-RY-DhA"/>
                                                 <constraint firstItem="ICs-bg-ynJ" firstAttribute="leading" secondItem="RaI-Tm-Xep" secondAttribute="leading" id="Rpe-c7-OtE"/>
+                                                <constraint firstAttribute="trailing" secondItem="RtO-l2-Pmy" secondAttribute="trailing" id="WvM-mG-Rcf"/>
+                                                <constraint firstItem="RtO-l2-Pmy" firstAttribute="leading" secondItem="RaI-Tm-Xep" secondAttribute="leading" id="ePw-bD-mPR"/>
                                                 <constraint firstAttribute="bottom" secondItem="ICs-bg-ynJ" secondAttribute="bottom" id="gPV-AA-qDD"/>
+                                                <constraint firstAttribute="bottom" secondItem="RtO-l2-Pmy" secondAttribute="bottom" id="iOh-B0-SD7"/>
                                                 <constraint firstAttribute="trailing" secondItem="ICs-bg-ynJ" secondAttribute="trailing" id="rjq-xa-7LD"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="exploreImageContainer" destination="ICs-bg-ynJ" id="iSA-KA-BEt"/>
+                                            <outlet property="exploreImageOverlayGradient" destination="ktb-Dd-XNI" id="Lch-oM-CQn"/>
+                                            <outlet property="exploreImageOverlayLabel" destination="0wK-iq-UyJ" id="hr5-x5-QzT"/>
+                                            <outlet property="exploreImageOverlayView" destination="RtO-l2-Pmy" id="83Q-ND-KkP"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -80,6 +109,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="gradient-overlay" width="375" height="667"/>
         <image name="icon_search" width="136" height="136"/>
     </resources>
 </document>
