@@ -37,10 +37,12 @@
                                                             <rect key="frame" x="20" y="115" width="240" height="128"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wK-iq-UyJ">
-                                                            <rect key="frame" x="20" y="175" width="154" height="31"/>
+                                                            <rect key="frame" x="40" y="175" width="154" height="31"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="40"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
+                                                            <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                            <size key="shadowOffset" width="0.0" height="1"/>
                                                         </label>
                                                     </subviews>
                                                     <constraints>
@@ -48,7 +50,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="ktb-Dd-XNI" secondAttribute="trailing" id="4vg-AF-fRR"/>
                                                         <constraint firstAttribute="bottom" secondItem="ktb-Dd-XNI" secondAttribute="bottom" id="T1L-e5-msV"/>
                                                         <constraint firstItem="ktb-Dd-XNI" firstAttribute="leading" secondItem="RtO-l2-Pmy" secondAttribute="leading" id="UCH-dG-W5e"/>
-                                                        <constraint firstItem="0wK-iq-UyJ" firstAttribute="leading" secondItem="RtO-l2-Pmy" secondAttribute="leading" constant="20" id="kMt-KX-iB2"/>
+                                                        <constraint firstItem="0wK-iq-UyJ" firstAttribute="leading" secondItem="RtO-l2-Pmy" secondAttribute="leading" constant="40" id="kMt-KX-iB2"/>
                                                         <constraint firstAttribute="bottom" secondItem="0wK-iq-UyJ" secondAttribute="bottom" constant="80" id="yns-aK-3kv"/>
                                                     </constraints>
                                                 </view>
@@ -81,7 +83,7 @@
                                 </constraints>
                                 <state key="normal" image="icon_search">
                                     <color key="titleColor" red="0.30196078430000001" green="0.80392156859999997" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="searchBtnDidPress:" destination="uG4-RH-Ovo" eventType="touchUpInside" id="i53-cn-Y1t"/>
@@ -110,6 +112,6 @@
     </scenes>
     <resources>
         <image name="gradient-overlay" width="375" height="667"/>
-        <image name="icon_search" width="136" height="136"/>
+        <image name="icon_search" width="64" height="64"/>
     </resources>
 </document>

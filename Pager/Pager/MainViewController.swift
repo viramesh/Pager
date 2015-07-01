@@ -10,20 +10,47 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    @IBOutlet weak var logoBackgroundView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let delay = 3 * Double(NSEC_PER_SEC)
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-        dispatch_after(time, dispatch_get_main_queue()) {
-            self.gotoExploreVC()
-        }
+        self.animateLogoBackground()
     }
     
     func gotoExploreVC() {
         var storyboard = UIStoryboard(name: "Explore", bundle: nil)
         var controller = storyboard.instantiateViewControllerWithIdentifier("ExploreVC") as! ExploreViewController
         self.presentViewController(controller, animated: true, completion: nil)
+    }
+    
+    func animateLogoBackground() {
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        var circle:UIView = UIView()
+        circle.frame = CGRectMake(0, 0, 64, 64)
+        circle.layer.cornerRadius = 32
+        circle.center.x = screenSize.width / 2
+        circle.center.y = screenSize.height / 2
+        circle.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
+        circle.alpha = 0.8
+        
+        logoBackgroundView.addSubview(circle)
+
+        let options = UIViewAnimationOptions.CurveEaseInOut
+        
+        UIView.animateWithDuration(1.0, delay: 0, options: options, animations: { () -> Void in
+            circle.transform = CGAffineTransformMakeScale(2.5, 2.5)
+            circle.alpha = 0.1
+        }) { (Bool) -> Void in
+            UIView.animateWithDuration(1.0, delay: 0, options: options, animations: { () -> Void in
+                circle.transform = CGAffineTransformMakeScale(1, 1)
+                circle.alpha = 0.8
+                }) { (Bool) -> Void in
+                    circle.alpha = 0
+                    self.gotoExploreVC()
+            }
+        }
+       
     }
 
     override func didReceiveMemoryWarning() {
