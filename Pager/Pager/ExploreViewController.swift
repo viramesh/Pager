@@ -10,25 +10,39 @@ import UIKit
 
 class ExploreViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
 
+    @IBOutlet var exploreView: UIView!
+    @IBOutlet weak var searchButtonCircleView: UIView!
+    @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var exploreTableView: UITableView!
     var exploreTableViewCell: ExploreTableViewCell!
     var exploreImages = [String]()
     var exploreImageLabels = [String]()
+
+    //screensize
+    var screenSize: CGRect = CGRectZero
+    var screenHeight:CGFloat = 0
+    var screenWidth:CGFloat = 0
+   
     
     //for parallax-ing the images
     var topIndexRow:Int = 0
-    
     var newYPos:CGFloat = 0
     let YPOS_START:CGFloat = -80
     let YPOS_END:CGFloat = 0
     let SECOND_IMAGE_HEIGHT:CGFloat = 80
-    
     var newGradientAlpha:CGFloat = 0.2
     let GRADIENT_ALPHA_START:CGFloat = 1
     let GRADIENT_ALPHA_END:CGFloat = 0.2
     
     //for custom transition into this VC
     var isPresenting: Bool = true
+    
+    //for animating search button into place
+    var gravity: UIGravityBehavior!
+    var animator: UIDynamicAnimator!
+    var snap: UISnapBehavior!
+    var dynamicItemBehavior: UIDynamicItemBehavior!
+    var attach: UIAttachmentBehavior!
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -38,15 +52,27 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //initialize screensize variables
+        screenSize = UIScreen.mainScreen().bounds
+        screenHeight = screenSize.height
+        screenWidth = screenSize.width
 
         exploreTableView.dataSource = self
         exploreTableView.delegate = self
-        
         exploreImages = ["crack", "holes", "leak", "locks", "plumbing", "wallpainting"]
-    
         exploreImageLabels = ["Fix cracks", "Patch holes", "Fix leaks", "Change locks", "Plumbing Issues", "Paint walls"]
+    
+        searchButtonCircleView.layer.cornerRadius = 32
+        searchButtonCircleView.frame = CGRectMake(screenWidth/2-32, screenHeight/2-32, 64, 64)
+        
+        println(UIScreen.mainScreen().bounds)
     }
 
+    override func viewDidLayoutSubviews() {
+        searchButtonCircleView.frame = CGRectMake(screenWidth/2-32, screenHeight/2-32, 64, 64)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -93,27 +119,90 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        println("animating transition")
+        
         var containerView = transitionContext.containerView()
         var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
         var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
         
-        if (isPresenting) {
-            containerView.addSubview(toViewController.view)
-            toViewController.view.alpha = 0
-            UIView.animateWithDuration(0.4, animations: { () -> Void in
-                toViewController.view.alpha = 1
-                }) { (finished: Bool) -> Void in
-                    transitionContext.completeTransition(true)
-            }
-        } else {
-            UIView.animateWithDuration(0.4, animations: { () -> Void in
-                fromViewController.view.alpha = 0
-                }) { (finished: Bool) -> Void in
-                    transitionContext.completeTransition(true)
-                    fromViewController.view.removeFromSuperview()
+        var fromViewControllerString = fromViewController.description
+        
+        //check if transitioning here from MainVC, and if yes, animate the search button in place
+        if fromViewControllerString.rangeOfString("MainViewController") != nil{
+            if (isPresenting) {
+                containerView.addSubview(toViewController.view)
+                toViewController.view.alpha = 0
+                searchButton.alpha = 0
+                searchButtonCircleView.alpha = 1
+                
+                UIView.animateWithDuration(0.4, animations: { () -> Void in
+                    toViewController.view.alpha = 1
+                    }) { (finished: Bool) -> Void in
+                        self.animateSearchButtonInPlace()
+                        transitionContext.completeTransition(true)
+                }
+
+            } else {
+                UIView.animateWithDuration(0.4, animations: { () -> Void in
+                    fromViewController.view.alpha = 0
+                    }) { (finished: Bool) -> Void in
+                        transitionContext.completeTransition(true)
+                        fromViewController.view.removeFromSuperview()
+                }
             }
         }
+        
+        else {
+            
+            self.searchButtonCircleView.alpha = 0
+
+            if (isPresenting) {
+                containerView.addSubview(toViewController.view)
+                toViewController.view.alpha = 0
+                UIView.animateWithDuration(0.4, animations: { () -> Void in
+                    toViewController.view.alpha = 1
+                    }) { (finished: Bool) -> Void in
+                        transitionContext.completeTransition(true)
+                }
+            } else {
+                UIView.animateWithDuration(0.4, animations: { () -> Void in
+                    fromViewController.view.alpha = 0
+                    }) { (finished: Bool) -> Void in
+                        transitionContext.completeTransition(true)
+                        fromViewController.view.removeFromSuperview()
+                }
+            }
+        }
+        
+    }
+    
+    func animateSearchButtonInPlace() {
+        let path = UIBezierPath()
+        path.moveToPoint(self.searchButtonCircleView.center)
+        path.addCurveToPoint(self.searchButton.center, controlPoint1: CGPoint(x: 136, y: 373), controlPoint2: CGPoint(x: 178, y: 110))
+        
+        let anim = CAKeyframeAnimation(keyPath: "position")
+        anim.path = path.CGPath
+        anim.duration = 1.0
+        anim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        anim.calculationMode = kCAAnimationCubic
+        anim.delegate = self
+        self.searchButtonCircleView.layer.addAnimation(anim, forKey: "animate position along path")
+        
+        UIView.animateWithDuration(1.0, animations: { () -> Void in
+            self.searchButtonCircleView.transform = CGAffineTransformMakeScale(0.75, 0.75)
+        })
+
+    }
+    
+    override func animationDidStop(theAnimation: CAAnimation!, finished flag: Bool)
+    {
+        self.searchButtonCircleView.center = self.searchButton.center
+        
+        UIView.animateWithDuration(1.0, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            self.searchButton.alpha = 1.0
+            self.searchButtonCircleView.alpha = 0;
+        }, completion: nil)
+        
     }
 
     
@@ -141,45 +230,31 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         if(indexPath.row < topIndexRow) {
             yPos = YPOS_END
             gradientAlpha = GRADIENT_ALPHA_END
-            let screenSize: CGRect = UIScreen.mainScreen().bounds
-            var exploreImageFrame: CGRect = CGRectMake(0, yPos, screenSize.width, screenSize.height)
-            exploreTableViewCell.exploreImage.frame = exploreImageFrame
-            
-            
-
         }
         else if(indexPath.row == topIndexRow) {
             yPos = newYPos
             gradientAlpha = newGradientAlpha
-            let screenSize: CGRect = UIScreen.mainScreen().bounds
-            var exploreImageFrame: CGRect = CGRectMake(0, yPos, screenSize.width, screenSize.height)
-            exploreTableViewCell.exploreImage.frame = exploreImageFrame
         }
         else {
             yPos = YPOS_START
             gradientAlpha = GRADIENT_ALPHA_START
-            let screenSize: CGRect = UIScreen.mainScreen().bounds
-            var exploreImageFrame: CGRect = CGRectMake(0, yPos, screenSize.width, screenSize.height)
-            exploreTableViewCell.exploreImage.frame = exploreImageFrame
 
         }
-        
+
+        var exploreImageFrame: CGRect = CGRectMake(0, yPos, screenWidth, screenHeight)
+        exploreTableViewCell.exploreImage.frame = exploreImageFrame
         exploreTableViewCell.exploreImage.image = UIImage(named: exploreImages[indexPath.row])
         exploreTableViewCell.exploreImage.contentMode = UIViewContentMode.ScaleAspectFill
-        
         exploreTableViewCell.exploreImageContainer.addSubview(exploreTableViewCell.exploreImage)
-        
         exploreTableViewCell.exploreImageOverlayGradient.alpha = gradientAlpha
-        
         exploreTableViewCell.exploreImageOverlayLabel.text = exploreImageLabels[indexPath.row] as String
         
         return exploreTableViewCell
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
-        let screenHeight = screenSize.height
-        return (screenHeight-SECOND_IMAGE_HEIGHT)
+        
+        return (self.screenHeight-SECOND_IMAGE_HEIGHT)
     }
     
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
