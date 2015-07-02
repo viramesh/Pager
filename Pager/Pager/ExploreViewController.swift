@@ -11,6 +11,7 @@ import UIKit
 class ExploreViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
 
     @IBOutlet var exploreView: UIView!
+    @IBOutlet weak var launchImageView: UIImageView!
     @IBOutlet weak var searchButtonCircleView: UIView!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var exploreTableView: UITableView!
@@ -71,6 +72,7 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
 
     override func viewDidLayoutSubviews() {
         searchButtonCircleView.frame = CGRectMake(screenWidth/2-32, screenHeight/2-32, 64, 64)
+        launchImageView.frame = CGRectMake(0, 0, screenWidth, screenHeight)
     }
     
     override func didReceiveMemoryWarning() {
@@ -151,10 +153,12 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
             }
         }
         
+        //else if transitioning from other views, like the Searchview, just fade in
         else {
             
             self.searchButtonCircleView.alpha = 0
-
+            self.launchImageView.alpha = 0
+            
             if (isPresenting) {
                 containerView.addSubview(toViewController.view)
                 toViewController.view.alpha = 0
@@ -182,16 +186,18 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         
         let anim = CAKeyframeAnimation(keyPath: "position")
         anim.path = path.CGPath
-        anim.duration = 1.0
+        anim.duration = 1.5
         anim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
         anim.calculationMode = kCAAnimationCubic
         anim.delegate = self
         self.searchButtonCircleView.layer.addAnimation(anim, forKey: "animate position along path")
         
-        UIView.animateWithDuration(1.0, animations: { () -> Void in
+        UIView.animateWithDuration(1.0, delay: 0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
             self.searchButtonCircleView.transform = CGAffineTransformMakeScale(0.75, 0.75)
-        })
-
+            self.launchImageView.alpha = 0
+            //self.launchImageView.frame.origin.y = self.screenHeight
+        }, completion: nil)
+        
     }
     
     override func animationDidStop(theAnimation: CAAnimation!, finished flag: Bool)
