@@ -18,22 +18,23 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
     var exploreTableViewCell: ExploreTableViewCell!
     var exploreImages = [String]()
     var exploreImageLabels = [String]()
+    let TABLE_CELL_HEIGHT_PERCENTAGE:CGFloat = 0.8
+    var TABLE_CELL_HEIGHT:CGFloat! // this value is set in viewdidload
 
+    
     //screensize
     var screenSize: CGRect = CGRectZero
     var screenHeight:CGFloat = 0
     var screenWidth:CGFloat = 0
-   
     
     //for parallax-ing the images
     var topIndexRow:Int = 0
     var newYPos:CGFloat = 0
     let YPOS_START:CGFloat = -80
     let YPOS_END:CGFloat = 0
-    let SECOND_IMAGE_HEIGHT:CGFloat = 80
-    var newGradientAlpha:CGFloat = 0.2
+    var newGradientAlpha:CGFloat = 0.1
     let GRADIENT_ALPHA_START:CGFloat = 1
-    let GRADIENT_ALPHA_END:CGFloat = 0.2
+    let GRADIENT_ALPHA_END:CGFloat = 0.1
     
     //for custom transition into this VC
     var isPresenting: Bool = true
@@ -58,12 +59,14 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         screenSize = UIScreen.mainScreen().bounds
         screenHeight = screenSize.height
         screenWidth = screenSize.width
-
+        
+        //setup table
         exploreTableView.dataSource = self
         exploreTableView.delegate = self
-        exploreImages = ["crack", "holes", "leak", "locks", "plumbing", "wallpainting"]
-        exploreImageLabels = ["Fix cracks", "Patch holes", "Fix leaks", "Change locks", "Plumbing Issues", "Paint walls"]
-    
+        exploreImages = ["landscaping", "gardening", "doors", "windows", "deck", "garage", "crack", "holes", "leak", "locks", "plumbing", "wallpainting", "decor", "appliances", "curtains", "electrical", "lighting", "wiring", "internet"]
+        exploreImageLabels = ["Yard work", "Gardening", "Fix doors", "Repair windows", "Deck work", "Garage Doors", "Fix cracks", "Patch holes", "Fix leaks", "Change locks", "Plumbing Issues", "Paint walls", "Home decor", "Appliances", "Hang curtains", "Electrical issues", "Fix lighting", "Wiring issues", "Internet Problems"]
+        TABLE_CELL_HEIGHT = screenHeight * TABLE_CELL_HEIGHT_PERCENTAGE
+        
         searchButtonCircleView.layer.cornerRadius = 32
         searchButtonCircleView.frame = CGRectMake(screenWidth/2-32, screenHeight/2-32, 64, 64)
         
@@ -187,6 +190,8 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         let anim = CAKeyframeAnimation(keyPath: "position")
         anim.path = path.CGPath
         anim.duration = 1.5
+        anim.removedOnCompletion = true
+        anim.repeatCount = 1
         anim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
         anim.calculationMode = kCAAnimationCubic
         anim.delegate = self
@@ -260,7 +265,7 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        return (self.screenHeight-SECOND_IMAGE_HEIGHT)
+        return self.TABLE_CELL_HEIGHT
     }
     
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
@@ -281,9 +286,9 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         let screenHeight = screenSize.height
         
-        newYPos = CGFloat(convertValue(Float(rectInSuperview.origin.y), 0, Float(screenHeight-SECOND_IMAGE_HEIGHT), Float(YPOS_END), Float(YPOS_START)))
+        newYPos = CGFloat(convertValue(Float(rectInSuperview.origin.y), 0, Float(self.TABLE_CELL_HEIGHT), Float(YPOS_END), Float(YPOS_START)))
         
-        newGradientAlpha = CGFloat(convertValue(Float(rectInSuperview.origin.y), 0, Float(screenHeight-SECOND_IMAGE_HEIGHT), Float(GRADIENT_ALPHA_END), Float(GRADIENT_ALPHA_START)))
+        newGradientAlpha = CGFloat(convertValue(Float(rectInSuperview.origin.y), 0, Float(self.TABLE_CELL_HEIGHT), Float(GRADIENT_ALPHA_END), Float(GRADIENT_ALPHA_START)))
         
         topIndexRow = visibleImages[1].row
         
