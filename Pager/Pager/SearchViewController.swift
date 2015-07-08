@@ -17,7 +17,7 @@ class SearchViewController: UIViewController, UIViewControllerTransitioningDeleg
     @IBOutlet weak var findButton: UIButton!
     
     var initialY: CGFloat!
-    let offset: CGFloat = -150
+    let offset: CGFloat = -130
     
     var isPresenting: Bool = true
 
