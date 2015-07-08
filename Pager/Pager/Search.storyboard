@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -47,24 +47,76 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How may we help you today?" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1k0-8h-L1a">
-                                <rect key="frame" x="28" y="91" width="252" height="85"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="28"/>
+                                <rect key="frame" x="28" y="91" width="331" height="85"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="28"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Leaks, holes, cracks, paint, etc." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pXx-fO-8cw">
+                                <rect key="frame" x="28" y="171" width="331" height="63"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="editSearchTextField:" destination="YMS-Mf-2o1" eventType="editingChanged" id="axZ-sE-Ly3"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="mount a tv" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Op8-Nu-q8f">
+                                <rect key="frame" x="28" y="236" width="318" height="44"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="mount a frame" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DG2-SJ-deV">
+                                <rect key="frame" x="28" y="272" width="318" height="44"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="mow a lawn" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eap-pP-ETA">
+                                <rect key="frame" x="28" y="307" width="318" height="44"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CpG-JT-Snc">
+                                <rect key="frame" x="21" y="478" width="318" height="51"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                <state key="normal" title="Find me someone!" backgroundImage="long-button.png">
+                                    <color key="titleColor" red="0.22352941176470589" green="0.73725490196078436" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Air-rc-ixX" firstAttribute="top" secondItem="xrz-jW-f1q" secondAttribute="top" id="Gxd-rG-aDf"/>
                             <constraint firstAttribute="trailing" secondItem="Air-rc-ixX" secondAttribute="trailing" id="PdP-1T-bzL"/>
                             <constraint firstItem="Air-rc-ixX" firstAttribute="leading" secondItem="xrz-jW-f1q" secondAttribute="leading" id="kTd-xH-gSd"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="pFe-dK-mBe" appends="YES" id="E6b-R0-CqT"/>
+                        </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="findButton" destination="CpG-JT-Snc" id="qA9-Ds-FEQ"/>
+                        <outlet property="searchResultLabel1" destination="Op8-Nu-q8f" id="blu-jC-yTg"/>
+                        <outlet property="searchResultLabel2" destination="DG2-SJ-deV" id="LsV-fc-b93"/>
+                        <outlet property="searchResultLabel3" destination="eap-pP-ETA" id="cEr-ID-edk"/>
+                        <outlet property="searchTextField" destination="pXx-fO-8cw" id="aG8-He-q7c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kHc-ay-B7z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="pFe-dK-mBe">
+                    <connections>
+                        <action selector="onTap:" destination="YMS-Mf-2o1" id="Uq7-t9-foo"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="461.5" y="566.5"/>
+            <point key="canvasLocation" x="410.5" y="591.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="long-button.png" width="680" height="111"/>
+    </resources>
 </document>

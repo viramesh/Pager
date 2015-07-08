@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08B4821E1B4CDF2D00E8C0D2 /* long-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B4821D1B4CDF2D00E8C0D2 /* long-button.png */; };
 		2FA30C7D1B41DBAB00FC1D27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA30C7C1B41DBAB00FC1D27 /* AppDelegate.swift */; };
 		2FA30C821B41DBAB00FC1D27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FA30C801B41DBAB00FC1D27 /* Main.storyboard */; };
 		2FA30C841B41DBAB00FC1D27 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FA30C831B41DBAB00FC1D27 /* Images.xcassets */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08B4821D1B4CDF2D00E8C0D2 /* long-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "long-button.png"; sourceTree = "<group>"; };
 		2FA30C771B41DBAB00FC1D27 /* Pager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FA30C7B1B41DBAB00FC1D27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FA30C7C1B41DBAB00FC1D27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08B4821C1B4CDF2100E8C0D2 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				08B4821D1B4CDF2D00E8C0D2 /* long-button.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		2FA30C6E1B41DBAB00FC1D27 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +103,7 @@
 		2FA30C791B41DBAB00FC1D27 /* Pager */ = {
 			isa = PBXGroup;
 			children = (
+				08B4821C1B4CDF2100E8C0D2 /* Images */,
 				2FA30C9F1B42586300FC1D27 /* Chat */,
 				2FA30C9E1B42585200FC1D27 /* Explore */,
 				2FA30C9D1B42584A00FC1D27 /* Search */,
@@ -251,6 +262,7 @@
 				2FA30C821B41DBAB00FC1D27 /* Main.storyboard in Resources */,
 				2FA30C871B41DBAB00FC1D27 /* LaunchScreen.xib in Resources */,
 				2FA30CA91B42592D00FC1D27 /* Login.storyboard in Resources */,
+				08B4821E1B4CDF2D00E8C0D2 /* long-button.png in Resources */,
 				2FA30CA51B42591F00FC1D27 /* Explore.storyboard in Resources */,
 				2FA30CA31B42591500FC1D27 /* Chat.storyboard in Resources */,
 				2FA30CA71B42592600FC1D27 /* Search.storyboard in Resources */,

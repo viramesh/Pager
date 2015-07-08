@@ -10,6 +10,15 @@ import UIKit
 
 class SearchViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
 
+    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var searchResultLabel1: UILabel!
+    @IBOutlet weak var searchResultLabel2: UILabel!
+    @IBOutlet weak var searchResultLabel3: UILabel!
+    @IBOutlet weak var findButton: UIButton!
+    
+    var initialY: CGFloat!
+    let offset: CGFloat = -150
+    
     var isPresenting: Bool = true
 
     required init(coder aDecoder: NSCoder) {
@@ -22,6 +31,14 @@ class SearchViewController: UIViewController, UIViewControllerTransitioningDeleg
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        searchResultLabel1.alpha = 0
+        searchResultLabel2.alpha = 0
+        searchResultLabel3.alpha = 0
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+
+        initialY = findButton.frame.origin.y
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,6 +57,39 @@ class SearchViewController: UIViewController, UIViewControllerTransitioningDeleg
     }
     */
     
+    
+    @IBAction func editSearchTextField(sender: AnyObject) {
+        
+        //hardcoded so that when you type in mo to the TextField it animates the results pop up.
+         if searchTextField.text == "mo" {
+            
+            //animate label 1
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                self.searchResultLabel1.alpha = 1
+            
+            //animate label 2
+            UIView.animateWithDuration(0.3, delay: 0.3, options: UIViewAnimationOptions.AllowUserInteraction, animations: { () -> Void in
+                self.searchResultLabel2.alpha = 1
+            }, completion: nil)
+               
+            //animate label 3
+            UIView.animateWithDuration(0.3, delay: 0.6, options: UIViewAnimationOptions.AllowUserInteraction, animations: { () -> Void in
+                self.searchResultLabel3.alpha = 1
+                }, completion: nil)
+
+            })
+            
+        //if searchTextField is blank the resultLabels dissappear
+        } else {
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
+                self.searchResultLabel1.alpha = 0
+                self.searchResultLabel2.alpha = 0
+                self.searchResultLabel3.alpha = 0
+            })
+            
+            
+        }
+    }
     
     
     @IBAction func exploreBtnDidPress(sender: AnyObject) {
@@ -88,5 +138,53 @@ class SearchViewController: UIViewController, UIViewControllerTransitioningDeleg
             }
         }
     }
+    
+    func keyboardWillShow(notification: NSNotification!) {
+        var userInfo = notification.userInfo!
+        
+        // Get the keyboard height and width from the notification
+        // Size varies depending on OS, language, orientation
+        var kbSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().size
+        var durationValue = userInfo[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
+        var animationDuration = durationValue.doubleValue
+        var curveValue = userInfo[UIKeyboardAnimationCurveUserInfoKey] as! NSNumber
+        var animationCurve = curveValue.integerValue
+        
+        println(kbSize)
+        
+        UIView.animateWithDuration(animationDuration, delay: 0.0, options: UIViewAnimationOptions(UInt(animationCurve << 16)), animations: {
+            
+            // Set view properties in here that you want to match with the animation of the keyboard
+            // If you need it, you can use the kbSize property above to get the keyboard width and height.
+            self.findButton.frame.origin = CGPoint(x: self.findButton.frame.origin.x, y: self.initialY + self.offset)
 
+            
+            }, completion: nil)
+    }
+    
+    func keyboardWillHide(notification: NSNotification!) {
+        var userInfo = notification.userInfo!
+        
+        // Get the keyboard height and width from the notification
+        // Size varies depending on OS, language, orientation
+        var kbSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().size
+        var durationValue = userInfo[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
+        var animationDuration = durationValue.doubleValue
+        var curveValue = userInfo[UIKeyboardAnimationCurveUserInfoKey] as! NSNumber
+        var animationCurve = curveValue.integerValue
+        
+        UIView.animateWithDuration(animationDuration, delay: 0.0, options: UIViewAnimationOptions(UInt(animationCurve << 16)), animations: {
+            
+            // Set view properties in here that you want to match with the animation of the keyboard
+            // If you need it, you can use the kbSize property above to get the keyboard width and height.
+            self.findButton.frame.origin = CGPoint(x: self.findButton.frame.origin.x, y: self.initialY)
+
+            }, completion: nil)
+    }
+
+    
+    @IBAction func onTap(sender: AnyObject) {
+        searchTextField.endEditing(true)
+
+    }
 }
