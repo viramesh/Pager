@@ -16,9 +16,6 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
     var exploreTableViewCell: ExploreTableViewCell!
     var exploreImages = [String]()
     var exploreImageLabels = [String]()
-    let TABLE_CELL_HEIGHT_PERCENTAGE:CGFloat = 0.48
-    var TABLE_CELL_HEIGHT:CGFloat! // this value is set in viewdidload
-
     
     //screensize
     var screenSize: CGRect = CGRectZero
@@ -27,12 +24,19 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
     
     //for parallax-ing the images
     var topIndexRow:Int = 0
-    var newYPos:CGFloat = 0
-    let YPOS_START:CGFloat = -40
-    let YPOS_END:CGFloat = 0
-    var newGradientAlpha:CGFloat = 0.2
+    let YPOS_START:CGFloat = -80
+    let YPOS_END:CGFloat = -120
+    var newYPos:CGFloat = -120
+
     let GRADIENT_ALPHA_START:CGFloat = 0.8
     let GRADIENT_ALPHA_END:CGFloat = 0.2
+    var newGradientAlpha:CGFloat = 0.2
+
+    let TABLE_CELL_HEIGHT_PERCENTAGE:CGFloat = 0.64
+    var TABLE_CELL_MAX_HEIGHT:CGFloat! // this value is set in viewdidload
+    var TABLE_CELL_MIN_HEIGHT:CGFloat! // this value is set in viewdidload
+    var newHeight: CGFloat! // this value is set in viewdidload
+
     
     //for custom transition into this VC
     var isPresenting: Bool = true
@@ -56,8 +60,9 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         exploreTableView.delegate = self
         exploreImages = ["landscaping", "gardening", "doors", "windows", "deck", "garage", "crack", "holes", "leak", "locks", "plumbing", "wallpainting", "decor", "appliances", "curtains", "electrical", "lighting", "wiring", "internet"]
         exploreImageLabels = ["Yard work", "Gardening", "Fix doors", "Repair windows", "Deck work", "Garage Doors", "Fix cracks", "Patch holes", "Fix leaks", "Change locks", "Plumbing Issues", "Paint walls", "Home decor", "Appliances", "Hang curtains", "Electrical issues", "Fix lighting", "Wiring issues", "Internet Problems"]
-        TABLE_CELL_HEIGHT = screenHeight * TABLE_CELL_HEIGHT_PERCENTAGE
-        
+        TABLE_CELL_MAX_HEIGHT = screenHeight * TABLE_CELL_HEIGHT_PERCENTAGE
+        TABLE_CELL_MIN_HEIGHT = screenHeight * TABLE_CELL_HEIGHT_PERCENTAGE * 0.5
+        newHeight = TABLE_CELL_MAX_HEIGHT
     }
 
     override func viewDidLayoutSubviews() {
@@ -210,7 +215,16 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        return self.TABLE_CELL_HEIGHT
+        var heightForRow:CGFloat = self.TABLE_CELL_MIN_HEIGHT
+        
+        if(indexPath.row < topIndexRow) {
+            heightForRow = self.TABLE_CELL_MAX_HEIGHT
+        }
+        else if(indexPath.row == topIndexRow) {
+            heightForRow = self.newHeight
+        }
+        
+        return heightForRow
     }
     
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
@@ -231,9 +245,11 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         let screenHeight = screenSize.height
         
-        newYPos = CGFloat(convertValue(Float(rectInSuperview.origin.y), 0, Float(self.TABLE_CELL_HEIGHT), Float(YPOS_END), Float(YPOS_START)))
+        newYPos = CGFloat(convertValue(Float(rectInSuperview.origin.y), 0, Float(self.TABLE_CELL_MAX_HEIGHT), Float(YPOS_END), Float(YPOS_START)))
         
-        newGradientAlpha = CGFloat(convertValue(Float(rectInSuperview.origin.y), 0, Float(self.TABLE_CELL_HEIGHT), Float(GRADIENT_ALPHA_END), Float(GRADIENT_ALPHA_START)))
+        newGradientAlpha = CGFloat(convertValue(Float(rectInSuperview.origin.y), 0, Float(self.TABLE_CELL_MAX_HEIGHT), Float(GRADIENT_ALPHA_END), Float(GRADIENT_ALPHA_START)))
+        
+        newHeight = CGFloat(convertValue(Float(rectInSuperview.origin.y), 0, Float(self.TABLE_CELL_MAX_HEIGHT), Float(TABLE_CELL_MAX_HEIGHT), Float(TABLE_CELL_MIN_HEIGHT)))
         
         topIndexRow = visibleImages[1].row
         

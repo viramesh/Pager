@@ -38,7 +38,7 @@
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wK-iq-UyJ">
                                                             <rect key="frame" x="40" y="175" width="295" height="31"/>
-                                                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="40"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="40"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                             <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
@@ -52,7 +52,7 @@
                                                         <constraint firstItem="ktb-Dd-XNI" firstAttribute="leading" secondItem="RtO-l2-Pmy" secondAttribute="leading" id="UCH-dG-W5e"/>
                                                         <constraint firstAttribute="trailing" secondItem="0wK-iq-UyJ" secondAttribute="trailing" constant="40" id="Xjr-tz-yim"/>
                                                         <constraint firstItem="0wK-iq-UyJ" firstAttribute="leading" secondItem="RtO-l2-Pmy" secondAttribute="leading" constant="40" id="kMt-KX-iB2"/>
-                                                        <constraint firstAttribute="bottom" secondItem="0wK-iq-UyJ" secondAttribute="bottom" constant="60" id="yns-aK-3kv"/>
+                                                        <constraint firstAttribute="bottom" secondItem="0wK-iq-UyJ" secondAttribute="bottom" constant="40" id="yns-aK-3kv"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
