@@ -30,15 +30,21 @@ class SearchViewController: UIViewController, UIViewControllerTransitioningDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Setting all results labels alphas to 0.
         searchResultLabel1.alpha = 0
         searchResultLabel2.alpha = 0
         searchResultLabel3.alpha = 0
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
-
+        
+        //set the initial y position of findButton
         initialY = findButton.frame.origin.y
+        
+        
+        
+
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -79,8 +85,9 @@ class SearchViewController: UIViewController, UIViewControllerTransitioningDeleg
 
             })
             
-        //if searchTextField is blank the resultLabels dissappear
-        } else {
+         }
+         //if searchTextField is blank the resultLabels dissappear
+        else {
             UIView.animateWithDuration(0.4, animations: { () -> Void in
                 self.searchResultLabel1.alpha = 0
                 self.searchResultLabel2.alpha = 0
