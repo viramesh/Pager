@@ -70,16 +70,16 @@ class SearchViewController: UIViewController, UIViewControllerTransitioningDeleg
          if searchTextField.text == "mo" {
             
             //animate label 1
-            UIView.animateWithDuration(0.3, animations: { () -> Void in
+            UIView.animateWithDuration(0.2, animations: { () -> Void in
                 self.searchResultLabel1.alpha = 1
             
             //animate label 2
-            UIView.animateWithDuration(0.3, delay: 0.3, options: UIViewAnimationOptions.AllowUserInteraction, animations: { () -> Void in
+            UIView.animateWithDuration(0.2, delay: 0.2, options: UIViewAnimationOptions.AllowUserInteraction, animations: { () -> Void in
                 self.searchResultLabel2.alpha = 1
             }, completion: nil)
                
             //animate label 3
-            UIView.animateWithDuration(0.3, delay: 0.6, options: UIViewAnimationOptions.AllowUserInteraction, animations: { () -> Void in
+            UIView.animateWithDuration(0.2, delay: 0.4, options: UIViewAnimationOptions.AllowUserInteraction, animations: { () -> Void in
                 self.searchResultLabel3.alpha = 1
                 }, completion: nil)
 
