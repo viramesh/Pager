@@ -16,11 +16,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch1" translatesAutoresizingMaskIntoConstraints="NO" id="PZq-85-EdH">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
                             <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="7q8-D9-U9M">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.30196078430000001" green="0.80392156859999997" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="bc1-Og-Vc7">
                                 <rect key="frame" x="155" y="302" width="64" height="64"/>
@@ -30,15 +28,17 @@
                         <constraints>
                             <constraint firstItem="7q8-D9-U9M" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="0SW-ha-vfm"/>
                             <constraint firstItem="7q8-D9-U9M" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="3t2-Kr-Cul"/>
-                            <constraint firstItem="PZq-85-EdH" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="ByA-so-5Ai"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="PZq-85-EdH" secondAttribute="bottom" id="O9p-sJ-w0b"/>
                             <constraint firstAttribute="centerX" secondItem="bc1-Og-Vc7" secondAttribute="centerX" id="ThD-cz-jvE"/>
-                            <constraint firstAttribute="trailing" secondItem="PZq-85-EdH" secondAttribute="trailing" id="XqC-pG-Ega"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="7q8-D9-U9M" secondAttribute="bottom" id="fRS-Jq-PuN"/>
                             <constraint firstAttribute="trailing" secondItem="7q8-D9-U9M" secondAttribute="trailing" id="gra-MO-RxI"/>
                             <constraint firstAttribute="centerY" secondItem="bc1-Og-Vc7" secondAttribute="centerY" id="mbV-IL-ymr"/>
-                            <constraint firstItem="PZq-85-EdH" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="osL-vQ-LGh"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="7q8-D9-U9M" secondAttribute="bottom" id="wqc-VK-rtE"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="fRS-Jq-PuN"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -51,7 +51,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launch1" width="377" height="669"/>
         <image name="logo" width="64" height="64"/>
     </resources>
 </document>

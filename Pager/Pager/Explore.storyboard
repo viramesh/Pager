@@ -76,17 +76,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="launch1" translatesAutoresizingMaskIntoConstraints="NO" id="1Xa-pp-8Rg">
-                                <rect key="frame" x="-28" y="390" width="240" height="128"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tJW-bu-tOp" userLabel="searchbuttoncircle">
-                                <rect key="frame" x="60" y="420" width="64" height="64"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="1he-PU-aLt">
-                                        <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
-                                    </imageView>
-                                </subviews>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNK-Nx-pI8">
                                 <rect key="frame" x="307" y="20" width="48" height="48"/>
                                 <constraints>
@@ -116,9 +105,7 @@
                     <connections>
                         <outlet property="exploreTableView" destination="yTM-ou-cFN" id="9hd-g3-tiX"/>
                         <outlet property="exploreView" destination="1Ul-m0-GGH" id="8I4-IU-btm"/>
-                        <outlet property="launchImageView" destination="1Xa-pp-8Rg" id="y3w-nx-UxR"/>
                         <outlet property="searchButton" destination="bNK-Nx-pI8" id="JC9-Uq-Ih7"/>
-                        <outlet property="searchButtonCircleView" destination="tJW-bu-tOp" id="DXF-aE-YUT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PW2-I3-Q81" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -129,7 +116,5 @@
     <resources>
         <image name="gradient-overlay" width="375" height="667"/>
         <image name="icon_search" width="64" height="64"/>
-        <image name="launch1" width="377" height="669"/>
-        <image name="logo" width="64" height="64"/>
     </resources>
 </document>

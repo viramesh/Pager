@@ -11,14 +11,12 @@ import UIKit
 class ExploreViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
 
     @IBOutlet var exploreView: UIView!
-    @IBOutlet weak var launchImageView: UIImageView!
-    @IBOutlet weak var searchButtonCircleView: UIView!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var exploreTableView: UITableView!
     var exploreTableViewCell: ExploreTableViewCell!
     var exploreImages = [String]()
     var exploreImageLabels = [String]()
-    let TABLE_CELL_HEIGHT_PERCENTAGE:CGFloat = 0.8
+    let TABLE_CELL_HEIGHT_PERCENTAGE:CGFloat = 0.48
     var TABLE_CELL_HEIGHT:CGFloat! // this value is set in viewdidload
 
     
@@ -30,21 +28,14 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
     //for parallax-ing the images
     var topIndexRow:Int = 0
     var newYPos:CGFloat = 0
-    let YPOS_START:CGFloat = -80
+    let YPOS_START:CGFloat = -40
     let YPOS_END:CGFloat = 0
-    var newGradientAlpha:CGFloat = 0.1
-    let GRADIENT_ALPHA_START:CGFloat = 1
-    let GRADIENT_ALPHA_END:CGFloat = 0.1
+    var newGradientAlpha:CGFloat = 0.2
+    let GRADIENT_ALPHA_START:CGFloat = 0.8
+    let GRADIENT_ALPHA_END:CGFloat = 0.2
     
     //for custom transition into this VC
     var isPresenting: Bool = true
-    
-    //for animating search button into place
-    var gravity: UIGravityBehavior!
-    var animator: UIDynamicAnimator!
-    var snap: UISnapBehavior!
-    var dynamicItemBehavior: UIDynamicItemBehavior!
-    var attach: UIAttachmentBehavior!
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -67,15 +58,10 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         exploreImageLabels = ["Yard work", "Gardening", "Fix doors", "Repair windows", "Deck work", "Garage Doors", "Fix cracks", "Patch holes", "Fix leaks", "Change locks", "Plumbing Issues", "Paint walls", "Home decor", "Appliances", "Hang curtains", "Electrical issues", "Fix lighting", "Wiring issues", "Internet Problems"]
         TABLE_CELL_HEIGHT = screenHeight * TABLE_CELL_HEIGHT_PERCENTAGE
         
-        searchButtonCircleView.layer.cornerRadius = 32
-        searchButtonCircleView.frame = CGRectMake(screenWidth/2-32, screenHeight/2-32, 64, 64)
-        
-        println(UIScreen.mainScreen().bounds)
     }
 
     override func viewDidLayoutSubviews() {
-        searchButtonCircleView.frame = CGRectMake(screenWidth/2-32, screenHeight/2-32, 64, 64)
-        launchImageView.frame = CGRectMake(0, 0, screenWidth, screenHeight)
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -131,18 +117,15 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         
         var fromViewControllerString = fromViewController.description
         
-        //check if transitioning here from MainVC, and if yes, animate the search button in place
+        //check if transitioning here from MainVC, and if yes, slide the mainVC down and show explore view
         if fromViewControllerString.rangeOfString("MainViewController") != nil{
             if (isPresenting) {
                 containerView.addSubview(toViewController.view)
                 toViewController.view.alpha = 0
-                searchButton.alpha = 0
-                searchButtonCircleView.alpha = 1
                 
                 UIView.animateWithDuration(0.4, animations: { () -> Void in
                     toViewController.view.alpha = 1
                     }) { (finished: Bool) -> Void in
-                        self.animateSearchButtonInPlace()
                         transitionContext.completeTransition(true)
                 }
 
@@ -156,11 +139,8 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
             }
         }
         
-        //else if transitioning from other views, like the Searchview, just fade in
+        //else if transitioning from other views, like the Searchview, just fade out old vc and fade in explorevc
         else {
-            
-            self.searchButtonCircleView.alpha = 0
-            self.launchImageView.alpha = 0
             
             if (isPresenting) {
                 containerView.addSubview(toViewController.view)
@@ -181,42 +161,7 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         
     }
-    
-    func animateSearchButtonInPlace() {
-        let path = UIBezierPath()
-        path.moveToPoint(self.searchButtonCircleView.center)
-        path.addCurveToPoint(self.searchButton.center, controlPoint1: CGPoint(x: 136, y: 373), controlPoint2: CGPoint(x: 178, y: 110))
         
-        let anim = CAKeyframeAnimation(keyPath: "position")
-        anim.path = path.CGPath
-        anim.duration = 1.5
-        anim.removedOnCompletion = true
-        anim.repeatCount = 1
-        anim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-        anim.calculationMode = kCAAnimationCubic
-        anim.delegate = self
-        self.searchButtonCircleView.layer.addAnimation(anim, forKey: "animate position along path")
-        
-        UIView.animateWithDuration(1.0, delay: 0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
-            self.searchButtonCircleView.transform = CGAffineTransformMakeScale(0.75, 0.75)
-            self.launchImageView.alpha = 0
-            //self.launchImageView.frame.origin.y = self.screenHeight
-        }, completion: nil)
-        
-    }
-    
-    override func animationDidStop(theAnimation: CAAnimation!, finished flag: Bool)
-    {
-        self.searchButtonCircleView.center = self.searchButton.center
-        
-        UIView.animateWithDuration(1.0, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
-            self.searchButton.alpha = 1.0
-            self.searchButtonCircleView.alpha = 0;
-        }, completion: nil)
-        
-    }
-
-    
     
     
     /******************
