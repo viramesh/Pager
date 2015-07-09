@@ -11,9 +11,10 @@ import UIKit
 class SearchViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
 
     @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var searchResultLabel1: UILabel!
-    @IBOutlet weak var searchResultLabel2: UILabel!
-    @IBOutlet weak var searchResultLabel3: UILabel!
+
+    @IBOutlet weak var searchResultButton1: UIButton!
+    @IBOutlet weak var searchResultButton2: UIButton!
+    @IBOutlet weak var searchResultButton3: UIButton!
     @IBOutlet weak var findButton: UIButton!
     
     var initialY: CGFloat!
@@ -31,9 +32,10 @@ class SearchViewController: UIViewController, UIViewControllerTransitioningDeleg
         super.viewDidLoad()
 
         // Setting all results labels alphas to 0.
-        searchResultLabel1.alpha = 0
-        searchResultLabel2.alpha = 0
-        searchResultLabel3.alpha = 0
+        searchResultButton1.alpha = 0
+        searchResultButton2.alpha = 0
+        searchResultButton3.alpha = 0
+
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
@@ -69,18 +71,18 @@ class SearchViewController: UIViewController, UIViewControllerTransitioningDeleg
         //hardcoded so that when you type in mo to the TextField it animates the results pop up.
          if searchTextField.text == "mo" {
             
-            //animate label 1
+            //animate result button 1
             UIView.animateWithDuration(0.2, animations: { () -> Void in
-                self.searchResultLabel1.alpha = 1
+                self.searchResultButton1.alpha = 1
             
-            //animate label 2
+            //animate result button 2
             UIView.animateWithDuration(0.2, delay: 0.2, options: UIViewAnimationOptions.AllowUserInteraction, animations: { () -> Void in
-                self.searchResultLabel2.alpha = 1
-            }, completion: nil)
+                self.searchResultButton2.alpha = 1
+                }, completion: nil)
                
             //animate label 3
             UIView.animateWithDuration(0.2, delay: 0.4, options: UIViewAnimationOptions.AllowUserInteraction, animations: { () -> Void in
-                self.searchResultLabel3.alpha = 1
+                self.searchResultButton3.alpha = 1
                 }, completion: nil)
 
             })
@@ -89,9 +91,9 @@ class SearchViewController: UIViewController, UIViewControllerTransitioningDeleg
          //if searchTextField is blank the resultLabels dissappear
         else {
             UIView.animateWithDuration(0.4, animations: { () -> Void in
-                self.searchResultLabel1.alpha = 0
-                self.searchResultLabel2.alpha = 0
-                self.searchResultLabel3.alpha = 0
+                self.searchResultButton1.alpha = 0
+                self.searchResultButton2.alpha = 0
+                self.searchResultButton3.alpha = 0
             })
             
             
@@ -194,4 +196,11 @@ class SearchViewController: UIViewController, UIViewControllerTransitioningDeleg
         searchTextField.endEditing(true)
 
     }
+    
+    
+
+    @IBAction func didPressResultButton(sender: AnyObject) {
+        performSegueWithIdentifier("tellMeMoreSegue", sender: self)
+    }
+    
 }
