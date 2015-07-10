@@ -90,19 +90,38 @@
                                     <action selector="searchBtnDidPress:" destination="uG4-RH-Ovo" eventType="touchUpInside" id="i53-cn-Y1t"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="What would you like do today?" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LSh-5R-Y3n">
+                                <rect key="frame" x="35" y="292" width="305" height="83"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="0.0" height="1"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="bNK-Nx-pI8" firstAttribute="top" secondItem="1Ul-m0-GGH" secondAttribute="top" constant="20" id="98P-nf-MDh"/>
                             <constraint firstItem="yTM-ou-cFN" firstAttribute="top" secondItem="1Ul-m0-GGH" secondAttribute="top" id="ASO-az-943"/>
+                            <constraint firstAttribute="trailing" secondItem="LSh-5R-Y3n" secondAttribute="trailing" constant="40" id="AqK-O0-Zfi"/>
+                            <constraint firstItem="LSh-5R-Y3n" firstAttribute="top" secondItem="1Ul-m0-GGH" secondAttribute="top" constant="100" id="Jll-NN-FNW"/>
                             <constraint firstItem="zVA-IQ-J64" firstAttribute="bottom" secondItem="yTM-ou-cFN" secondAttribute="bottom" id="K4V-s8-FGQ"/>
                             <constraint firstAttribute="trailing" secondItem="yTM-ou-cFN" secondAttribute="trailing" id="RhH-0x-osL"/>
+                            <constraint firstItem="LSh-5R-Y3n" firstAttribute="leading" secondItem="1Ul-m0-GGH" secondAttribute="leading" constant="40" id="Rwa-BC-vML"/>
+                            <constraint firstItem="LSh-5R-Y3n" firstAttribute="top" secondItem="1Ul-m0-GGH" secondAttribute="top" constant="100" id="WV6-9a-etX"/>
                             <constraint firstItem="yTM-ou-cFN" firstAttribute="leading" secondItem="1Ul-m0-GGH" secondAttribute="leading" id="dRt-Vf-qzQ"/>
                             <constraint firstAttribute="trailing" secondItem="bNK-Nx-pI8" secondAttribute="trailing" constant="20" id="mHX-gT-g8k"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="WV6-9a-etX"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="explorePromptLabel" destination="LSh-5R-Y3n" id="cDL-f9-uq7"/>
+                        <outlet property="explorePromptLabelTop" destination="Jll-NN-FNW" id="kdc-Gu-pnC"/>
                         <outlet property="exploreTableView" destination="yTM-ou-cFN" id="9hd-g3-tiX"/>
                         <outlet property="exploreView" destination="1Ul-m0-GGH" id="8I4-IU-btm"/>
                         <outlet property="searchButton" destination="bNK-Nx-pI8" id="JC9-Uq-Ih7"/>
