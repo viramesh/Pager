@@ -94,7 +94,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T3T-1P-grP">
-                                <rect key="frame" x="28" y="483" width="318" height="51"/>
+                                <rect key="frame" x="28" y="475" width="318" height="51"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
                                 <state key="normal" title="Next" backgroundImage="long-button.png">
                                     <color key="titleColor" red="0.22352941179999999" green="0.73725490199999999" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -150,6 +150,15 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQH-rj-cbW">
+                                <rect key="frame" x="281" y="13" width="94" height="51"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="JpN-B2-Tqn" eventType="touchUpInside" id="Kfg-7d-PWX"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="So we see you need to," lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTo-i3-UQF">
                                 <rect key="frame" x="16" y="69" width="257" height="25"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
@@ -161,38 +170,37 @@
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="didEnd:" destination="JpN-B2-Tqn" eventType="editingDidEnd" id="L7h-43-iKW"/>
+                                    <action selector="editingChanged:" destination="JpN-B2-Tqn" eventType="editingChanged" id="ihg-dt-DUg"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p9j-g0-IBC">
-                                <rect key="frame" x="28" y="483" width="318" height="51"/>
+                                <rect key="frame" x="28" y="475" width="318" height="51"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
                                 <state key="normal" title="Skip" backgroundImage="long-button.png">
                                     <color key="titleColor" red="0.22352941179999999" green="0.73725490199999999" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQH-rj-cbW">
-                                <rect key="frame" x="281" y="13" width="94" height="51"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="backButtonPressed:" destination="JpN-B2-Tqn" eventType="touchUpInside" id="Kfg-7d-PWX"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="H8J-OA-m9I" appends="YES" id="XfW-hW-M2A"/>
+                        </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="findSomeoneButton" destination="p9j-g0-IBC" id="zkA-9L-aS1"/>
+                        <outlet property="findSomeoneButton" destination="p9j-g0-IBC" id="l7i-0a-NNW"/>
                         <outlet property="tellMeMoreLabelTitle" destination="FxH-P1-JCg" id="ydO-qY-Mlt"/>
                         <outlet property="tellMoreInputField" destination="dLM-v2-sJi" id="Um2-N9-Lzr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GSY-Eo-4W6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="H8J-OA-m9I">
+                    <connections>
+                        <action selector="onTap:" destination="JpN-B2-Tqn" id="0lS-NY-ghB"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="860.5" y="591.5"/>
         </scene>

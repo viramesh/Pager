@@ -13,9 +13,11 @@ class TellMeMoreViewController: UIViewController, UIViewControllerTransitioningD
     var isPresenting: Bool = true
 
     @IBOutlet weak var tellMeMoreLabelTitle: UILabel!
-    @IBOutlet weak var tellMeMoreButtonTitle: UIButton!
     @IBOutlet weak var tellMoreInputField: UITextField!
     @IBOutlet weak var findSomeoneButton: UIButton!
+    
+    var initialY: CGFloat!
+    let offset: CGFloat = -130
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -28,7 +30,11 @@ class TellMeMoreViewController: UIViewController, UIViewControllerTransitioningD
 
         // Do any additional setup after loading the view.
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
         
+        initialY = findSomeoneButton.frame.origin.y
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,17 +96,65 @@ class TellMeMoreViewController: UIViewController, UIViewControllerTransitioningD
         }
     }
     
+    func keyboardWillHide(notification: NSNotification!) {
+        var userInfo = notification.userInfo!
+        
+        // Get the keyboard height and width from the notification
+        // Size varies depending on OS, language, orientation
+        var kbSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().size
+        var durationValue = userInfo[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
+        var animationDuration = durationValue.doubleValue
+        var curveValue = userInfo[UIKeyboardAnimationCurveUserInfoKey] as! NSNumber
+        var animationCurve = curveValue.integerValue
+        
+        UIView.animateWithDuration(animationDuration, delay: 0.0, options: UIViewAnimationOptions(UInt(animationCurve << 16)), animations: {
+            
+            // Set view properties in here that you want to match with the animation of the keyboard
+            // If you need it, you can use the kbSize property above to get the keyboard width and height.
+            self.findSomeoneButton.frame.origin = CGPoint(x: self.findSomeoneButton.frame.origin.x, y: self.initialY)
+
+            }, completion: nil)
+    }
+    
+    func keyboardWillShow(notification: NSNotification!) {
+        var userInfo = notification.userInfo!
+        
+        // Get the keyboard height and width from the notification
+        // Size varies depending on OS, language, orientation
+        var kbSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().size
+        var durationValue = userInfo[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
+        var animationDuration = durationValue.doubleValue
+        var curveValue = userInfo[UIKeyboardAnimationCurveUserInfoKey] as! NSNumber
+        var animationCurve = curveValue.integerValue
+        
+        UIView.animateWithDuration(animationDuration, delay: 0.0, options: UIViewAnimationOptions(UInt(animationCurve << 16)), animations: {
+            
+            // Set view properties in here that you want to match with the animation of the keyboard
+            // If you need it, you can use the kbSize property above to get the keyboard width and height.
+            self.findSomeoneButton.frame.origin = CGPoint(x: self.findSomeoneButton.frame.origin.x, y: self.initialY + self.offset)
+            }, completion: nil)
+    }
+    
+    
+    
     @IBAction func backButtonPressed(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-
-    @IBAction func didEnd(sender: AnyObject) {
+    //I want the button to say skip when the tellMeMoreInputField is empty and say Find Me Someone when has text in it
+    @IBAction func editingChanged(sender: AnyObject) {
+        println(tellMoreInputField.text)
         if tellMoreInputField.text.isEmpty == true {
             findSomeoneButton.titleLabel?.text = "Skip"
         } else {
             findSomeoneButton.titleLabel?.text = "Find me someone!"
         }
+    }
+
+    //Dismisses the keyboard when you tap anywhere in the view
+    @IBAction func onTap(sender: AnyObject) {
+        tellMoreInputField.endEditing(true)
+
     }
 
     
