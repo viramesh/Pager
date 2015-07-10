@@ -17,6 +17,9 @@ class SearchViewController: UIViewController, UIViewControllerTransitioningDeleg
     @IBOutlet weak var searchResultButton3: UIButton!
     @IBOutlet weak var findButton: UIButton!
     
+    var textString: String!
+
+    
     var initialY: CGFloat!
     let offset: CGFloat = -130
     
@@ -64,6 +67,7 @@ class SearchViewController: UIViewController, UIViewControllerTransitioningDeleg
         // Pass the selected object to the new view controller.
     }
     */
+    
     
     
     @IBAction func editSearchTextField(sender: AnyObject) {
@@ -196,11 +200,19 @@ class SearchViewController: UIViewController, UIViewControllerTransitioningDeleg
         searchTextField.endEditing(true)
 
     }
-    
-    
 
+    //Action when pushing any of the result buttons that display under the input field
     @IBAction func didPressResultButton(sender: AnyObject) {
+        
+        //set button
+        var button = sender as! UIButton
+        
+        //set text of button pressed equal to textString variable
+        textString = (button.titleLabel?.text)!
+        
+        //transition to TellMeMoreViewController
         performSegueWithIdentifier("tellMeMoreSegue", sender: self)
     }
     
+
 }

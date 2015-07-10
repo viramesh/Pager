@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		08B4821E1B4CDF2D00E8C0D2 /* long-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B4821D1B4CDF2D00E8C0D2 /* long-button.png */; };
+		2B68EA021B4F0711005D843F /* TellMeMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B68EA011B4F0711005D843F /* TellMeMoreViewController.swift */; };
 		2FA30C7D1B41DBAB00FC1D27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA30C7C1B41DBAB00FC1D27 /* AppDelegate.swift */; };
 		2FA30C821B41DBAB00FC1D27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FA30C801B41DBAB00FC1D27 /* Main.storyboard */; };
 		2FA30C841B41DBAB00FC1D27 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FA30C831B41DBAB00FC1D27 /* Images.xcassets */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		08B4821D1B4CDF2D00E8C0D2 /* long-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "long-button.png"; sourceTree = "<group>"; };
+		2B68EA011B4F0711005D843F /* TellMeMoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TellMeMoreViewController.swift; sourceTree = "<group>"; };
 		2FA30C771B41DBAB00FC1D27 /* Pager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FA30C7B1B41DBAB00FC1D27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FA30C7C1B41DBAB00FC1D27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			children = (
 				2FA30CA61B42592600FC1D27 /* Search.storyboard */,
 				2FA30CAE1B42672000FC1D27 /* SearchViewController.swift */,
+				2B68EA011B4F0711005D843F /* TellMeMoreViewController.swift */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				2FD97D991B43A639000F7342 /* ExploreTableViewCell.swift in Sources */,
 				2FA30CAB1B4264C100FC1D27 /* MainViewController.swift in Sources */,
 				2FA30CAF1B42672000FC1D27 /* SearchViewController.swift in Sources */,
+				2B68EA021B4F0711005D843F /* TellMeMoreViewController.swift in Sources */,
 				2FD97D9B1B43B712000F7342 /* Common.swift in Sources */,
 				2FA30CAD1B4266CE00FC1D27 /* ExploreViewController.swift in Sources */,
 			);
