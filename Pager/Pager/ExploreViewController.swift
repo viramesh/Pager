@@ -14,10 +14,13 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet var exploreView: UIView!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var exploreTableView: UITableView!
-    @IBOutlet weak var explorePromptLabel: UILabel!
     var exploreTableViewCell: ExploreTableViewCell!
+    var exploreTableViewHeader: ExploreTableViewHeader!
     var exploreImages = [String]()
     var exploreImageLabels = [String]()
+    
+    //Table cell properties
+    let ROUNDED_CORNER:CGFloat = 6
     
     //screensize
     var screenSize: CGRect = CGRectZero
@@ -25,16 +28,16 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
     var screenWidth:CGFloat = 0
     
     //for parallax-ing the images
-    var topIndexRow:Int = 0
-    let YPOS_START:CGFloat = -80
-    let YPOS_END:CGFloat = -120
-    var newYPos:CGFloat = -120
+    var topIndexRow:Int = 1
+    let YPOS_START:CGFloat = -120
+    let YPOS_END:CGFloat = -140
+    var newYPos:CGFloat = -140
 
     let GRADIENT_ALPHA_START:CGFloat = 0.8
     let GRADIENT_ALPHA_END:CGFloat = 0.2
     var newGradientAlpha:CGFloat = 0.2
 
-    let TABLE_CELL_HEIGHT_PERCENTAGE:CGFloat = 0.64
+    let TABLE_CELL_HEIGHT_PERCENTAGE:CGFloat = 0.50
     var TABLE_CELL_MAX_HEIGHT:CGFloat! // this value is set in viewdidload
     var TABLE_CELL_MIN_HEIGHT:CGFloat! // this value is set in viewdidload
     var newHeight: CGFloat! // this value is set in viewdidload
@@ -43,10 +46,8 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
     //for custom transition into this VC
     var isPresenting: Bool = true
     
-    //for fading in or out the prompt label
-    let PROMPT_DISAPPEARS_AT:CGFloat = 150
-    @IBOutlet weak var explorePromptLabelTop: NSLayoutConstraint!
-    var explorePromptLabelTopDefault:CGFloat!
+    //for the prompt label
+    let TABLE_HEADER_HEIGHT:CGFloat = 150
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -71,7 +72,6 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         TABLE_CELL_MIN_HEIGHT = screenHeight * TABLE_CELL_HEIGHT_PERCENTAGE * 0.5
         newHeight = TABLE_CELL_MAX_HEIGHT
         
-        explorePromptLabelTopDefault = explorePromptLabelTop.constant
     }
 
     override func viewDidLayoutSubviews() {
@@ -185,48 +185,63 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //
-        return exploreImages.count
+        return (exploreImages.count+1)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        exploreTableViewCell = tableView.dequeueReusableCellWithIdentifier("ExploreTableViewCellid") as! ExploreTableViewCell
         
-        var yPos: CGFloat = 0
-        var gradientAlpha:CGFloat = GRADIENT_ALPHA_END
-        if(exploreTableViewCell.exploreImage == nil) {
-            exploreTableViewCell.exploreImage = UIImageView()
+        //first load the header prompt
+        if(indexPath.row == 0) {
+            exploreTableViewHeader = tableView.dequeueReusableCellWithIdentifier("ExploreTableViewHeaderid") as! ExploreTableViewHeader
+            return exploreTableViewHeader
         }
         
-        if(indexPath.row < topIndexRow) {
-            yPos = YPOS_END
-            gradientAlpha = GRADIENT_ALPHA_END
-        }
-        else if(indexPath.row == topIndexRow) {
-            yPos = newYPos
-            gradientAlpha = newGradientAlpha
-        }
+        //then load all other cells
         else {
-            yPos = YPOS_START
-            gradientAlpha = GRADIENT_ALPHA_START
-
-        }
-
-        var exploreImageFrame: CGRect = CGRectMake(0, yPos, screenWidth, screenHeight)
-        exploreTableViewCell.exploreImage.frame = exploreImageFrame
-        exploreTableViewCell.exploreImage.image = UIImage(named: exploreImages[indexPath.row])
-        exploreTableViewCell.exploreImage.contentMode = UIViewContentMode.ScaleAspectFill
-        exploreTableViewCell.exploreImageContainer.addSubview(exploreTableViewCell.exploreImage)
-        exploreTableViewCell.exploreImageOverlayGradient.alpha = gradientAlpha
-        exploreTableViewCell.exploreImageOverlayLabel.text = exploreImageLabels[indexPath.row] as String
+            exploreTableViewCell = tableView.dequeueReusableCellWithIdentifier("ExploreTableViewCellid") as! ExploreTableViewCell
         
-        return exploreTableViewCell
+            var yPos: CGFloat = 0
+            var gradientAlpha:CGFloat = GRADIENT_ALPHA_END
+            if(exploreTableViewCell.exploreImage == nil) {
+                exploreTableViewCell.exploreImage = UIImageView()
+            }
+            
+            if(indexPath.row < topIndexRow) {
+                yPos = YPOS_END
+                gradientAlpha = GRADIENT_ALPHA_END
+            }
+            else if(indexPath.row == topIndexRow) {
+                yPos = newYPos
+                gradientAlpha = newGradientAlpha
+            }
+            else {
+                yPos = YPOS_START
+                gradientAlpha = GRADIENT_ALPHA_START
+
+            }
+
+            var exploreImageFrame: CGRect = CGRectMake(0, yPos, screenWidth, screenHeight)
+            exploreTableViewCell.exploreImage.frame = exploreImageFrame
+            exploreTableViewCell.exploreImage.image = UIImage(named: exploreImages[indexPath.row-1])
+            exploreTableViewCell.exploreImage.contentMode = UIViewContentMode.ScaleAspectFill
+            exploreTableViewCell.exploreImageContainer.layer.cornerRadius = ROUNDED_CORNER
+            exploreTableViewCell.exploreImageContainer.addSubview(exploreTableViewCell.exploreImage)
+            exploreTableViewCell.exploreImageOverlayGradient.alpha = gradientAlpha
+            exploreTableViewCell.exploreImageOverlayView.layer.cornerRadius = ROUNDED_CORNER
+            exploreTableViewCell.exploreImageOverlayLabel.text = exploreImageLabels[indexPath.row-1] as String
+        
+            return exploreTableViewCell
+        }
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
         var heightForRow:CGFloat = self.TABLE_CELL_MIN_HEIGHT
         
-        if(indexPath.row < topIndexRow) {
+        if(indexPath.row == 0) {
+            heightForRow = self.TABLE_HEADER_HEIGHT
+        }
+        else if(indexPath.row < topIndexRow) {
             heightForRow = self.TABLE_CELL_MAX_HEIGHT
         }
         else if(indexPath.row == topIndexRow) {
@@ -238,22 +253,9 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
 //        println("table scrolled")
-        println(explorePromptLabelTop.constant)
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        
-        //fade in or out prompt label based on scroll offset
-        if(scrollView.contentOffset.y > PROMPT_DISAPPEARS_AT) {
-            explorePromptLabel.alpha = 0
-        }
-        
-        else {
-            explorePromptLabel.alpha = CGFloat(convertValue(Float(scrollView.contentOffset.y), 0, Float(self.PROMPT_DISAPPEARS_AT), 1, 0))
-        }
-        
-        explorePromptLabelTop.constant = explorePromptLabelTopDefault - scrollView.contentOffset.y
-        explorePromptLabel.layoutIfNeeded()
         
         //adjust table rows
         let visibleImages = exploreTableView.indexPathsForVisibleRows() as! [NSIndexPath]
@@ -262,19 +264,22 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
             return
         }
         
-        let rectInTableView: CGRect = exploreTableView.rectForRowAtIndexPath(visibleImages[1])
+        var second_one:Int = 1
+        if(visibleImages[0] == 0) { second_one = 2 }
+        
+        let rectInTableView: CGRect = exploreTableView.rectForRowAtIndexPath(visibleImages[second_one])
         let rectInSuperview: CGRect = exploreTableView.convertRect(rectInTableView, toView: exploreTableView.superview)
     
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         let screenHeight = screenSize.height
         
-        newYPos = CGFloat(convertValue(Float(rectInSuperview.origin.y), 0, Float(self.TABLE_CELL_MAX_HEIGHT), Float(YPOS_END), Float(YPOS_START)))
+        newYPos = CGFloat(convertValue(Float(rectInSuperview.origin.y), 0, Float(TABLE_CELL_MAX_HEIGHT), Float(YPOS_END), Float(YPOS_START)))
         
-        newGradientAlpha = CGFloat(convertValue(Float(rectInSuperview.origin.y), 0, Float(self.TABLE_CELL_MAX_HEIGHT), Float(GRADIENT_ALPHA_END), Float(GRADIENT_ALPHA_START)))
+        newGradientAlpha = CGFloat(convertValue(Float(rectInSuperview.origin.y), 0, Float(TABLE_CELL_MAX_HEIGHT), Float(GRADIENT_ALPHA_END), Float(GRADIENT_ALPHA_START)))
         
-        newHeight = CGFloat(convertValue(Float(rectInSuperview.origin.y), 0, Float(self.TABLE_CELL_MAX_HEIGHT), Float(TABLE_CELL_MAX_HEIGHT), Float(TABLE_CELL_MIN_HEIGHT)))
+        newHeight = CGFloat(convertValue(Float(rectInSuperview.origin.y), 0, Float(TABLE_CELL_MAX_HEIGHT), Float(TABLE_CELL_MAX_HEIGHT), Float(TABLE_CELL_MIN_HEIGHT)))
         
-        topIndexRow = visibleImages[1].row
+        topIndexRow = visibleImages[second_one].row
         
         exploreTableView.reloadData()
         
