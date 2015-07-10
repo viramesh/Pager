@@ -14,7 +14,8 @@ class TellMeMoreViewController: UIViewController, UIViewControllerTransitioningD
 
     @IBOutlet weak var tellMeMoreLabelTitle: UILabel!
     @IBOutlet weak var tellMeMoreButtonTitle: UIButton!
-    
+    @IBOutlet weak var tellMoreInputField: UITextField!
+    @IBOutlet weak var findSomeoneButton: UIButton!
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -26,7 +27,7 @@ class TellMeMoreViewController: UIViewController, UIViewControllerTransitioningD
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-
+        
         
     }
 
@@ -74,7 +75,7 @@ class TellMeMoreViewController: UIViewController, UIViewControllerTransitioningD
                 var searchVC = fromViewController as! SearchViewController
                 
                 //Set label on view controller to be text from button on SearchViewController
-                self.tellMeMoreLabelTitle.text = "So, we see you need to: \(searchVC.textString)!"
+                self.tellMeMoreLabelTitle.text = searchVC.textString!
                 
                 }) { (finished: Bool) -> Void in
                     transitionContext.completeTransition(true)
@@ -89,8 +90,18 @@ class TellMeMoreViewController: UIViewController, UIViewControllerTransitioningD
         }
     }
     
-    
     @IBAction func backButtonPressed(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+
+    @IBAction func didEnd(sender: AnyObject) {
+        if tellMoreInputField.text.isEmpty == true {
+            findSomeoneButton.titleLabel?.text = "Skip"
+        } else {
+            findSomeoneButton.titleLabel?.text = "Find me someone!"
+        }
+    }
+
+    
 }
