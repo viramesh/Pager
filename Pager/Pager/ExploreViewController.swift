@@ -70,7 +70,7 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         exploreImageLabels = ["Yard work", "Gardening", "Fix doors", "Repair windows", "Deck work", "Garage Doors", "Fix cracks", "Patch holes", "Fix leaks", "Change locks", "Plumbing Issues", "Paint walls", "Home decor", "Appliances", "Hang curtains", "Electrical issues", "Fix lighting", "Wiring issues", "Internet Problems"]
         TABLE_CELL_MAX_HEIGHT = screenHeight * TABLE_CELL_HEIGHT_PERCENTAGE
         TABLE_CELL_MIN_HEIGHT = screenHeight * TABLE_CELL_HEIGHT_PERCENTAGE * 0.5
-        newHeight = TABLE_CELL_MAX_HEIGHT
+        newHeight = CGFloat(convertValue(Float(TABLE_HEADER_HEIGHT), 0, Float(TABLE_CELL_MAX_HEIGHT), Float(TABLE_CELL_MAX_HEIGHT), Float(TABLE_CELL_MIN_HEIGHT)))
         
     }
 
