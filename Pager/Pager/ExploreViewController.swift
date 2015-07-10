@@ -10,9 +10,11 @@ import UIKit
 
 class ExploreViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
 
+    //UI Components
     @IBOutlet var exploreView: UIView!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var exploreTableView: UITableView!
+    @IBOutlet weak var explorePromptLabel: UILabel!
     var exploreTableViewCell: ExploreTableViewCell!
     var exploreImages = [String]()
     var exploreImageLabels = [String]()
@@ -41,6 +43,11 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
     //for custom transition into this VC
     var isPresenting: Bool = true
     
+    //for fading in or out the prompt label
+    let PROMPT_DISAPPEARS_AT:CGFloat = 150
+    @IBOutlet weak var explorePromptLabelTop: NSLayoutConstraint!
+    var explorePromptLabelTopDefault:CGFloat!
+    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         modalPresentationStyle = UIModalPresentationStyle.Custom
@@ -63,10 +70,12 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         TABLE_CELL_MAX_HEIGHT = screenHeight * TABLE_CELL_HEIGHT_PERCENTAGE
         TABLE_CELL_MIN_HEIGHT = screenHeight * TABLE_CELL_HEIGHT_PERCENTAGE * 0.5
         newHeight = TABLE_CELL_MAX_HEIGHT
+        
+        explorePromptLabelTopDefault = explorePromptLabelTop.constant
     }
 
     override func viewDidLayoutSubviews() {
-
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -229,10 +238,24 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
 //        println("table scrolled")
+        println(explorePromptLabelTop.constant)
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         
+        //fade in or out prompt label based on scroll offset
+        if(scrollView.contentOffset.y > PROMPT_DISAPPEARS_AT) {
+            explorePromptLabel.alpha = 0
+        }
+        
+        else {
+            explorePromptLabel.alpha = CGFloat(convertValue(Float(scrollView.contentOffset.y), 0, Float(self.PROMPT_DISAPPEARS_AT), 1, 0))
+        }
+        
+        explorePromptLabelTop.constant = explorePromptLabelTopDefault - scrollView.contentOffset.y
+        explorePromptLabel.layoutIfNeeded()
+        
+        //adjust table rows
         let visibleImages = exploreTableView.indexPathsForVisibleRows() as! [NSIndexPath]
         if visibleImages.count <= 1 {
             exploreTableView.reloadData()
@@ -254,6 +277,8 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         topIndexRow = visibleImages[1].row
         
         exploreTableView.reloadData()
+        
+        
         
     }
     
