@@ -212,6 +212,7 @@ class SearchViewController: UIViewController, UIViewControllerTransitioningDeleg
         
         //transition to TellMeMoreViewController
         performSegueWithIdentifier("tellMeMoreSegue", sender: self)
+        println((searchResultButton1.titleLabel?.text)!)
     }
     
 
