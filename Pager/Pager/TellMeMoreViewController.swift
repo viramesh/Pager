@@ -145,9 +145,9 @@ class TellMeMoreViewController: UIViewController, UIViewControllerTransitioningD
     @IBAction func editingChanged(sender: AnyObject) {
         println(tellMoreInputField.text)
         if tellMoreInputField.text.isEmpty == true {
-            findSomeoneButton.titleLabel?.text = "Skip"
+            findSomeoneButton.setTitle("Skip", forState: UIControlState.Normal)
         } else {
-            findSomeoneButton.titleLabel?.text = "Find me someone!"
+            findSomeoneButton.setTitle("Find me someone!", forState: UIControlState.Normal)
         }
     }
 
