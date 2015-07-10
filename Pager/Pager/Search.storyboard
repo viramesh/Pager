@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
         <!--Search View Controller-->
@@ -120,7 +120,6 @@
                         <outlet property="searchResultButton2" destination="feK-2f-UP6" id="hiL-fN-UFj"/>
                         <outlet property="searchResultButton3" destination="TKF-yl-iV5" id="tWe-oi-RPg"/>
                         <outlet property="searchTextField" destination="pXx-fO-8cw" id="aG8-He-q7c"/>
-                        <segue destination="JpN-B2-Tqn" kind="presentation" identifier="tellMeMoreSegue" id="3S6-JK-Wg1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kHc-ay-B7z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -131,78 +130,6 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="410.5" y="591.5"/>
-        </scene>
-        <!--Tell Me More View Controller-->
-        <scene sceneID="WWN-xs-BkL">
-            <objects>
-                <viewController id="JpN-B2-Tqn" customClass="TellMeMoreViewController" customModule="Pager" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8R0-CG-QIE"/>
-                        <viewControllerLayoutGuide type="bottom" id="R24-Hl-tY5"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="R1f-MI-7MW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FxH-P1-JCg">
-                                <rect key="frame" x="16" y="92" width="343" height="42"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQH-rj-cbW">
-                                <rect key="frame" x="281" y="13" width="94" height="51"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="backButtonPressed:" destination="JpN-B2-Tqn" eventType="touchUpInside" id="Kfg-7d-PWX"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="So we see you need to," lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTo-i3-UQF">
-                                <rect key="frame" x="16" y="69" width="257" height="25"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tell us a little more about your problem!" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dLM-v2-sJi">
-                                <rect key="frame" x="16" y="197" width="343" height="61"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="editingChanged:" destination="JpN-B2-Tqn" eventType="editingChanged" id="ihg-dt-DUg"/>
-                                </connections>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p9j-g0-IBC">
-                                <rect key="frame" x="28" y="475" width="318" height="51"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
-                                <state key="normal" title="Skip" backgroundImage="long-button.png">
-                                    <color key="titleColor" red="0.22352941179999999" green="0.73725490199999999" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="H8J-OA-m9I" appends="YES" id="XfW-hW-M2A"/>
-                        </connections>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="findSomeoneButton" destination="p9j-g0-IBC" id="l7i-0a-NNW"/>
-                        <outlet property="tellMeMoreLabelTitle" destination="FxH-P1-JCg" id="ydO-qY-Mlt"/>
-                        <outlet property="tellMoreInputField" destination="dLM-v2-sJi" id="Um2-N9-Lzr"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GSY-Eo-4W6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="H8J-OA-m9I">
-                    <connections>
-                        <action selector="onTap:" destination="JpN-B2-Tqn" id="0lS-NY-ghB"/>
-                    </connections>
-                </tapGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="860.5" y="591.5"/>
         </scene>
     </scenes>
     <resources>

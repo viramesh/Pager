@@ -161,7 +161,6 @@
 			children = (
 				2FA30CA61B42592600FC1D27 /* Search.storyboard */,
 				2FA30CAE1B42672000FC1D27 /* SearchViewController.swift */,
-				2B68EA011B4F0711005D843F /* TellMeMoreViewController.swift */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -181,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				2FA30CA21B42591500FC1D27 /* Chat.storyboard */,
+				2B68EA011B4F0711005D843F /* TellMeMoreViewController.swift */,
 			);
 			name = Chat;
 			sourceTree = "<group>";

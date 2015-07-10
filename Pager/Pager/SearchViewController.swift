@@ -211,8 +211,9 @@ class SearchViewController: UIViewController, UIViewControllerTransitioningDeleg
         textString = (button.titleLabel?.text)!
         
         //transition to TellMeMoreViewController
-        performSegueWithIdentifier("tellMeMoreSegue", sender: self)
-        println((searchResultButton1.titleLabel?.text)!)
+        var storyboard = UIStoryboard(name: "Chat", bundle: nil)
+        var controller = storyboard.instantiateViewControllerWithIdentifier("tellMeMoreVC") as! TellMeMoreViewController
+        self.presentViewController(controller, animated: true, completion: nil)
     }
     
 

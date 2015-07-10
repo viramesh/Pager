@@ -1,7 +1,83 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Tell Me More View Controller-->
+        <scene sceneID="Vcc-8r-lug">
+            <objects>
+                <viewController storyboardIdentifier="tellMeMoreVC" id="EVT-2a-Pfa" customClass="TellMeMoreViewController" customModule="Pager" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1Vv-es-hf6"/>
+                        <viewControllerLayoutGuide type="bottom" id="0tB-4n-feL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YEV-SC-B0t">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkA-LE-o67">
+                                <rect key="frame" x="16" y="92" width="343" height="42"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZeI-qL-y76">
+                                <rect key="frame" x="281" y="13" width="94" height="51"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="EVT-2a-Pfa" eventType="touchUpInside" id="g9Z-4x-HBu"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="So we see you need to," lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZI-wv-bRp">
+                                <rect key="frame" x="16" y="69" width="257" height="25"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tell us a little more about your problem!" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pTx-CM-hGB">
+                                <rect key="frame" x="16" y="197" width="343" height="61"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="editingChanged:" destination="EVT-2a-Pfa" eventType="editingChanged" id="6kL-5D-bUf"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vBF-l2-3kN">
+                                <rect key="frame" x="28" y="475" width="318" height="51"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                <state key="normal" title="Skip" backgroundImage="long-button.png">
+                                    <color key="titleColor" red="0.22352941179999999" green="0.73725490199999999" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="h5I-dF-uzq" appends="YES" id="jfX-Eu-znC"/>
+                        </connections>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="findSomeoneButton" destination="vBF-l2-3kN" id="pjC-s8-6bB"/>
+                        <outlet property="tellMeMoreLabelTitle" destination="nkA-LE-o67" id="Lun-b1-rtg"/>
+                        <outlet property="tellMoreInputField" destination="pTx-CM-hGB" id="TXM-mo-BQR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4l1-bf-d45" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="h5I-dF-uzq">
+                    <connections>
+                        <action selector="onTap:" destination="EVT-2a-Pfa" id="6hT-Md-QqT"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="542.5" y="416.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="long-button.png" width="680" height="111"/>
+    </resources>
 </document>
