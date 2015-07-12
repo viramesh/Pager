@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--Tell Me More View Controller-->
@@ -52,6 +52,9 @@
                                     <color key="titleColor" red="0.22352941179999999" green="0.73725490199999999" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="findSomeoneButtonTapped:" destination="EVT-2a-Pfa" eventType="touchUpInside" id="RGx-aw-5jT"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -65,6 +68,7 @@
                         <outlet property="findSomeoneButton" destination="vBF-l2-3kN" id="pjC-s8-6bB"/>
                         <outlet property="tellMeMoreLabelTitle" destination="nkA-LE-o67" id="Lun-b1-rtg"/>
                         <outlet property="tellMoreInputField" destination="pTx-CM-hGB" id="TXM-mo-BQR"/>
+                        <segue destination="qd6-NI-ByQ" kind="presentation" identifier="findingSomeoneSegue" id="2yc-5U-om3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4l1-bf-d45" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -76,10 +80,10 @@
             </objects>
             <point key="canvasLocation" x="542.5" y="416.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Finding Someone View Controller-->
         <scene sceneID="rlT-eW-aCP">
             <objects>
-                <viewController id="qd6-NI-ByQ" sceneMemberID="viewController">
+                <viewController id="qd6-NI-ByQ" customClass="FindingSomeoneViewController" customModule="Pager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UjM-oH-6dw"/>
                         <viewControllerLayoutGuide type="bottom" id="WxH-Gn-a4u"/>

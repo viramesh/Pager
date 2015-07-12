@@ -157,5 +157,8 @@ class TellMeMoreViewController: UIViewController, UIViewControllerTransitioningD
 
     }
 
+    @IBAction func findSomeoneButtonTapped(sender: AnyObject) {
+        performSegueWithIdentifier("findingSomeoneSegue", sender: self)
+    }
     
 }
