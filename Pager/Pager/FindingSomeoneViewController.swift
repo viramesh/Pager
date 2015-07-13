@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import Foundation
 
 class FindingSomeoneViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
     
     var isPresenting: Bool = true
 
+    @IBOutlet weak var loadingP: UIImageView!
+    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         modalPresentationStyle = UIModalPresentationStyle.Custom
@@ -22,6 +25,16 @@ class FindingSomeoneViewController: UIViewController, UIViewControllerTransition
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.loadingP.animationImages = [UIImage]()
+        for var index = 0; index < 40; index++ {
+            var frameName = String(format: "Loading-%03d", index)
+            self.loadingP.animationImages?.append(UIImage(named: frameName)!)
+        }
+
+        self.loadingP.animationDuration = 1.2
+        self.loadingP.startAnimating()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -79,5 +92,6 @@ class FindingSomeoneViewController: UIViewController, UIViewControllerTransition
         // Pass the selected object to the new view controller.
     }
     */
+
 
 }

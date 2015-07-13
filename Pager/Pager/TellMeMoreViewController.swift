@@ -34,7 +34,7 @@ class TellMeMoreViewController: UIViewController, UIViewControllerTransitioningD
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
         
         initialY = findSomeoneButton.frame.origin.y
-
+        
     }
 
     override func didReceiveMemoryWarning() {

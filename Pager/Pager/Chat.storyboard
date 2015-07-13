@@ -98,10 +98,16 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Loading-000" translatesAutoresizingMaskIntoConstraints="NO" id="PEh-PK-nXh">
+                                <rect key="frame" x="155" y="190" width="64" height="64"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="loadingP" destination="PEh-PK-nXh" id="mUG-yz-gV4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v2W-LF-ghj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -109,6 +115,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Loading-000" width="64" height="64"/>
         <image name="long-button.png" width="680" height="111"/>
     </resources>
 </document>
