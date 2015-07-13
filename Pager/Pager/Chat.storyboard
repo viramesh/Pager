@@ -101,11 +101,21 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Loading-000" translatesAutoresizingMaskIntoConstraints="NO" id="PEh-PK-nXh">
                                 <rect key="frame" x="155" y="190" width="64" height="64"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmY-o4-Tfm">
+                                <rect key="frame" x="160" y="552" width="50" height="50"/>
+                                <state key="normal" image="close">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="qd6-NI-ByQ" eventType="touchUpInside" id="R5y-8q-w9x"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="closeButton" destination="bmY-o4-Tfm" id="nV8-Ec-Flp"/>
                         <outlet property="loadingP" destination="PEh-PK-nXh" id="mUG-yz-gV4"/>
                     </connections>
                 </viewController>
@@ -116,6 +126,7 @@
     </scenes>
     <resources>
         <image name="Loading-000" width="64" height="64"/>
+        <image name="close" width="55" height="55"/>
         <image name="long-button.png" width="680" height="111"/>
     </resources>
 </document>

@@ -14,6 +14,7 @@ class FindingSomeoneViewController: UIViewController, UIViewControllerTransition
     var isPresenting: Bool = true
 
     @IBOutlet weak var loadingP: UIImageView!
+    @IBOutlet weak var closeButton: UIButton!
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -23,8 +24,14 @@ class FindingSomeoneViewController: UIViewController, UIViewControllerTransition
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //set close button scale and alpha to 0
+        closeButton.alpha = 0
+        closeButton.transform = CGAffineTransformMakeScale(0, 0)
 
         // Do any additional setup after loading the view.
+        
+        //Animation for the loading P
         
         self.loadingP.animationImages = [UIImage]()
         for var index = 0; index < 40; index++ {
@@ -35,6 +42,18 @@ class FindingSomeoneViewController: UIViewController, UIViewControllerTransition
         self.loadingP.animationDuration = 1.2
         self.loadingP.startAnimating()
         
+        //End Animation for loading P
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        
+       UIView.animateKeyframesWithDuration(0.2, delay: 0.4, options: UIViewKeyframeAnimationOptions.AllowUserInteraction, animations: { () -> Void in
+        self.closeButton.alpha = 1
+        self.closeButton.transform = CGAffineTransformMakeScale(1, 1)
+       }, completion: nil)
+        
+
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -82,16 +101,10 @@ class FindingSomeoneViewController: UIViewController, UIViewControllerTransition
         }
     }
 
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func closeButtonTapped(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
-    */
+    
 
 
 }
