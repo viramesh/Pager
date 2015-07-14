@@ -18,7 +18,7 @@ class SearchViewController: UIViewController, UIViewControllerTransitioningDeleg
     @IBOutlet weak var findButton: UIButton!
     
     var textString: String!
-
+    var button: UIButton!
     
     var initialY: CGFloat!
     let offset: CGFloat = -130
@@ -205,7 +205,7 @@ class SearchViewController: UIViewController, UIViewControllerTransitioningDeleg
     @IBAction func didPressResultButton(sender: AnyObject) {
         
         //set button
-        var button = sender as! UIButton
+        button = sender as! UIButton
         
         //set text of button pressed equal to textString variable
         textString = (button.titleLabel?.text)!

@@ -73,22 +73,40 @@ class TellMeMoreViewController: UIViewController, UIViewControllerTransitioningD
         var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
         var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
         
+
         if (isPresenting) {
             containerView.addSubview(toViewController.view)
             toViewController.view.alpha = 0
+            
+            var searchVC = fromViewController as! SearchViewController
+
+            searchVC.button.hidden = true
+            self.tellMeMoreLabelTitle.hidden = true
+            
+            var movingTextLabel = UILabel(frame: searchVC.button.frame)
+            movingTextLabel.text = searchVC.textString
+            containerView.addSubview(movingTextLabel)
+            self.tellMeMoreLabelTitle.text = searchVC.textString!
+
             UIView.animateWithDuration(0.4, animations: { () -> Void in
                 toViewController.view.alpha = 1
-                var searchVC = fromViewController as! SearchViewController
-                
+
                 //Set label on view controller to be text from button on SearchViewController
-                self.tellMeMoreLabelTitle.text = searchVC.textString!
-                
+                movingTextLabel.frame = self.tellMeMoreLabelTitle.frame
+                movingTextLabel.font = self.tellMeMoreLabelTitle.font
                 }) { (finished: Bool) -> Void in
                     transitionContext.completeTransition(true)
+                    self.tellMeMoreLabelTitle.hidden = false
+                    movingTextLabel.removeFromSuperview()
+
             }
         } else {
+            
+            var searchVC = toViewController as! SearchViewController
             UIView.animateWithDuration(0.4, animations: { () -> Void in
                 fromViewController.view.alpha = 0
+                searchVC.button.hidden = false
+                
                 }) { (finished: Bool) -> Void in
                     transitionContext.completeTransition(true)
                     fromViewController.view.removeFromSuperview()
