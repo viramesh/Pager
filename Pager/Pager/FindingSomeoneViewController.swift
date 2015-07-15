@@ -43,6 +43,9 @@ class FindingSomeoneViewController: UIViewController, UIViewControllerTransition
         self.loadingP.startAnimating()
         
         //End Animation for loading P
+
+        let timer = NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: "toFoundSomeoneVC", userInfo: nil, repeats: false)
+
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -105,6 +108,8 @@ class FindingSomeoneViewController: UIViewController, UIViewControllerTransition
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-
+    func toFoundSomeoneVC() {
+        self.performSegueWithIdentifier("foundSomeoneSegue", sender: self)
+    }
 
 }

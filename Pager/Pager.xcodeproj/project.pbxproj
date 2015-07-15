@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		088AA0491B563CE300766E70 /* FoundSomeoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088AA0481B563CE300766E70 /* FoundSomeoneViewController.swift */; };
 		08AE67F71B51EA990054E004 /* FindingSomeoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE67F61B51EA990054E004 /* FindingSomeoneViewController.swift */; };
 		08B4821E1B4CDF2D00E8C0D2 /* long-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B4821D1B4CDF2D00E8C0D2 /* long-button.png */; };
 		2B68EA021B4F0711005D843F /* TellMeMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B68EA011B4F0711005D843F /* TellMeMoreViewController.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		088AA0481B563CE300766E70 /* FoundSomeoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundSomeoneViewController.swift; sourceTree = "<group>"; };
 		08AE67F61B51EA990054E004 /* FindingSomeoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindingSomeoneViewController.swift; sourceTree = "<group>"; };
 		08B4821D1B4CDF2D00E8C0D2 /* long-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "long-button.png"; sourceTree = "<group>"; };
 		2B68EA011B4F0711005D843F /* TellMeMoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TellMeMoreViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			children = (
 				2FA30CA21B42591500FC1D27 /* Chat.storyboard */,
 				08AE67F61B51EA990054E004 /* FindingSomeoneViewController.swift */,
+				088AA0481B563CE300766E70 /* FoundSomeoneViewController.swift */,
 				2B68EA011B4F0711005D843F /* TellMeMoreViewController.swift */,
 			);
 			name = Chat;
@@ -301,6 +304,7 @@
 				2FA30CAF1B42672000FC1D27 /* SearchViewController.swift in Sources */,
 				2B68EA021B4F0711005D843F /* TellMeMoreViewController.swift in Sources */,
 				2FD97D9B1B43B712000F7342 /* Common.swift in Sources */,
+				088AA0491B563CE300766E70 /* FoundSomeoneViewController.swift in Sources */,
 				2FA30CAD1B4266CE00FC1D27 /* ExploreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
