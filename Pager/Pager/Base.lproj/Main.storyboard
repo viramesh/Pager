@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Xbc-aw-mef">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -16,37 +16,99 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleAspectFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7q8-D9-U9M">
-                                <rect key="frame" x="23" y="20" width="328" height="594"/>
-                                <color key="backgroundColor" red="0.30196078430000001" green="0.80392156859999997" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zp4-XZ-EvS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iAP-xA-7R5">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                <subviews>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1y0-2P-95F">
+                                        <rect key="frame" x="126" y="25" width="80" height="34"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
+                                        <state key="normal" title="Food">
+                                            <color key="titleColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OE3-kl-MKC">
+                                        <rect key="frame" x="21" y="32" width="20" height="20"/>
+                                        <state key="normal" image="icon_search_dark">
+                                            <color key="titleShadowColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="searchBtnDidPress:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="GiC-1l-fMh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3F-1P-KXi">
+                                        <rect key="frame" x="49" y="25" width="82" height="34"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
+                                        <state key="normal" title="Home">
+                                            <color key="titleColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="homeBtnDidPress:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="x5o-vd-Arl"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="FQP-Od-yNn"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7q8-D9-U9M" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="0SW-ha-vfm"/>
-                            <constraint firstItem="7q8-D9-U9M" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="3t2-Kr-Cul"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="7q8-D9-U9M" secondAttribute="bottom" id="fRS-Jq-PuN"/>
-                            <constraint firstAttribute="trailing" secondItem="7q8-D9-U9M" secondAttribute="trailing" id="gra-MO-RxI"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="7q8-D9-U9M" secondAttribute="bottom" id="wqc-VK-rtE"/>
+                            <constraint firstItem="Zp4-XZ-EvS" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="0vF-H9-1t4"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Zp4-XZ-EvS" secondAttribute="bottom" id="D9W-LQ-KfU"/>
+                            <constraint firstAttribute="trailing" secondItem="iAP-xA-7R5" secondAttribute="trailing" id="HJ8-aR-Z9X"/>
+                            <constraint firstItem="iAP-xA-7R5" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="HMH-Xe-dYv"/>
+                            <constraint firstItem="iAP-xA-7R5" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="dVc-vm-zCk"/>
+                            <constraint firstItem="Zp4-XZ-EvS" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="gJP-pA-jdC"/>
+                            <constraint firstAttribute="trailing" secondItem="Zp4-XZ-EvS" secondAttribute="trailing" id="u4u-pF-pZw"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="0SW-ha-vfm"/>
-                                <exclude reference="3t2-Kr-Cul"/>
-                                <exclude reference="gra-MO-RxI"/>
-                                <exclude reference="fRS-Jq-PuN"/>
-                                <exclude reference="wqc-VK-rtE"/>
-                            </mask>
-                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="logoBackgroundView" destination="7q8-D9-U9M" id="Emn-0J-KAd"/>
+                        <outlet property="contentView" destination="Zp4-XZ-EvS" id="oLF-7I-qgF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="349.5" y="657.5"/>
+            <point key="canvasLocation" x="1304.5" y="657.5"/>
+        </scene>
+        <!--Launch View Controller-->
+        <scene sceneID="daY-og-Tqf">
+            <objects>
+                <viewController id="Xbc-aw-mef" customClass="LaunchViewController" customModule="Pager" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4OY-wh-Xbz"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bo6-tz-qSP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xh8-fI-rfg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qm2-fq-7ym">
+                                <rect key="frame" x="23" y="28" width="328" height="594"/>
+                                <color key="backgroundColor" red="0.30196078430000001" green="0.80392156859999997" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="logoBackgroundView" destination="qm2-fq-7ym" id="nUC-am-Il1"/>
+                        <segue destination="vXZ-lx-hvc" kind="custom" identifier="LaunchMainVC" id="pFi-EW-vw3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i3Y-aq-SnZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="829.5" y="657.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_search_dark" width="34" height="33"/>
+    </resources>
 </document>

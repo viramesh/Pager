@@ -18,7 +18,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="330" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yTM-ou-cFN">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExploreTableViewCellid" rowHeight="330" id="VgM-6O-lxQ" customClass="ExploreTableViewCell" customModule="Pager" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -28,7 +28,6 @@
                                             <subviews>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ICs-bg-ynJ" userLabel="image">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="329"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RtO-l2-Pmy" userLabel="overlay">
                                                     <rect key="frame" x="10" y="5" width="355" height="320"/>
@@ -105,30 +104,11 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J9h-68-Oob">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNK-Nx-pI8">
-                                        <rect key="frame" x="319" y="8" width="48" height="48"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="bBj-F6-Kgp"/>
-                                            <constraint firstAttribute="width" constant="48" id="vgY-Hx-XKz"/>
-                                        </constraints>
-                                        <state key="normal" image="icon_search">
-                                            <color key="titleColor" red="0.30196078430000001" green="0.80392156859999997" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="searchBtnDidPress:" destination="uG4-RH-Ovo" eventType="touchUpInside" id="i53-cn-Y1t"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="bNK-Nx-pI8" secondAttribute="trailing" constant="10" id="0cQ-6a-YBg"/>
                                     <constraint firstAttribute="height" constant="60" id="Cv6-Ic-GOF"/>
-                                    <constraint firstItem="bNK-Nx-pI8" firstAttribute="top" secondItem="J9h-68-Oob" secondAttribute="top" constant="6" id="uDJ-Ky-2Ux"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="J9h-68-Oob" firstAttribute="top" secondItem="1Ul-m0-GGH" secondAttribute="top" id="81k-WW-Rl8"/>
                             <constraint firstItem="yTM-ou-cFN" firstAttribute="top" secondItem="1Ul-m0-GGH" secondAttribute="top" id="ASO-az-943"/>
@@ -143,7 +123,6 @@
                     <connections>
                         <outlet property="exploreTableView" destination="yTM-ou-cFN" id="9hd-g3-tiX"/>
                         <outlet property="exploreView" destination="1Ul-m0-GGH" id="8I4-IU-btm"/>
-                        <outlet property="searchButton" destination="bNK-Nx-pI8" id="JC9-Uq-Ih7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PW2-I3-Q81" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -153,6 +132,5 @@
     </scenes>
     <resources>
         <image name="gradient-overlay" width="375" height="667"/>
-        <image name="icon_search" width="64" height="64"/>
     </resources>
 </document>

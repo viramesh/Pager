@@ -10,17 +10,21 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-    @IBOutlet weak var logoBackgroundView: UIView!
-    var logoImageView: UIImageView!
+    @IBOutlet weak var contentView: UIView!
     
     //screensize
     var screenSize: CGRect = CGRectZero
     var screenHeight:CGFloat = 0
     var screenWidth:CGFloat = 0
     
-    //logosize
-    var logoWidth:CGFloat = 64
-    var logoHeight:CGFloat = 64
+    //colors
+    let COLOR_DEFAULT:UIColor = UIColor(red: 74, green: 74, blue: 74, alpha: 1)
+    let COLOR_ACTIVE:UIColor = UIColor(red: 77, green: 205, blue: 176, alpha: 1)
+    
+    //child view controllers
+    var exploreVC:ExploreViewController!
+    var searchVC:SearchViewController!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,39 +34,40 @@ class MainViewController: UIViewController {
         screenHeight = screenSize.height
         screenWidth = screenSize.width
         
-        //initialize logo in center of screen
-        logoImageView = UIImageView()
-        logoImageView.frame = CGRectMake(screenWidth/2-logoWidth/2, screenHeight/2-logoHeight/2, logoWidth, logoHeight)
-        logoImageView.image = UIImage(named: "logo")
-        logoImageView.contentMode = UIViewContentMode.ScaleAspectFill
+        //load explore VC
+        var storyboard = UIStoryboard(name: "Explore", bundle: nil)
+        exploreVC = storyboard.instantiateViewControllerWithIdentifier("ExploreVC") as! ExploreViewController
+        displayViewController(exploreVC)
+
         
-        let delay =  0.5 * Double(NSEC_PER_SEC)
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-        dispatch_after(time, dispatch_get_main_queue()) {
-            self.gotoExploreVC()
-        }
+        //instantiate search VC
+        storyboard = UIStoryboard(name: "Search", bundle: nil)
+        searchVC = storyboard.instantiateViewControllerWithIdentifier("SearchVC") as! SearchViewController
+    
     }
     
     override func viewDidLayoutSubviews() {
-        logoBackgroundView.frame = CGRectMake(0, 0, screenWidth, screenHeight)
-        logoBackgroundView.addSubview(logoImageView)
+
     }
     
-    func gotoExploreVC() {
-        var storyboard = UIStoryboard(name: "Explore", bundle: nil)
-        var controller = storyboard.instantiateViewControllerWithIdentifier("ExploreVC") as! ExploreViewController
-        self.presentViewController(controller, animated: true, completion: nil)
-    }
-
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    override func prefersStatusBarHidden() -> Bool {
-        return true
+    func displayViewController(content: UIViewController) {
+        addChildViewController(content)
+        self.contentView.addSubview(content.view)
+        content.didMoveToParentViewController(self)
     }
+    
+    func hideViewController(content: UIViewController) {
+        content.willMoveToParentViewController(nil)
+        content.view.removeFromSuperview()
+        content.removeFromParentViewController()
+    }
+
+    
     /*
     // MARK: - Navigation
 
@@ -72,5 +77,13 @@ class MainViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func searchBtnDidPress(sender: AnyObject) {
+        displayViewController(searchVC)
+        hideViewController(exploreVC)
+    }
 
+    @IBAction func homeBtnDidPress(sender: AnyObject) {
+        displayViewController(exploreVC)
+        hideViewController(searchVC)
+    }
 }
