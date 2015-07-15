@@ -20,7 +20,7 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
     var exploreImageLabels = [String]()
     
     //Table cell properties
-    let ROUNDED_CORNER:CGFloat = 6
+    let ROUNDED_CORNER:CGFloat = 4
     
     //screensize
     var screenSize: CGRect = CGRectZero
@@ -37,7 +37,8 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
     let GRADIENT_ALPHA_END:CGFloat = 0.2
     var newGradientAlpha:CGFloat = 0.2
 
-    let TABLE_CELL_HEIGHT_PERCENTAGE:CGFloat = 0.50
+    let TABLE_CELL_MAX_HEIGHT_PERCENTAGE:CGFloat = 0.50
+    let TABLE_CELL_MIN_HEIGHT_PERCENTAGE:CGFloat = 0.20
     var TABLE_CELL_MAX_HEIGHT:CGFloat! // this value is set in viewdidload
     var TABLE_CELL_MIN_HEIGHT:CGFloat! // this value is set in viewdidload
     var newHeight: CGFloat! // this value is set in viewdidload
@@ -47,7 +48,7 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
     var isPresenting: Bool = true
     
     //for the prompt label
-    let TABLE_HEADER_HEIGHT:CGFloat = 150
+    let TABLE_HEADER_HEIGHT:CGFloat = 180
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -68,8 +69,8 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         exploreTableView.delegate = self
         exploreImages = ["landscaping", "gardening", "doors", "windows", "deck", "garage", "crack", "holes", "leak", "locks", "plumbing", "wallpainting", "decor", "appliances", "curtains", "electrical", "lighting", "wiring", "internet"]
         exploreImageLabels = ["Yard work", "Gardening", "Fix doors", "Repair windows", "Deck work", "Garage Doors", "Fix cracks", "Patch holes", "Fix leaks", "Change locks", "Plumbing Issues", "Paint walls", "Home decor", "Appliances", "Hang curtains", "Electrical issues", "Fix lighting", "Wiring issues", "Internet Problems"]
-        TABLE_CELL_MAX_HEIGHT = screenHeight * TABLE_CELL_HEIGHT_PERCENTAGE
-        TABLE_CELL_MIN_HEIGHT = screenHeight * TABLE_CELL_HEIGHT_PERCENTAGE * 0.5
+        TABLE_CELL_MAX_HEIGHT = screenHeight * TABLE_CELL_MAX_HEIGHT_PERCENTAGE
+        TABLE_CELL_MIN_HEIGHT = screenHeight * TABLE_CELL_MIN_HEIGHT_PERCENTAGE
         newHeight = CGFloat(convertValue(Float(TABLE_HEADER_HEIGHT), 0, Float(TABLE_CELL_MAX_HEIGHT), Float(TABLE_CELL_MAX_HEIGHT), Float(TABLE_CELL_MIN_HEIGHT)))
         
     }
@@ -131,47 +132,21 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         
         var fromViewControllerString = fromViewController.description
         
-        //check if transitioning here from MainVC, and if yes, slide the mainVC down and show explore view
-        if fromViewControllerString.rangeOfString("MainViewController") != nil{
-            if (isPresenting) {
-                containerView.addSubview(toViewController.view)
-                toViewController.view.alpha = 0
-                
-                UIView.animateWithDuration(0.4, animations: { () -> Void in
-                    toViewController.view.alpha = 1
-                    }) { (finished: Bool) -> Void in
-                        transitionContext.completeTransition(true)
-                }
-
-            } else {
-                UIView.animateWithDuration(0.4, animations: { () -> Void in
-                    fromViewController.view.alpha = 0
-                    }) { (finished: Bool) -> Void in
-                        transitionContext.completeTransition(true)
-                        fromViewController.view.removeFromSuperview()
-                }
+        if (isPresenting) {
+            containerView.addSubview(toViewController.view)
+            toViewController.view.alpha = 0
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
+               toViewController.view.alpha = 1
+               }) { (finished: Bool) -> Void in
+                   transitionContext.completeTransition(true)
             }
-        }
-        
-        //else if transitioning from other views, like the Searchview, just fade out old vc and fade in explorevc
-        else {
-            
-            if (isPresenting) {
-                containerView.addSubview(toViewController.view)
-                toViewController.view.alpha = 0
-                UIView.animateWithDuration(0.4, animations: { () -> Void in
-                    toViewController.view.alpha = 1
-                    }) { (finished: Bool) -> Void in
-                        transitionContext.completeTransition(true)
-                }
-            } else {
-                UIView.animateWithDuration(0.4, animations: { () -> Void in
-                    fromViewController.view.alpha = 0
-                    }) { (finished: Bool) -> Void in
-                        transitionContext.completeTransition(true)
-                        fromViewController.view.removeFromSuperview()
-                }
-            }
+        } else {
+           UIView.animateWithDuration(0.4, animations: { () -> Void in
+               fromViewController.view.alpha = 0
+               }) { (finished: Bool) -> Void in
+                   transitionContext.completeTransition(true)
+                   fromViewController.view.removeFromSuperview()
+           }
         }
         
     }
@@ -193,6 +168,8 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         //first load the header prompt
         if(indexPath.row == 0) {
             exploreTableViewHeader = tableView.dequeueReusableCellWithIdentifier("ExploreTableViewHeaderid") as! ExploreTableViewHeader
+            exploreTableViewHeader.backgroundColor = UIColor.clearColor()
+            
             return exploreTableViewHeader
         }
         
@@ -229,7 +206,8 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
             exploreTableViewCell.exploreImageOverlayGradient.alpha = gradientAlpha
             exploreTableViewCell.exploreImageOverlayView.layer.cornerRadius = ROUNDED_CORNER
             exploreTableViewCell.exploreImageOverlayLabel.text = exploreImageLabels[indexPath.row-1] as String
-        
+            exploreTableViewCell.backgroundColor = UIColor.clearColor()
+            
             return exploreTableViewCell
         }
     }
