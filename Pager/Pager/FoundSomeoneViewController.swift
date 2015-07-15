@@ -10,6 +10,8 @@ import UIKit
 
 class FoundSomeoneViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
     
+    @IBOutlet weak var expertPhoto: UIImageView!
+    
     var isPresenting: Bool = true
 
     required init(coder aDecoder: NSCoder) {
@@ -22,6 +24,8 @@ class FoundSomeoneViewController: UIViewController, UIViewControllerTransitionin
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.expertPhoto.transform = CGAffineTransformMakeScale(0, 0)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,6 +69,16 @@ class FoundSomeoneViewController: UIViewController, UIViewControllerTransitionin
             toViewController.view.alpha = 0
             UIView.animateWithDuration(0.4, animations: { () -> Void in
                 toViewController.view.alpha = 1
+                
+                //start animation block for expertPhoto
+                UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 3.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: { () -> Void in
+                    //
+                    self.expertPhoto.transform = CGAffineTransformMakeScale(1, 1)
+                }, completion: { (Bool) -> Void in
+                    //
+                })
+                //end animation block for expertPhoto
+                
                 }) { (finished: Bool) -> Void in
                     transitionContext.completeTransition(true)
             }
@@ -79,5 +93,6 @@ class FoundSomeoneViewController: UIViewController, UIViewControllerTransitionin
     }
 
 
+    
 
 }
