@@ -11,15 +11,41 @@ import UIKit
 class MainViewController: UIViewController {
 
     @IBOutlet weak var logoBackgroundView: UIView!
+    var logoImageView: UIImageView!
+    
+    //screensize
+    var screenSize: CGRect = CGRectZero
+    var screenHeight:CGFloat = 0
+    var screenWidth:CGFloat = 0
+    
+    //logosize
+    var logoWidth:CGFloat = 64
+    var logoHeight:CGFloat = 64
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //initialize screensize variables
+        screenSize = UIScreen.mainScreen().bounds
+        screenHeight = screenSize.height
+        screenWidth = screenSize.width
+        
+        //initialize logo in center of screen
+        logoImageView = UIImageView()
+        logoImageView.frame = CGRectMake(screenWidth/2-logoWidth/2, screenHeight/2-logoHeight/2, logoWidth, logoHeight)
+        logoImageView.image = UIImage(named: "logo")
+        logoImageView.contentMode = UIViewContentMode.ScaleAspectFill
         
         let delay =  0.5 * Double(NSEC_PER_SEC)
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         dispatch_after(time, dispatch_get_main_queue()) {
             self.gotoExploreVC()
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        logoBackgroundView.frame = CGRectMake(0, 0, screenWidth, screenHeight)
+        logoBackgroundView.addSubview(logoImageView)
     }
     
     func gotoExploreVC() {
