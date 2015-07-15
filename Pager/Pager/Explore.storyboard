@@ -16,9 +16,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="330" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yTM-ou-cFN">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="330" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yTM-ou-cFN">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.94580571339999997" green="0.94580571339999997" blue="0.94580571339999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExploreTableViewCellid" rowHeight="330" id="VgM-6O-lxQ" customClass="ExploreTableViewCell" customModule="Pager" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -89,7 +89,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="LSh-5R-Y3n" firstAttribute="top" secondItem="2Jy-Ou-qh2" secondAttribute="top" constant="40" id="61D-2N-0TO"/>
-                                                <constraint firstAttribute="bottom" secondItem="LSh-5R-Y3n" secondAttribute="bottom" constant="40" id="Q9I-mz-D5T"/>
+                                                <constraint firstAttribute="bottom" secondItem="LSh-5R-Y3n" secondAttribute="bottom" constant="30" id="Q9I-mz-D5T"/>
                                                 <constraint firstAttribute="trailing" secondItem="LSh-5R-Y3n" secondAttribute="trailing" constant="40" id="Vcb-ux-7bI"/>
                                                 <constraint firstItem="LSh-5R-Y3n" firstAttribute="leading" secondItem="2Jy-Ou-qh2" secondAttribute="leading" constant="40" id="qMV-UA-bJs"/>
                                             </constraints>

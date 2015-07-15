@@ -23,6 +23,10 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iAP-xA-7R5">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bxT-eR-EQG">
+                                        <rect key="frame" x="0.0" y="63" width="375" height="1"/>
+                                        <color key="backgroundColor" red="0.94580571338383834" green="0.94580571338383834" blue="0.94580571338383834" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1y0-2P-95F">
                                         <rect key="frame" x="126" y="25" width="80" height="34"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
@@ -55,6 +59,9 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="FQP-Od-yNn"/>
+                                    <constraint firstAttribute="bottom" secondItem="bxT-eR-EQG" secondAttribute="bottom" id="Rt8-ug-wbQ"/>
+                                    <constraint firstItem="bxT-eR-EQG" firstAttribute="leading" secondItem="iAP-xA-7R5" secondAttribute="leading" id="fHA-fv-35B"/>
+                                    <constraint firstAttribute="trailing" secondItem="bxT-eR-EQG" secondAttribute="trailing" id="iVf-9u-q2c"/>
                                 </constraints>
                             </view>
                         </subviews>

@@ -45,9 +45,6 @@ class SearchViewController: UIViewController, UIViewControllerTransitioningDeleg
         
         //set the initial y position of findButton
         initialY = findButton.frame.origin.y
-        
-        
-        
 
         
     }
@@ -103,15 +100,7 @@ class SearchViewController: UIViewController, UIViewControllerTransitioningDeleg
             
         }
     }
-    
-    
-    @IBAction func exploreBtnDidPress(sender: AnyObject) {
-    
-        var storyboard = UIStoryboard(name: "Explore", bundle: nil)
-        var controller = storyboard.instantiateViewControllerWithIdentifier("ExploreVC") as! ExploreViewController
-        self.presentViewController(controller, animated: true, completion: nil)
-    }
-    
+
     
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         isPresenting = true
