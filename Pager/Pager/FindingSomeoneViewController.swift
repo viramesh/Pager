@@ -16,6 +16,8 @@ class FindingSomeoneViewController: UIViewController, UIViewControllerTransition
     @IBOutlet weak var loadingP: UIImageView!
     @IBOutlet weak var closeButton: UIButton!
     
+    var timer: NSTimer!
+    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         modalPresentationStyle = UIModalPresentationStyle.Custom
@@ -43,20 +45,20 @@ class FindingSomeoneViewController: UIViewController, UIViewControllerTransition
         self.loadingP.startAnimating()
         
         //End Animation for loading P
-
-        let timer = NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: "toFoundSomeoneVC", userInfo: nil, repeats: false)
+        
 
     }
     
     override func viewDidAppear(animated: Bool) {
         
+        timer = NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: "toFoundSomeoneVC", userInfo: nil, repeats: false)
+
+        
        UIView.animateKeyframesWithDuration(0.2, delay: 0.4, options: UIViewKeyframeAnimationOptions.AllowUserInteraction, animations: { () -> Void in
         self.closeButton.alpha = 1
         self.closeButton.transform = CGAffineTransformMakeScale(1, 1)
        }, completion: nil)
-        
-
-
+    
     }
     
     override func didReceiveMemoryWarning() {

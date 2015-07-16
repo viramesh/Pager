@@ -81,7 +81,7 @@ class FoundSomeoneViewController: UIViewController, UIViewControllerTransitionin
                     self.expertPhoto.transform = CGAffineTransformMakeScale(1, 1)
                 }, completion: { (Bool) -> Void in
                     //
-                    self.progress.animateToAngle(360, duration: 1, completion: nil)
+                    self.progress.animateToAngle(360, duration: 0.5, completion: nil)
                 })
                 //end animation block for expertPhoto
                 
