@@ -11,6 +11,7 @@
 		08AE67F71B51EA990054E004 /* FindingSomeoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE67F61B51EA990054E004 /* FindingSomeoneViewController.swift */; };
 		08B4821E1B4CDF2D00E8C0D2 /* long-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B4821D1B4CDF2D00E8C0D2 /* long-button.png */; };
 		2B68EA021B4F0711005D843F /* TellMeMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B68EA011B4F0711005D843F /* TellMeMoreViewController.swift */; };
+		2B6D3C901B5713F600466779 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D3C8F1B5713F600466779 /* KDCircularProgress.swift */; };
 		2F7B0BB71B562F45005561B8 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7B0BB61B562F45005561B8 /* LaunchViewController.swift */; };
 		2FA30C7D1B41DBAB00FC1D27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA30C7C1B41DBAB00FC1D27 /* AppDelegate.swift */; };
 		2FA30C821B41DBAB00FC1D27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FA30C801B41DBAB00FC1D27 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 		08AE67F61B51EA990054E004 /* FindingSomeoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindingSomeoneViewController.swift; sourceTree = "<group>"; };
 		08B4821D1B4CDF2D00E8C0D2 /* long-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "long-button.png"; sourceTree = "<group>"; };
 		2B68EA011B4F0711005D843F /* TellMeMoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TellMeMoreViewController.swift; sourceTree = "<group>"; };
+		2B6D3C8F1B5713F600466779 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 		2F7B0BB61B562F45005561B8 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaunchViewController.swift; path = ../LaunchViewController.swift; sourceTree = "<group>"; };
 		2FA30C771B41DBAB00FC1D27 /* Pager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FA30C7B1B41DBAB00FC1D27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				08AE67F61B51EA990054E004 /* FindingSomeoneViewController.swift */,
 				088AA0481B563CE300766E70 /* FoundSomeoneViewController.swift */,
 				2B68EA011B4F0711005D843F /* TellMeMoreViewController.swift */,
+				2B6D3C8F1B5713F600466779 /* KDCircularProgress.swift */,
 			);
 			name = Chat;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B6D3C901B5713F600466779 /* KDCircularProgress.swift in Sources */,
 				2FA30C7D1B41DBAB00FC1D27 /* AppDelegate.swift in Sources */,
 				2F7B0BB71B562F45005561B8 /* LaunchViewController.swift in Sources */,
 				2FD97D991B43A639000F7342 /* ExploreTableViewCell.swift in Sources */,

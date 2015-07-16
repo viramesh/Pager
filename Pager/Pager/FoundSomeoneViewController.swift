@@ -12,6 +12,9 @@ class FoundSomeoneViewController: UIViewController, UIViewControllerTransitionin
     
     @IBOutlet weak var expertPhoto: UIImageView!
     
+    var progress: KDCircularProgress!
+
+    
     var isPresenting: Bool = true
 
     required init(coder aDecoder: NSCoder) {
@@ -25,7 +28,9 @@ class FoundSomeoneViewController: UIViewController, UIViewControllerTransitionin
 
         // Do any additional setup after loading the view.
         self.expertPhoto.transform = CGAffineTransformMakeScale(0, 0)
-
+        
+        setProgressCircle()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -76,6 +81,7 @@ class FoundSomeoneViewController: UIViewController, UIViewControllerTransitionin
                     self.expertPhoto.transform = CGAffineTransformMakeScale(1, 1)
                 }, completion: { (Bool) -> Void in
                     //
+                    self.progress.animateToAngle(360, duration: 1, completion: nil)
                 })
                 //end animation block for expertPhoto
                 
@@ -92,7 +98,25 @@ class FoundSomeoneViewController: UIViewController, UIViewControllerTransitionin
         }
     }
 
+    func setProgressCircle(){
+        progress = KDCircularProgress(frame: CGRect(x: 0, y: 0, width: 132, height: 132))
+        progress.startAngle = -90
+        progress.progressThickness = 0.15
+        progress.trackThickness = 0
+        progress.clockwise = true
+        progress.gradientRotateSpeed = 2
+        progress.roundedCorners = false
+        progress.glowMode = .Forward
+        progress.glowAmount = 0
+        progress.setColors(UIColor(red: 77/255, green: 205/255, blue: 176/255, alpha: 1))
+        progress.center = CGPoint(x: expertPhoto.center.x, y: expertPhoto.center.y)
+        view.addSubview(progress)
+    }
+    
 
+    @IBAction func pressDismissButton(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     
 
 }
