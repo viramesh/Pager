@@ -118,5 +118,11 @@ class FoundSomeoneViewController: UIViewController, UIViewControllerTransitionin
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    @IBAction func tappedGetStarted(sender: AnyObject) {
+        //transition to LoginViewController
+        var storyboard = UIStoryboard(name: "Login", bundle: nil)
+        var controller = storyboard.instantiateViewControllerWithIdentifier("loginVC") as! LoginViewController
+        self.presentViewController(controller, animated: true, completion: nil)
+    }
 
 }
