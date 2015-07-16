@@ -20,7 +20,7 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
     var exploreImageLabels = [String]()
     
     //Table cell properties
-    let ROUNDED_CORNER:CGFloat = 4
+    let ROUNDED_CORNER:CGFloat = 2
     
     //screensize
     var screenSize: CGRect = CGRectZero
@@ -29,16 +29,17 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
     
     //for parallax-ing the images
     var topIndexRow:Int = 1
+    let TOP_MARGIN:CGFloat = 0
     let YPOS_START:CGFloat = -120
     let YPOS_END:CGFloat = -140
     var newYPos:CGFloat = -140
-
-    let GRADIENT_ALPHA_START:CGFloat = 0.8
-    let GRADIENT_ALPHA_END:CGFloat = 0.2
-    var newGradientAlpha:CGFloat = 0.2
-
-    let TABLE_CELL_MAX_HEIGHT_PERCENTAGE:CGFloat = 0.50
-    let TABLE_CELL_MIN_HEIGHT_PERCENTAGE:CGFloat = 0.20
+    let GRADIENT_ALPHA_START:CGFloat = 0.3
+    let GRADIENT_ALPHA_END:CGFloat = 0
+    var newGradientAlpha:CGFloat = 0
+    
+    
+    let TABLE_CELL_MAX_HEIGHT_PERCENTAGE:CGFloat = 0.4
+    let TABLE_CELL_MIN_HEIGHT_PERCENTAGE:CGFloat = 0.3
     var TABLE_CELL_MAX_HEIGHT:CGFloat! // this value is set in viewdidload
     var TABLE_CELL_MIN_HEIGHT:CGFloat! // this value is set in viewdidload
     var newHeight: CGFloat! // this value is set in viewdidload
@@ -67,11 +68,12 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         //setup table
         exploreTableView.dataSource = self
         exploreTableView.delegate = self
+        exploreTableView.bounces = true
         exploreImages = ["landscaping", "gardening", "doors", "windows", "deck", "garage", "crack", "holes", "leak", "locks", "plumbing", "wallpainting", "decor", "appliances", "curtains", "electrical", "lighting", "wiring", "internet"]
         exploreImageLabels = ["Yard work", "Gardening", "Fix doors", "Repair windows", "Deck work", "Garage Doors", "Fix cracks", "Patch holes", "Fix leaks", "Change locks", "Plumbing Issues", "Paint walls", "Home decor", "Appliances", "Hang curtains", "Electrical issues", "Fix lighting", "Wiring issues", "Internet Problems"]
         TABLE_CELL_MAX_HEIGHT = screenHeight * TABLE_CELL_MAX_HEIGHT_PERCENTAGE
         TABLE_CELL_MIN_HEIGHT = screenHeight * TABLE_CELL_MIN_HEIGHT_PERCENTAGE
-        newHeight = CGFloat(convertValue(Float(TABLE_HEADER_HEIGHT), 0, Float(TABLE_CELL_MAX_HEIGHT), Float(TABLE_CELL_MAX_HEIGHT), Float(TABLE_CELL_MIN_HEIGHT)))
+        newHeight = CGFloat(convertValue(Float(TABLE_HEADER_HEIGHT), Float(TOP_MARGIN), Float(TOP_MARGIN + TABLE_CELL_MAX_HEIGHT), Float(TABLE_CELL_MAX_HEIGHT), Float(TABLE_CELL_MIN_HEIGHT)))
         
     }
 
@@ -251,11 +253,11 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         let screenHeight = screenSize.height
         
-        newYPos = CGFloat(convertValue(Float(rectInSuperview.origin.y), 0, Float(TABLE_CELL_MAX_HEIGHT), Float(YPOS_END), Float(YPOS_START)))
+        newYPos = CGFloat(convertValue(Float(rectInSuperview.origin.y), Float(TOP_MARGIN), Float(TOP_MARGIN + TABLE_CELL_MAX_HEIGHT), Float(YPOS_END), Float(YPOS_START)))
         
-        newGradientAlpha = CGFloat(convertValue(Float(rectInSuperview.origin.y), 0, Float(TABLE_CELL_MAX_HEIGHT), Float(GRADIENT_ALPHA_END), Float(GRADIENT_ALPHA_START)))
+        newGradientAlpha = CGFloat(convertValue(Float(rectInSuperview.origin.y), Float(TOP_MARGIN), Float(TOP_MARGIN + TABLE_CELL_MAX_HEIGHT), Float(GRADIENT_ALPHA_END), Float(GRADIENT_ALPHA_START)))
         
-        newHeight = CGFloat(convertValue(Float(rectInSuperview.origin.y), 0, Float(TABLE_CELL_MAX_HEIGHT), Float(TABLE_CELL_MAX_HEIGHT), Float(TABLE_CELL_MIN_HEIGHT)))
+        newHeight = CGFloat(convertValue(Float(rectInSuperview.origin.y), Float(TOP_MARGIN), Float(TOP_MARGIN + TABLE_CELL_MAX_HEIGHT), Float(TABLE_CELL_MAX_HEIGHT), Float(TABLE_CELL_MIN_HEIGHT)))
         
         topIndexRow = visibleImages[second_one].row
         
@@ -267,6 +269,7 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         
+/*
         var visibleCells = exploreTableView.indexPathsForVisibleRows() as! [NSIndexPath]
         
         if(velocity.y <= 0 || visibleCells.count <= 1) {
@@ -279,6 +282,7 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
             targetContentOffset.memory.y = rectInTableView.origin.y
             
         }
+*/
         
     }
 }
