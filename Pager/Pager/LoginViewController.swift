@@ -10,10 +10,13 @@ import UIKit
 import Parse
 import FBSDKLoginKit
 import ParseFacebookUtils
+import FBSDKCoreKit
 
 class LoginViewController: UIViewController {
 
     let permissions = ["public_profile"]
+    
+    @IBOutlet weak var loginStatusLabel: UILabel!
     
     var currentUser: PFUser!
     
@@ -23,6 +26,16 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
         currentUser = PFUser.currentUser()
         println(currentUser)
+        
+        if currentUser != nil {
+            println("User is logged in")
+            loginStatusLabel.text = "Welcome \(currentUser)"
+            
+        } else {
+            println("No user is logged in")
+            loginStatusLabel.text = "Please sign in"
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,5 +70,6 @@ class LoginViewController: UIViewController {
         PFUser.logOut()
         println(currentUser)
     }
+    
     
 }
