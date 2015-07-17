@@ -15,6 +15,8 @@ class LoginViewController: UIViewController {
 
     let permissions = ["public_profile"]
     
+    @IBOutlet weak var loginStatusLabel: UILabel!
+    
     var currentUser: PFUser!
     
     override func viewDidLoad() {
@@ -23,6 +25,16 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
         currentUser = PFUser.currentUser()
         println(currentUser)
+        
+        if currentUser != nil {
+            println("User is logged in")
+            loginStatusLabel.text = "Welcome \(currentUser)"
+            
+        } else {
+            println("No user is logged in")
+            loginStatusLabel.text = "Please sign in"
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
