@@ -82,7 +82,7 @@ class MainViewController: UIViewController {
         hideViewController(exploreVC)
     }
 
-    @IBAction func homeBtnDidPress(sender: AnyObject) {
+    @IBAction func exploreBtnDidPress(sender: AnyObject) {
         displayViewController(exploreVC)
         hideViewController(searchVC)
     }
