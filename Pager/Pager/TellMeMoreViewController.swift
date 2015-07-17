@@ -78,8 +78,7 @@ class TellMeMoreViewController: UIViewController, UIViewControllerTransitioningD
             containerView.addSubview(toViewController.view)
             toViewController.view.alpha = 0
             
-            var mainVC = fromViewController as! MainViewController
-            var searchVC = mainVC.searchVC
+            var searchVC = fromViewController as! SearchViewController
 
             searchVC.button.hidden = true
             self.tellMeMoreLabelTitle.hidden = true
@@ -104,8 +103,7 @@ class TellMeMoreViewController: UIViewController, UIViewControllerTransitioningD
         } else {
             
             
-            var mainVC = toViewController as! MainViewController
-            var searchVC = mainVC.searchVC
+            var searchVC = toViewController as! SearchViewController
             UIView.animateWithDuration(0.4, animations: { () -> Void in
                 fromViewController.view.alpha = 0
                 searchVC.button.hidden = false

@@ -1,5 +1,5 @@
 //
-//  TabBarSearchViewController.swift
+//  TabBarAccountViewController.swift
 //  Pager
 //
 //  Created by Vignesh Ramesh on 7/17/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TabBarSearchViewController: UIViewController {
+class TabBarAccountViewController: UIViewController {
 
     @IBOutlet weak var contentView: UIView!
     
@@ -18,8 +18,8 @@ class TabBarSearchViewController: UIViewController {
     var screenWidth:CGFloat = 0
     
     //exploreview controller
-    var searchVC:SearchViewController!
-    
+    var accountVC:LoginViewController!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,10 +28,10 @@ class TabBarSearchViewController: UIViewController {
         screenHeight = screenSize.height
         screenWidth = screenSize.width
         
-        var storyboard = UIStoryboard(name: "Search", bundle: nil)
-        searchVC = storyboard.instantiateViewControllerWithIdentifier("SearchVC") as! SearchViewController
+        var storyboard = UIStoryboard(name: "Login", bundle: nil)
+        accountVC = storyboard.instantiateViewControllerWithIdentifier("loginVC") as! LoginViewController
         
-        contentView.addSubview(searchVC.view)
+        contentView.addSubview(accountVC.view)
     }
     
     override func viewDidLayoutSubviews() {

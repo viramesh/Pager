@@ -17,15 +17,21 @@ class TabBarExploreViewController: UIViewController {
     var screenHeight:CGFloat = 0
     var screenWidth:CGFloat = 0
     
+    //exploreview controller
+    var exploreVC:ExploreViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         //initialize screensize variables
         screenSize = UIScreen.mainScreen().bounds
         screenHeight = screenSize.height
         screenWidth = screenSize.width
+     
+        var storyboard = UIStoryboard(name: "Explore", bundle: nil)
+        exploreVC = storyboard.instantiateViewControllerWithIdentifier("ExploreVC") as! ExploreViewController
         
+        contentView.addSubview(exploreVC.view)
     }
     
     override func viewDidLayoutSubviews() {
