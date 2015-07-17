@@ -36,22 +36,33 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Zp4-XZ-EvS" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="0vF-H9-1t4"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Zp4-XZ-EvS" secondAttribute="bottom" id="D9W-LQ-KfU"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="bottom" secondItem="Zp4-XZ-EvS" secondAttribute="bottom" id="D9W-LQ-KfU"/>
                             <constraint firstItem="Zp4-XZ-EvS" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="gJP-pA-jdC"/>
                             <constraint firstAttribute="trailing" secondItem="Zp4-XZ-EvS" secondAttribute="trailing" id="u4u-pF-pZw"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="0vF-H9-1t4"/>
+                                <exclude reference="gJP-pA-jdC"/>
+                                <exclude reference="u4u-pF-pZw"/>
+                                <exclude reference="D9W-LQ-KfU"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Explore" image="icon_explore_normal" id="rCN-8D-Ut8"/>
+                    <tabBarItem key="tabBarItem" title="Explore" id="rCN-8D-Ut8"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="contentView" destination="Zp4-XZ-EvS" id="hfW-ja-NTY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1365.5" y="1473.5"/>
         </scene>
-        <!--Page A Pro-->
+        <!--Tab Bar Search View Controller-->
         <scene sceneID="45R-yS-Nre">
             <objects>
-                <viewController id="NCR-Bt-473" sceneMemberID="viewController">
+                <viewController id="NCR-Bt-473" customClass="TabBarSearchViewController" customModule="Pager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rhb-l4-nhL"/>
                         <viewControllerLayoutGuide type="bottom" id="Lvt-CS-XK3"/>
@@ -70,14 +81,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.30196078430000001" green="0.80392156859999997" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Page A Pro" image="icon_search_normal" id="6rI-Nn-nDu"/>
+                    <tabBarItem key="tabBarItem" title="" id="6rI-Nn-nDu"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fa6-ub-Pu8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1861.5" y="1473.5"/>
         </scene>
-        <!--Account-->
+        <!--My Account-->
         <scene sceneID="zyW-pm-DbR">
             <objects>
                 <viewController id="P3y-Of-lIu" sceneMemberID="viewController">
@@ -99,7 +110,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.30196078430000001" green="0.80392156859999997" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Account" image="icon_user_normal" id="y0n-1N-jfk"/>
+                    <tabBarItem key="tabBarItem" title="My Account" id="y0n-1N-jfk"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KAF-ln-He7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -135,10 +146,10 @@
             </objects>
             <point key="canvasLocation" x="829.5" y="657.5"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="cvj-3M-FNu">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="YsT-yx-ks9" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="YsT-yx-ks9" customClass="MainTabBarController" customModule="Pager" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -159,9 +170,4 @@
             <point key="canvasLocation" x="1373.5" y="657.5"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="icon_explore_normal" width="32" height="32"/>
-        <image name="icon_search_normal" width="32" height="30"/>
-        <image name="icon_user_normal" width="32" height="32"/>
-    </resources>
 </document>

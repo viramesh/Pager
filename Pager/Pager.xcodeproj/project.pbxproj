@@ -28,6 +28,8 @@
 		2FA30CAD1B4266CE00FC1D27 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA30CAC1B4266CE00FC1D27 /* ExploreViewController.swift */; };
 		2FA30CAF1B42672000FC1D27 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA30CAE1B42672000FC1D27 /* SearchViewController.swift */; };
 		2FADF64C1B58D8DF005EED53 /* TabBarExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FADF64B1B58D8DF005EED53 /* TabBarExploreViewController.swift */; };
+		2FADF64E1B59B1A7005EED53 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FADF64D1B59B1A7005EED53 /* MainTabBarController.swift */; };
+		2FADF6501B59BA6F005EED53 /* TabBarSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FADF64F1B59BA6F005EED53 /* TabBarSearchViewController.swift */; };
 		2FBEBC291B4F99B500504FD3 /* ExploreTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBEBC281B4F99B500504FD3 /* ExploreTableViewHeader.swift */; };
 		2FD97D991B43A639000F7342 /* ExploreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD97D981B43A639000F7342 /* ExploreTableViewCell.swift */; };
 		2FD97D9B1B43B712000F7342 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD97D9A1B43B712000F7342 /* Common.swift */; };
@@ -71,6 +73,8 @@
 		2FA30CAC1B4266CE00FC1D27 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		2FA30CAE1B42672000FC1D27 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		2FADF64B1B58D8DF005EED53 /* TabBarExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarExploreViewController.swift; sourceTree = "<group>"; };
+		2FADF64D1B59B1A7005EED53 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		2FADF64F1B59BA6F005EED53 /* TabBarSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarSearchViewController.swift; sourceTree = "<group>"; };
 		2FBEBC281B4F99B500504FD3 /* ExploreTableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreTableViewHeader.swift; sourceTree = "<group>"; };
 		2FD97D981B43A639000F7342 /* ExploreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreTableViewCell.swift; sourceTree = "<group>"; };
 		2FD97D9A1B43B712000F7342 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
@@ -143,6 +147,8 @@
 				2FA30CAA1B4264C100FC1D27 /* MainViewController.swift */,
 				2F7B0BB61B562F45005561B8 /* LaunchViewController.swift */,
 				2FADF64B1B58D8DF005EED53 /* TabBarExploreViewController.swift */,
+				2FADF64D1B59B1A7005EED53 /* MainTabBarController.swift */,
+				2FADF64F1B59BA6F005EED53 /* TabBarSearchViewController.swift */,
 			);
 			path = Pager;
 			sourceTree = "<group>";
@@ -389,11 +395,13 @@
 			files = (
 				2B6D3C901B5713F600466779 /* KDCircularProgress.swift in Sources */,
 				2FA30C7D1B41DBAB00FC1D27 /* AppDelegate.swift in Sources */,
+				2FADF64E1B59B1A7005EED53 /* MainTabBarController.swift in Sources */,
 				2F7B0BB71B562F45005561B8 /* LaunchViewController.swift in Sources */,
 				2FD97D991B43A639000F7342 /* ExploreTableViewCell.swift in Sources */,
 				2FBEBC291B4F99B500504FD3 /* ExploreTableViewHeader.swift in Sources */,
 				2FA30CAB1B4264C100FC1D27 /* MainViewController.swift in Sources */,
 				08AE67F71B51EA990054E004 /* FindingSomeoneViewController.swift in Sources */,
+				2FADF6501B59BA6F005EED53 /* TabBarSearchViewController.swift in Sources */,
 				2FA30CAF1B42672000FC1D27 /* SearchViewController.swift in Sources */,
 				2FADF64C1B58D8DF005EED53 /* TabBarExploreViewController.swift in Sources */,
 				2B68EA021B4F0711005D843F /* TellMeMoreViewController.swift in Sources */,

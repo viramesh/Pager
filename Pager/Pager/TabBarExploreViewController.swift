@@ -10,11 +10,26 @@ import UIKit
 
 class TabBarExploreViewController: UIViewController {
 
+    @IBOutlet weak var contentView: UIView!
+    
+    //screensize
+    var screenSize: CGRect = CGRectZero
+    var screenHeight:CGFloat = 0
+    var screenWidth:CGFloat = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.tabBarController?.tabBar.tintColor = UIColor(red: (102/255), green: (194/255), blue: (172/255), alpha: 1)
+        //initialize screensize variables
+        screenSize = UIScreen.mainScreen().bounds
+        screenHeight = screenSize.height
+        screenWidth = screenSize.width
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        contentView.frame = CGRectMake(0, 0, screenWidth, screenHeight)
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,6 +50,7 @@ class TabBarExploreViewController: UIViewController {
     */
     @IBAction func toggleTabBar(sender: AnyObject) {
         setTabBarVisible(!tabBarIsVisible(), animated: true)
+
     }
     
     func setTabBarVisible(visible:Bool, animated:Bool) {
@@ -48,14 +64,18 @@ class TabBarExploreViewController: UIViewController {
         let frame = self.tabBarController?.tabBar.frame
         let height = frame?.size.height
         let offsetY = (visible ? -height! : height)
+        let searchButtonOffsetY = (visible ? 10 : -10)
         
         // zero duration means no animation
         let duration:NSTimeInterval = (animated ? 0.3 : 0.0)
         
         //  animate the tabBar
         if frame != nil {
+            let tabBarC = self.tabBarController as! MainTabBarController
+            
             UIView.animateWithDuration(duration) {
-                self.tabBarController?.tabBar.frame = CGRectOffset(frame!, 0, offsetY!)
+                tabBarC.tabBar.frame = CGRectOffset(frame!, 0, offsetY!)
+                tabBarC.button.center.y = tabBarC.button.center.y + CGFloat(searchButtonOffsetY)
                 return
             }
         }
