@@ -1,0 +1,6 @@
+framework module ParseFacebookUtils {
+  umbrella header "Pods-ParseFacebookUtils-umbrella.h"
+
+  export *
+  module * { export * }
+}

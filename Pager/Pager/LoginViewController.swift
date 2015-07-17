@@ -7,13 +7,22 @@
 //
 
 import UIKit
+import Parse
+import FBSDKLoginKit
+import ParseFacebookUtils
 
 class LoginViewController: UIViewController {
 
+    let permissions = ["public_profile"]
+    
+    var currentUser: PFUser!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        currentUser = PFUser.currentUser()
+        println(currentUser)
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,5 +40,22 @@ class LoginViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func pressedLoginWithFacebook(sender: AnyObject) {
+       
+        PFFacebookUtils.logInWithPermissions(self.permissions, block: { (user: PFUser?, error: NSError?) -> Void in //switched ! to ? //
+            if user == nil {
+                println("Uh oh. The user cancelled the Facebook login.")
+            } else if user!.isNew { //inserted ! //
+                println("User signed up and logged in through Facebook!")
+            } else {
+                println("User logged in through Facebook! \(user!.username)")
+            }
+        })
+    }
 
+    @IBAction func pressedLogout(sender: AnyObject) {
+        PFUser.logOut()
+        println(currentUser)
+    }
+    
 }
