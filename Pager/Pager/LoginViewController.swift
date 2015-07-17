@@ -10,6 +10,7 @@ import UIKit
 import Parse
 import FBSDKLoginKit
 import ParseFacebookUtils
+import FBSDKCoreKit
 
 class LoginViewController: UIViewController {
 
@@ -69,5 +70,6 @@ class LoginViewController: UIViewController {
         PFUser.logOut()
         println(currentUser)
     }
+    
     
 }
