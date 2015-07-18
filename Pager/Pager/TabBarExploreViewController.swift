@@ -31,7 +31,8 @@ class TabBarExploreViewController: UIViewController {
         var storyboard = UIStoryboard(name: "Explore", bundle: nil)
         exploreVC = storyboard.instantiateViewControllerWithIdentifier("ExploreVC") as! ExploreViewController
         
-        contentView.addSubview(exploreVC.view)
+        displayViewController(exploreVC)
+
     }
     
     override func viewDidLayoutSubviews() {
@@ -44,19 +45,31 @@ class TabBarExploreViewController: UIViewController {
         
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func displayViewController(content: UIViewController) {
+        addChildViewController(content)
+        self.contentView.addSubview(content.view)
+        content.didMoveToParentViewController(self)
     }
-    */
-    @IBAction func toggleTabBar(sender: AnyObject) {
-        setTabBarVisible(!tabBarIsVisible(), animated: true)
+    
+    func hideViewController(content: UIViewController) {
+        content.willMoveToParentViewController(nil)
+        content.view.removeFromSuperview()
+        content.removeFromParentViewController()
+    }
+    
 
+    func exploreViewDidPan(sender: UIPanGestureRecognizer) {
+        var point = sender.locationInView(view)
+        var velocity = sender.velocityInView(view)
+        println("\(point) & \(velocity)")
+        
+        if sender.state == UIGestureRecognizerState.Began {
+            println("Gesture began at: \(point)")
+        } else if sender.state == UIGestureRecognizerState.Changed {
+            println("Gesture changed at: \(point)")
+        } else if sender.state == UIGestureRecognizerState.Ended {
+            println("Gesture ended at: \(point)")
+        }
     }
     
     func setTabBarVisible(visible:Bool, animated:Bool) {

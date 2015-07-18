@@ -51,6 +51,9 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
     //for the prompt label
     let TABLE_HEADER_HEIGHT:CGFloat = 180
     
+    //for hiding tab bar in mainVC
+    var parentVC:TabBarExploreViewController!
+    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         modalPresentationStyle = UIModalPresentationStyle.Custom
@@ -233,6 +236,7 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
 //        println("table scrolled")
+        parentVC = self.parentViewController as! TabBarExploreViewController
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -263,8 +267,13 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         
         exploreTableView.reloadData()
         
-        
-        
+        var velocity:CGPoint = scrollView.panGestureRecognizer.velocityInView(scrollView)
+        if(velocity.y < 0) {
+            parentVC.setTabBarVisible(false, animated: true)
+        }
+        else if(velocity.y > 0) {
+            parentVC.setTabBarVisible(true, animated: true)
+        }
     }
     
     func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
