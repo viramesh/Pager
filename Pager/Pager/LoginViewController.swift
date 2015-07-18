@@ -27,9 +27,14 @@ class LoginViewController: UIViewController {
         currentUser = PFUser.currentUser()
         println(currentUser)
         
+        
         if currentUser != nil {
             println("User is logged in")
             loginStatusLabel.text = "Welcome \(currentUser)"
+            
+            println("The user logged in is: \(currentUser)")
+            getUserInfo()
+
             
         } else {
             println("No user is logged in")
@@ -70,6 +75,30 @@ class LoginViewController: UIViewController {
         PFUser.logOut()
         println(currentUser)
     }
+    
+    
+    func getUserInfo(){
+        if let sessions = PFFacebookUtils.session() {
+            if sessions.isOpen {
+                println("Sessions is open")
+                FBRequestConnection.startForMeWithCompletionHandler({ (connection:FBRequestConnection!, result: AnyObject!, error:NSError!) -> Void in
+                    if error != nil {
+                        println("Facebook me request - error is not nil :(")
+                    } else {
+                        println("Facebook me request - error is nil :)")
+                        let urlUserImage = "http://graph.facebook.com/\(result.objectID)/picture?type=large"
+                        let firstName = result.first_name
+                        let lastName = result.last_name
+                        println("Firstname: \(result.firstName!)")
+                        println(urlUserImage)
+                    }
+                })
+            }
+        } else {
+            
+        }
+    }
+
     
     
 }
