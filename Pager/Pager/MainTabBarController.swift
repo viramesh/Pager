@@ -18,7 +18,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
 
         self.tabBar.tintColor = UIColor(red: (102/255), green: (194/255), blue: (172/255), alpha: 1)
         self.tabBar.barTintColor = UIColor.whiteColor()
-        self.tabBar.clipsToBounds = true
+        //self.tabBar.clipsToBounds = true
         
         let itemAppearance = UITabBarItem.appearance()
         let attributesFont = [NSFontAttributeName:UIFont(name: "Avenir", size: 16)!, NSForegroundColorAttributeName:UIColor(red: (119/255), green: (119/255), blue: (119/255), alpha: 1)]
@@ -77,6 +77,10 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         button = UIButton(frame: frame)
         button.setBackgroundImage(buttonImage, forState: UIControlState.Normal)
         button.setBackgroundImage(highlightImage, forState: UIControlState.Highlighted)
+        button.layer.shadowColor = UIColor.blackColor().CGColor
+        button.layer.shadowOffset = CGSizeMake(0, -1)
+        button.layer.shadowRadius = 0
+        button.layer.shadowOpacity = 0.15
         
         var heightDifference:CGFloat = buttonImage.size.height - self.tabBar.frame.size.height
         if heightDifference < 0 {
@@ -130,14 +134,15 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let height = frame.size.height
         let offsetY = (visible ? -height : height)
         let searchButtonOffsetY = (visible ? 10 : -10)
+        let searchButtonShadowRadius = (visible ? 0 : 2)
         
         // zero duration means no animation
         let duration:NSTimeInterval = (animated ? 0.3 : 0.0)
         
-        
         UIView.animateWithDuration(duration) {
             self.tabBar.frame = CGRectOffset(frame, 0, offsetY)
             self.button.center.y = self.button.center.y + CGFloat(searchButtonOffsetY)
+            self.button.layer.shadowRadius = CGFloat(searchButtonShadowRadius)
             return
         }
     }

@@ -71,7 +71,8 @@ class TabBarExploreViewController: UIViewController {
         let height = frame?.size.height
         let offsetY = (visible ? -height! : height)
         let searchButtonOffsetY = (visible ? 10 : -10)
-        
+        let searchButtonShadowRadius = (visible ? 0 : 2)
+
         // zero duration means no animation
         let duration:NSTimeInterval = (animated ? 0.3 : 0.0)
         
@@ -82,6 +83,8 @@ class TabBarExploreViewController: UIViewController {
             UIView.animateWithDuration(duration) {
                 tabBarC.tabBar.frame = CGRectOffset(frame!, 0, offsetY!)
                 tabBarC.button.center.y = tabBarC.button.center.y + CGFloat(searchButtonOffsetY)
+                tabBarC.button.layer.shadowRadius = CGFloat(searchButtonShadowRadius)
+
                 return
             }
         }
