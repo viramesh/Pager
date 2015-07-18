@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
         
         if currentUser != nil {
             println("User is logged in")
-            loginStatusLabel.text = "Welcome \(currentUser)"
+//            loginStatusLabel.text = "Welcome \(currentUser)"
             
             println("The user logged in is: \(currentUser)")
             getUserInfo()
@@ -87,10 +87,10 @@ class LoginViewController: UIViewController {
                     } else {
                         println("Facebook me request - error is nil :)")
                         let urlUserImage = "http://graph.facebook.com/\(result.objectID)/picture?type=large"
-                        let firstName = result.first_name
-                        let lastName = result.last_name
-                        println("Firstname: \(result.firstName!)")
+                        let firstName: AnyObject? = result.valueForKey("name")
+                        println("Firstname: \(firstName!)")
                         println(urlUserImage)
+                        self.loginStatusLabel.text = "Welcome \(firstName!)"
                     }
                 })
             }
