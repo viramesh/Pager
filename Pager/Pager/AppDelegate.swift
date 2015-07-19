@@ -22,12 +22,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        // ----------------------------- PARSE Application ID --------------------------------//
+        
         Parse.setApplicationId("oI494Ypj6cOLlc0SpXrUJNX8RJFswJhNzRI2w6Mo", clientKey:"TufwnGDjVCQKYvs4wP54m3Sl9E9QMRWw1XwfwMW4")
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+        PFUser.enableRevocableSessionInBackground()
         PFFacebookUtils.initializeFacebook()
         
-        return true
+        // ------------------------------ Facebook -------------------------------------------//
+        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
+    
+    
+    
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
