@@ -10,10 +10,6 @@
 				<string>fb975215649177000</string>
 			</array>
 		</dict>
-		<dict>
-			<key>CFBundleURLName</key>
-			<string></string>
-		</dict>
 	</array>
 	<key>FacebookDisplayName</key>
 	<string>Pager</string>

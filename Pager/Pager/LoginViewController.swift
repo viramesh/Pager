@@ -7,10 +7,10 @@
 //
 
 import UIKit
-import Parse
-import FBSDKLoginKit
-import ParseFacebookUtils
-import FBSDKCoreKit
+//import Parse
+//import FBSDKLoginKit
+//import ParseFacebookUtils
+//import FBSDKCoreKit
 
 class LoginViewController: UIViewController {
 
@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
         
         if currentUser != nil {
             println("User is logged in")
-//            loginStatusLabel.text = "Welcome \(currentUser)"
+            loginStatusLabel.text = "Welcome \(currentUser.username)"
             
             println("The user logged in is: \(currentUser)")
             getUserInfo()
@@ -60,13 +60,14 @@ class LoginViewController: UIViewController {
     */
     @IBAction func pressedLoginWithFacebook(sender: AnyObject) {
        
-        PFFacebookUtils.logInWithPermissions(self.permissions, block: { (user: PFUser?, error: NSError?) -> Void in //switched ! to ? //
+        PFFacebookUtils.logInInBackgroundWithReadPermissions(self.permissions, block: { (user: PFUser?, error: NSError?) -> Void in //switched ! to ? //
             if user == nil {
                 println("Uh oh. The user cancelled the Facebook login.")
             } else if user!.isNew { //inserted ! //
                 println("User signed up and logged in through Facebook!")
             } else {
                 println("User logged in through Facebook! \(user!.username)")
+                self.getUserInfo()
             }
         })
     }
@@ -74,29 +75,48 @@ class LoginViewController: UIViewController {
     @IBAction func pressedLogout(sender: AnyObject) {
         PFUser.logOut()
         println(currentUser)
+        loginStatusLabel.text = "Please sign in"
     }
     
     
     func getUserInfo(){
-        if let sessions = PFFacebookUtils.session() {
-            if sessions.isOpen {
-                println("Sessions is open")
-                FBRequestConnection.startForMeWithCompletionHandler({ (connection:FBRequestConnection!, result: AnyObject!, error:NSError!) -> Void in
-                    if error != nil {
-                        println("Facebook me request - error is not nil :(")
-                    } else {
-                        println("Facebook me request - error is nil :)")
-                        let urlUserImage = "http://graph.facebook.com/\(result.objectID)/picture?type=large"
-                        let firstName: AnyObject? = result.valueForKey("name")
-                        println("Firstname: \(firstName!)")
-                        println(urlUserImage)
-                        self.loginStatusLabel.text = "Welcome \(firstName!)"
-                    }
-                })
-            }
-        } else {
+        var request: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
+        request.startWithCompletionHandler({ (connection, result, error) -> Void in
             
-        }
+            if ((error) != nil)
+            {
+                // Process error
+                println("Error: \(error)")
+            }
+            else
+            {
+                println("fetched user: \(result)")
+                let userName : NSString = result.valueForKey("name") as! NSString
+                println("User Name is: \(userName)")
+                self.loginStatusLabel.text = "Welcome \(userName)"
+            }
+        })
+        
+        
+//        if let sessions = PFFacebookUtils.sessions() {
+//            if sessions.isOpen {
+//                println("Sessions is open")
+//                FBRequestConnection.startForMeWithCompletionHandler({ (connection:FBRequestConnection!, result: AnyObject!, error:NSError!) -> Void in
+//                    if error != nil {
+//                        println("Facebook me request - error is not nil :(")
+//                    } else {
+//                        println("Facebook me request - error is nil :)")
+//                        let urlUserImage = "http://graph.facebook.com/\(result.objectID)/picture?type=large"
+//                        let firstName: AnyObject? = result.valueForKey("name")
+//                        println("Firstname: \(firstName!)")
+//                        println(urlUserImage)
+//                        self.loginStatusLabel.text = "Welcome \(firstName!)"
+//                    }
+//                })
+//            }
+//        } else {
+//            
+//        }
     }
 
     
