@@ -7,10 +7,10 @@
 //
 
 import UIKit
-//import Parse
-//import FBSDKLoginKit
-//import ParseFacebookUtils
-//import FBSDKCoreKit
+import Parse
+import FBSDKCoreKit
+import FBSDKLoginKit
+import ParseFacebookUtilsV4
 
 class LoginViewController: UIViewController {
 
