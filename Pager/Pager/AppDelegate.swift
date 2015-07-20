@@ -9,8 +9,8 @@
 import UIKit
 //import Parse
 //import FBSDKCoreKit
-//import FBSDKLoginKit
-//import ParseFacebookUtils
+////import FBSDKLoginKit
+////import ParseFacebookUtils
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
