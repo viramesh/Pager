@@ -82,16 +82,19 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         button.layer.shadowRadius = 0
         button.layer.shadowOpacity = 0.15
         
-        var heightDifference:CGFloat = buttonImage.size.height - self.tabBar.frame.size.height
-        if heightDifference < 0 {
-            button.center = self.tabBar.center;
-        }
-        else
-        {
-            var center:CGPoint = self.tabBar.center;
-            center.y = center.y - heightDifference/2.0;
-            button.center = center;
-        }
+//        var heightDifference:CGFloat = buttonImage.size.height - self.tabBar.frame.size.height
+//        if heightDifference < 0 {
+//            button.center = self.tabBar.center;
+//        }
+//        else
+//        {
+//            var center:CGPoint = self.tabBar.center;
+//            center.y = center.y - heightDifference/2.0;
+//            button.center = center;
+//        }
+        
+        self.button.center.x = self.tabBar.center.x
+        self.button.frame.origin.y = self.tabBar.frame.origin.y - 10
         
         button.addTarget(self, action: "changeTabToMiddleTab:", forControlEvents: UIControlEvents.TouchUpInside)
         
@@ -117,8 +120,6 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         });
         
         sender.userInteractionEnabled = false
-        
-        //setTabBarVisible(true, animated: true)
         
     }
     
