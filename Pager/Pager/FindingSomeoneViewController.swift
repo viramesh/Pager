@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class FindingSomeoneViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
+class FindingSomeoneViewController: UIViewController {
     
     var isPresenting: Bool = true
 
@@ -18,11 +18,11 @@ class FindingSomeoneViewController: UIViewController, UIViewControllerTransition
     
     var timer: NSTimer!
     
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        modalPresentationStyle = UIModalPresentationStyle.Custom
-        transitioningDelegate = self
-    }
+//    required init(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//        modalPresentationStyle = UIModalPresentationStyle.Custom
+//        transitioningDelegate = self
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +45,6 @@ class FindingSomeoneViewController: UIViewController, UIViewControllerTransition
         self.loadingP.startAnimating()
         
         //End Animation for loading P
-        
 
     }
     
@@ -67,47 +66,49 @@ class FindingSomeoneViewController: UIViewController, UIViewControllerTransition
     }
     
 
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        isPresenting = true
-        return self
-    }
-    
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        isPresenting = false
-        return self
-    }       
-
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
-        // The value here should be the duration of the animations scheduled in the animationTransition method
-        return 0.4
-    }
-    
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        println("animating transition")
-        var containerView = transitionContext.containerView()
-        var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
-        var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
-        
-        if (isPresenting) {
-            containerView.addSubview(toViewController.view)
-            toViewController.view.alpha = 0
-            UIView.animateWithDuration(0.4, animations: { () -> Void in
-                toViewController.view.alpha = 1
-                }) { (finished: Bool) -> Void in
-                    transitionContext.completeTransition(true)
-            }
-        } else {
-            UIView.animateWithDuration(0.4, animations: { () -> Void in
-                fromViewController.view.alpha = 0
-                }) { (finished: Bool) -> Void in
-                    transitionContext.completeTransition(true)
-                    fromViewController.view.removeFromSuperview()
-            }
-        }
-    }
+//    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        isPresenting = true
+//        return self
+//    }
+//    
+//    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        isPresenting = false
+//        return self
+//    }       
+//
+//    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+//        // The value here should be the duration of the animations scheduled in the animationTransition method
+//        return 0.4
+//    }
+//    
+//    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+//        println("animating transition")
+//        var containerView = transitionContext.containerView()
+//        var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
+//        var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
+//        
+//        if (isPresenting) {
+//            containerView.addSubview(toViewController.view)
+//            toViewController.view.alpha = 0
+//            UIView.animateWithDuration(0.4, animations: { () -> Void in
+//                toViewController.view.alpha = 1
+//                }) { (finished: Bool) -> Void in
+//                    transitionContext.completeTransition(true)
+//            }
+//        } else {
+//            UIView.animateWithDuration(0.4, animations: { () -> Void in
+//                fromViewController.view.alpha = 0
+//                }) { (finished: Bool) -> Void in
+//                    transitionContext.completeTransition(true)
+//                    fromViewController.view.removeFromSuperview()
+//            }
+//        }
+//    }
 
     @IBAction func closeButtonTapped(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+        println(self.parentViewController)
+        //dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     func toFoundSomeoneVC() {

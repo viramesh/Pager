@@ -15,6 +15,8 @@
 		2B6D3C921B582DFD00466779 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D3C911B582DFD00466779 /* LoginViewController.swift */; };
 		2F741CE91B5D823A00ED3D20 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F741CE81B5D823A00ED3D20 /* LaunchViewController.swift */; };
 		2F741CEC1B5D830D00ED3D20 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 2F741CEB1B5D830D00ED3D20 /* Podfile */; };
+		2F741CF01B5E169B00ED3D20 /* ChatNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F741CEF1B5E169B00ED3D20 /* ChatNavigationController.swift */; };
+		2F741CF21B5EA89700ED3D20 /* SearchNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F741CF11B5EA89700ED3D20 /* SearchNavigationController.swift */; };
 		2FA30C7D1B41DBAB00FC1D27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA30C7C1B41DBAB00FC1D27 /* AppDelegate.swift */; };
 		2FA30C821B41DBAB00FC1D27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FA30C801B41DBAB00FC1D27 /* Main.storyboard */; };
 		2FA30C841B41DBAB00FC1D27 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FA30C831B41DBAB00FC1D27 /* Images.xcassets */; };
@@ -24,7 +26,6 @@
 		2FA30CA51B42591F00FC1D27 /* Explore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FA30CA41B42591F00FC1D27 /* Explore.storyboard */; };
 		2FA30CA71B42592600FC1D27 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FA30CA61B42592600FC1D27 /* Search.storyboard */; };
 		2FA30CA91B42592D00FC1D27 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FA30CA81B42592D00FC1D27 /* Login.storyboard */; };
-		2FA30CAB1B4264C100FC1D27 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA30CAA1B4264C100FC1D27 /* MainViewController.swift */; };
 		2FA30CAD1B4266CE00FC1D27 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA30CAC1B4266CE00FC1D27 /* ExploreViewController.swift */; };
 		2FA30CAF1B42672000FC1D27 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA30CAE1B42672000FC1D27 /* SearchViewController.swift */; };
 		2FADF64C1B58D8DF005EED53 /* TabBarExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FADF64B1B58D8DF005EED53 /* TabBarExploreViewController.swift */; };
@@ -56,6 +57,8 @@
 		2B6D3C911B582DFD00466779 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2F741CE81B5D823A00ED3D20 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		2F741CEB1B5D830D00ED3D20 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		2F741CEF1B5E169B00ED3D20 /* ChatNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatNavigationController.swift; sourceTree = "<group>"; };
+		2F741CF11B5EA89700ED3D20 /* SearchNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchNavigationController.swift; sourceTree = "<group>"; };
 		2FA30C771B41DBAB00FC1D27 /* Pager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FA30C7B1B41DBAB00FC1D27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FA30C7C1B41DBAB00FC1D27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,7 +72,6 @@
 		2FA30CA41B42591F00FC1D27 /* Explore.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Explore.storyboard; sourceTree = "<group>"; };
 		2FA30CA61B42592600FC1D27 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		2FA30CA81B42592D00FC1D27 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		2FA30CAA1B4264C100FC1D27 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2FA30CAC1B4266CE00FC1D27 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		2FA30CAE1B42672000FC1D27 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		2FADF64B1B58D8DF005EED53 /* TabBarExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarExploreViewController.swift; sourceTree = "<group>"; };
@@ -156,7 +158,6 @@
 				2FA30C831B41DBAB00FC1D27 /* Images.xcassets */,
 				2FA30C851B41DBAB00FC1D27 /* LaunchScreen.xib */,
 				2FA30C7A1B41DBAB00FC1D27 /* Supporting Files */,
-				2FA30CAA1B4264C100FC1D27 /* MainViewController.swift */,
 				2FADF64B1B58D8DF005EED53 /* TabBarExploreViewController.swift */,
 				2FADF64D1B59B1A7005EED53 /* MainTabBarController.swift */,
 				2FADF64F1B59BA6F005EED53 /* TabBarSearchViewController.swift */,
@@ -204,6 +205,7 @@
 			children = (
 				2FA30CA61B42592600FC1D27 /* Search.storyboard */,
 				2FA30CAE1B42672000FC1D27 /* SearchViewController.swift */,
+				2F741CF11B5EA89700ED3D20 /* SearchNavigationController.swift */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -227,6 +229,7 @@
 				088AA0481B563CE300766E70 /* FoundSomeoneViewController.swift */,
 				2B68EA011B4F0711005D843F /* TellMeMoreViewController.swift */,
 				2B6D3C8F1B5713F600466779 /* KDCircularProgress.swift */,
+				2F741CEF1B5E169B00ED3D20 /* ChatNavigationController.swift */,
 			);
 			name = Chat;
 			sourceTree = "<group>";
@@ -403,9 +406,10 @@
 				2FD97D991B43A639000F7342 /* ExploreTableViewCell.swift in Sources */,
 				2FADF6521B59CBB9005EED53 /* TabBarAccountViewController.swift in Sources */,
 				2FBEBC291B4F99B500504FD3 /* ExploreTableViewHeader.swift in Sources */,
-				2FA30CAB1B4264C100FC1D27 /* MainViewController.swift in Sources */,
 				08AE67F71B51EA990054E004 /* FindingSomeoneViewController.swift in Sources */,
+				2F741CF21B5EA89700ED3D20 /* SearchNavigationController.swift in Sources */,
 				2FADF6501B59BA6F005EED53 /* TabBarSearchViewController.swift in Sources */,
+				2F741CF01B5E169B00ED3D20 /* ChatNavigationController.swift in Sources */,
 				2FA30CAF1B42672000FC1D27 /* SearchViewController.swift in Sources */,
 				2FADF64C1B58D8DF005EED53 /* TabBarExploreViewController.swift in Sources */,
 				2B68EA021B4F0711005D843F /* TellMeMoreViewController.swift in Sources */,

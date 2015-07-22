@@ -27,8 +27,6 @@ class TellMeMoreViewController: UIViewController, UIViewControllerTransitioningD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
@@ -79,7 +77,6 @@ class TellMeMoreViewController: UIViewController, UIViewControllerTransitioningD
             toViewController.view.alpha = 0
             
             var searchVC = fromViewController as! SearchViewController
-
             searchVC.button.hidden = true
             self.tellMeMoreLabelTitle.hidden = true
             
@@ -157,7 +154,7 @@ class TellMeMoreViewController: UIViewController, UIViewControllerTransitioningD
     
     
     @IBAction func backButtonPressed(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     //I want the button to say skip when the tellMeMoreInputField is empty and say Find Me Someone when has text in it

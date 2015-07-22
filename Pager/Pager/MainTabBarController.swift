@@ -30,8 +30,8 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         
         self.delegate = self
         //println("aaa")
-        var middleImage:UIImage = UIImage(named:"icon_search")!
-        var highlightedMiddleImage:UIImage = UIImage(named:"icon_search_selected")!
+        var middleImage:UIImage = UIImage(named:"tab_search")!
+        var highlightedMiddleImage:UIImage = UIImage(named:"tab_search_selected")!
         
         
         addCenterButtonWithImage(middleImage, highlightImage: highlightedMiddleImage)
@@ -118,37 +118,8 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         
         sender.userInteractionEnabled = false
         
-        setTabBarVisible(true, animated: true)
+        //setTabBarVisible(true, animated: true)
         
     }
     
-    func setTabBarVisible(visible:Bool, animated:Bool) {
-        
-        //* This cannot be called before viewDidLayoutSubviews(), because the frame is not set before this time
-        
-        // bail if the current state matches the desired state
-        if (tabBarIsVisible() == visible) { return }
-        
-        // get a frame calculation ready
-        let frame = self.tabBar.frame
-        let height = frame.size.height
-        let offsetY = (visible ? -height : height)
-        let searchButtonOffsetY = (visible ? 10 : -10)
-        let searchButtonShadowRadius = (visible ? 0 : 2)
-        
-        // zero duration means no animation
-        let duration:NSTimeInterval = (animated ? 0.3 : 0.0)
-        
-        UIView.animateWithDuration(duration) {
-            self.tabBar.frame = CGRectOffset(frame, 0, offsetY)
-            self.button.center.y = self.button.center.y + CGFloat(searchButtonOffsetY)
-            self.button.layer.shadowRadius = CGFloat(searchButtonShadowRadius)
-            return
-        }
-    }
-    
-    func tabBarIsVisible() ->Bool {
-        return self.tabBar.frame.origin.y < CGRectGetMaxY(self.view.frame)
-    }
-
 }

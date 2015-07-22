@@ -78,6 +78,8 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         TABLE_CELL_MIN_HEIGHT = screenHeight * TABLE_CELL_MIN_HEIGHT_PERCENTAGE
         newHeight = CGFloat(convertValue(Float(TABLE_HEADER_HEIGHT), Float(TOP_MARGIN), Float(TOP_MARGIN + TABLE_CELL_MAX_HEIGHT), Float(TABLE_CELL_MAX_HEIGHT), Float(TABLE_CELL_MIN_HEIGHT)))
         
+        parentVC = self.parentViewController as! TabBarExploreViewController
+        
     }
 
     override func viewDidLayoutSubviews() {
@@ -89,26 +91,7 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         // Dispose of any resources that can be recreated.
     }
     
-    override func prefersStatusBarHidden() -> Bool {
-        return true
-    }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    @IBAction func searchBtnDidPress(sender: AnyObject) {
-        var storyboard = UIStoryboard(name: "Search", bundle: nil)
-        var controller = storyboard.instantiateViewControllerWithIdentifier("SearchVC") as! SearchViewController
-        self.presentViewController(controller, animated: true, completion: nil)
-    }
-    
-    
     /******************
     //  CUSTOM TRANSITION
     //  This part contains code for custom transitions into this VC
@@ -236,7 +219,6 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
 //        println("table scrolled")
-        parentVC = self.parentViewController as! TabBarExploreViewController
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -269,10 +251,10 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         
         var velocity:CGPoint = scrollView.panGestureRecognizer.velocityInView(scrollView)
         if(velocity.y < 0) {
-            parentVC.setTabBarVisible(false, animated: true)
+            setTabBarVisible(false, true, true, parentVC)
         }
         else if(velocity.y > 0) {
-            parentVC.setTabBarVisible(true, animated: true)
+            setTabBarVisible(true, true, true, parentVC)
         }
     }
     

@@ -18,7 +18,7 @@ class TabBarSearchViewController: UIViewController {
     var screenWidth:CGFloat = 0
     
     //exploreview controller
-    var searchVC:SearchViewController!
+    var searchNC:SearchNavigationController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +29,8 @@ class TabBarSearchViewController: UIViewController {
         screenWidth = screenSize.width
         
         var storyboard = UIStoryboard(name: "Search", bundle: nil)
-        searchVC = storyboard.instantiateViewControllerWithIdentifier("SearchVC") as! SearchViewController
-        
-        contentView.addSubview(searchVC.view)
+        searchNC = storyboard.instantiateViewControllerWithIdentifier("searchNC") as! SearchNavigationController
+        displayViewController(searchNC)
     }
     
     override func viewDidLayoutSubviews() {
@@ -41,6 +40,18 @@ class TabBarSearchViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func displayViewController(content: UIViewController) {
+        addChildViewController(content)
+        self.contentView.addSubview(content.view)
+        content.didMoveToParentViewController(self)
+    }
+    
+    func hideViewController(content: UIViewController) {
+        content.willMoveToParentViewController(nil)
+        content.view.removeFromSuperview()
+        content.removeFromParentViewController()
     }
     
 
@@ -53,5 +64,6 @@ class TabBarSearchViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
 
 }

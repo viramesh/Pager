@@ -46,7 +46,14 @@ class SearchViewController: UIViewController, UIViewControllerTransitioningDeleg
         //set the initial y position of findButton
         initialY = findButton.frame.origin.y
 
-        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        showMainTabBar()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        hideMainTabBar()
     }
 
     override func didReceiveMemoryWarning() {
@@ -202,7 +209,30 @@ class SearchViewController: UIViewController, UIViewControllerTransitioningDeleg
         //transition to TellMeMoreViewController
         var storyboard = UIStoryboard(name: "Chat", bundle: nil)
         var controller = storyboard.instantiateViewControllerWithIdentifier("tellMeMoreVC") as! TellMeMoreViewController
-        self.presentViewController(controller, animated: true, completion: nil)
+//        controller.tellMeMoreLabelTitle.text = textString
+        self.navigationController?.pushViewController(controller, animated: true)
+
+        hideMainTabBar()
+        resetSearchView()
+    }
+    
+    func showMainTabBar() {
+        let parentVC = self.parentViewController as! SearchNavigationController
+        let grandParentVC = parentVC.parentViewController as! TabBarSearchViewController
+        setTabBarVisible(true, true, true, grandParentVC)
+    }
+    
+    func hideMainTabBar() {
+        let parentVC = self.parentViewController as! SearchNavigationController
+        let grandParentVC = parentVC.parentViewController as! TabBarSearchViewController
+        setTabBarVisible(false, true, false, grandParentVC)
+    }
+    
+    func resetSearchView() {
+        searchTextField.text = ""
+        searchResultButton1.alpha = 0
+        searchResultButton2.alpha = 0
+        searchResultButton3.alpha = 0
     }
     
 
