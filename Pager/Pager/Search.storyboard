@@ -148,10 +148,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
+                        <outlet property="delegate" destination="Dfe-hQ-CcM" id="ljB-WO-yp6"/>
                         <segue destination="YMS-Mf-2o1" kind="relationship" relationship="rootViewController" id="0KO-9u-tkD"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dIs-MK-srb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="Dfe-hQ-CcM" customClass="NavigationControllerDelegate" customModule="Pager" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="410" y="591"/>
         </scene>

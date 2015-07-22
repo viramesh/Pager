@@ -17,6 +17,9 @@
 		2F741CEC1B5D830D00ED3D20 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 2F741CEB1B5D830D00ED3D20 /* Podfile */; };
 		2F741CF01B5E169B00ED3D20 /* ChatNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F741CEF1B5E169B00ED3D20 /* ChatNavigationController.swift */; };
 		2F741CF21B5EA89700ED3D20 /* SearchNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F741CF11B5EA89700ED3D20 /* SearchNavigationController.swift */; };
+		2F741CF41B5F616100ED3D20 /* NavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F741CF31B5F616100ED3D20 /* NavigationControllerDelegate.swift */; };
+		2F741CF71B5F634800ED3D20 /* SearchToTellMeMoreTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F741CF61B5F634800ED3D20 /* SearchToTellMeMoreTransition.swift */; };
+		2F741CF91B5F68D700ED3D20 /* DefaultFadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F741CF81B5F68D700ED3D20 /* DefaultFadeTransition.swift */; };
 		2FA30C7D1B41DBAB00FC1D27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA30C7C1B41DBAB00FC1D27 /* AppDelegate.swift */; };
 		2FA30C821B41DBAB00FC1D27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FA30C801B41DBAB00FC1D27 /* Main.storyboard */; };
 		2FA30C841B41DBAB00FC1D27 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FA30C831B41DBAB00FC1D27 /* Images.xcassets */; };
@@ -59,6 +62,9 @@
 		2F741CEB1B5D830D00ED3D20 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2F741CEF1B5E169B00ED3D20 /* ChatNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatNavigationController.swift; sourceTree = "<group>"; };
 		2F741CF11B5EA89700ED3D20 /* SearchNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchNavigationController.swift; sourceTree = "<group>"; };
+		2F741CF31B5F616100ED3D20 /* NavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerDelegate.swift; sourceTree = "<group>"; };
+		2F741CF61B5F634800ED3D20 /* SearchToTellMeMoreTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchToTellMeMoreTransition.swift; sourceTree = "<group>"; };
+		2F741CF81B5F68D700ED3D20 /* DefaultFadeTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultFadeTransition.swift; sourceTree = "<group>"; };
 		2FA30C771B41DBAB00FC1D27 /* Pager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FA30C7B1B41DBAB00FC1D27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FA30C7C1B41DBAB00FC1D27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +128,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		2F741CF51B5F625D00ED3D20 /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				2F741CF61B5F634800ED3D20 /* SearchToTellMeMoreTransition.swift */,
+				2F741CF81B5F68D700ED3D20 /* DefaultFadeTransition.swift */,
+			);
+			name = Transitions;
+			sourceTree = "<group>";
+		};
 		2FA30C6E1B41DBAB00FC1D27 = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +161,7 @@
 		2FA30C791B41DBAB00FC1D27 /* Pager */ = {
 			isa = PBXGroup;
 			children = (
+				2F741CF51B5F625D00ED3D20 /* Transitions */,
 				08B4821C1B4CDF2100E8C0D2 /* Images */,
 				2FA30C9F1B42586300FC1D27 /* Chat */,
 				2FA30C9E1B42585200FC1D27 /* Explore */,
@@ -162,6 +178,7 @@
 				2FADF64D1B59B1A7005EED53 /* MainTabBarController.swift */,
 				2FADF64F1B59BA6F005EED53 /* TabBarSearchViewController.swift */,
 				2F741CE81B5D823A00ED3D20 /* LaunchViewController.swift */,
+				2F741CF31B5F616100ED3D20 /* NavigationControllerDelegate.swift */,
 			);
 			path = Pager;
 			sourceTree = "<group>";
@@ -402,9 +419,11 @@
 				2B6D3C901B5713F600466779 /* KDCircularProgress.swift in Sources */,
 				2F741CE91B5D823A00ED3D20 /* LaunchViewController.swift in Sources */,
 				2FA30C7D1B41DBAB00FC1D27 /* AppDelegate.swift in Sources */,
+				2F741CF71B5F634800ED3D20 /* SearchToTellMeMoreTransition.swift in Sources */,
 				2FADF64E1B59B1A7005EED53 /* MainTabBarController.swift in Sources */,
 				2FD97D991B43A639000F7342 /* ExploreTableViewCell.swift in Sources */,
 				2FADF6521B59CBB9005EED53 /* TabBarAccountViewController.swift in Sources */,
+				2F741CF41B5F616100ED3D20 /* NavigationControllerDelegate.swift in Sources */,
 				2FBEBC291B4F99B500504FD3 /* ExploreTableViewHeader.swift in Sources */,
 				08AE67F71B51EA990054E004 /* FindingSomeoneViewController.swift in Sources */,
 				2F741CF21B5EA89700ED3D20 /* SearchNavigationController.swift in Sources */,
@@ -416,6 +435,7 @@
 				2FD97D9B1B43B712000F7342 /* Common.swift in Sources */,
 				088AA0491B563CE300766E70 /* FoundSomeoneViewController.swift in Sources */,
 				2B6D3C921B582DFD00466779 /* LoginViewController.swift in Sources */,
+				2F741CF91B5F68D700ED3D20 /* DefaultFadeTransition.swift in Sources */,
 				2FA30CAD1B4266CE00FC1D27 /* ExploreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
