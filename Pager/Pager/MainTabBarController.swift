@@ -78,7 +78,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         button.setBackgroundImage(buttonImage, forState: UIControlState.Normal)
         button.setBackgroundImage(highlightImage, forState: UIControlState.Highlighted)
         button.layer.shadowColor = UIColor.blackColor().CGColor
-        button.layer.shadowOffset = CGSizeMake(0, -1)
+        button.layer.shadowOffset = CGSizeMake(0, 0)
         button.layer.shadowRadius = 0
         button.layer.shadowOpacity = 0.15
         
@@ -94,7 +94,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
 //        }
         
         self.button.center.x = self.tabBar.center.x
-        self.button.frame.origin.y = self.tabBar.frame.origin.y - 10
+        self.button.frame.origin.y = self.tabBar.frame.origin.y
         
         button.addTarget(self, action: "changeTabToMiddleTab:", forControlEvents: UIControlEvents.TouchUpInside)
         
