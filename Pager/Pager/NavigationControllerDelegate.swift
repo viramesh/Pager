@@ -17,6 +17,11 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
         if fromVC is SearchViewController && toVC is TellMeMoreViewController {
             return SearchToTellMeMoreTransition()
         }
+        
+        else if fromVC is FoundSomeoneViewController && toVC is ChatViewController {
+            return FoundSomeoneToChatTransition()
+        }
+            
         else {
             return DefaultFadeTransition()
         }

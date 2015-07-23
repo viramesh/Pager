@@ -68,6 +68,7 @@ class FoundSomeoneViewController: UIViewController {
 //        var storyboard = UIStoryboard(name: "Login", bundle: nil)
 //        var controller = storyboard.instantiateViewControllerWithIdentifier("loginVC") as! LoginViewController
 //        self.presentViewController(controller, animated: true, completion: nil)
+        performSegueWithIdentifier("chatSegue", sender: self)
     }
 
 }

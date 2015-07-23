@@ -234,11 +234,92 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="expertPhoto" destination="Ksy-vi-6Rf" id="FfV-Gh-Qb7"/>
+                        <segue destination="gPG-sV-7vO" kind="show" identifier="chatSegue" id="ATE-pU-dzS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VUA-LT-qOq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2307.5" y="416.5"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="Xmp-Pc-tM7">
+            <objects>
+                <viewController id="gPG-sV-7vO" customClass="ChatViewController" customModule="Pager" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7Z6-6h-ium"/>
+                        <viewControllerLayoutGuide type="bottom" id="B4r-8x-7Mm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8yi-c2-UpJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RV9-en-fYa">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XSb-td-yiK">
+                                        <rect key="frame" x="0.0" y="59" width="375" height="1"/>
+                                        <color key="backgroundColor" red="0.8455452967" green="0.8455452967" blue="0.8455452967" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Mark H." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IlF-kR-T3h">
+                                        <rect key="frame" x="135" y="33" width="104" height="21"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
+                                        <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afa-5P-SP7">
+                                        <rect key="frame" x="12" y="24" width="66" height="35"/>
+                                        <state key="normal" title="End Chat">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pressEndChatButton:" destination="gPG-sV-7vO" eventType="touchUpInside" id="0QT-W5-Uyj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Axm-2f-C8r"/>
+                                    <constraint firstAttribute="bottom" secondItem="XSb-td-yiK" secondAttribute="bottom" id="C4m-7g-vzM"/>
+                                    <constraint firstAttribute="trailing" secondItem="XSb-td-yiK" secondAttribute="trailing" id="ZVf-8h-zNI"/>
+                                    <constraint firstItem="XSb-td-yiK" firstAttribute="leading" secondItem="RV9-en-fYa" secondAttribute="leading" id="egp-1S-8ea"/>
+                                    <constraint firstAttribute="centerX" secondItem="IlF-kR-T3h" secondAttribute="centerX" id="nIl-o4-n1E"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="speech-bubble-gray" translatesAutoresizingMaskIntoConstraints="NO" id="ilH-nQ-6n3">
+                                <rect key="frame" x="48" y="94" width="185" height="35"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello! How are you?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LfY-GB-qBV">
+                                <rect key="frame" x="68" y="101" width="153" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="expert-photo" translatesAutoresizingMaskIntoConstraints="NO" id="gQi-wl-iFP">
+                                <rect key="frame" x="16" y="94" width="35" height="35"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6u8-e2-6iO">
+                                <rect key="frame" x="36" y="68" width="302" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RV9-en-fYa" firstAttribute="leading" secondItem="8yi-c2-UpJ" secondAttribute="leading" id="BnM-69-6wO"/>
+                            <constraint firstItem="RV9-en-fYa" firstAttribute="top" secondItem="8yi-c2-UpJ" secondAttribute="top" id="chp-q4-guQ"/>
+                            <constraint firstAttribute="trailing" secondItem="RV9-en-fYa" secondAttribute="trailing" id="uxd-P4-i5I"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="chatExpertPhoto" destination="gQi-wl-iFP" id="GHY-9R-gVT"/>
+                        <outlet property="dateLabel" destination="6u8-e2-6iO" id="XLt-7e-vbt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g3I-Pt-Ay5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2729.5" y="416.5"/>
         </scene>
     </scenes>
     <resources>
@@ -246,5 +327,6 @@
         <image name="close" width="55" height="55"/>
         <image name="expert-photo" width="108" height="108"/>
         <image name="long-button.png" width="680" height="111"/>
+        <image name="speech-bubble-gray" width="184" height="35"/>
     </resources>
 </document>

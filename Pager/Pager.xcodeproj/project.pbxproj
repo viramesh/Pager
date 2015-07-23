@@ -10,6 +10,8 @@
 		088AA0491B563CE300766E70 /* FoundSomeoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088AA0481B563CE300766E70 /* FoundSomeoneViewController.swift */; };
 		08AE67F71B51EA990054E004 /* FindingSomeoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE67F61B51EA990054E004 /* FindingSomeoneViewController.swift */; };
 		08B4821E1B4CDF2D00E8C0D2 /* long-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B4821D1B4CDF2D00E8C0D2 /* long-button.png */; };
+		2B641B851B60501300692352 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B641B841B60501300692352 /* ChatViewController.swift */; };
+		2B641B871B6059CB00692352 /* FoundSomeoneToChatTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B641B861B6059CB00692352 /* FoundSomeoneToChatTransition.swift */; };
 		2B68EA021B4F0711005D843F /* TellMeMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B68EA011B4F0711005D843F /* TellMeMoreViewController.swift */; };
 		2B6D3C901B5713F600466779 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D3C8F1B5713F600466779 /* KDCircularProgress.swift */; };
 		2B6D3C921B582DFD00466779 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D3C911B582DFD00466779 /* LoginViewController.swift */; };
@@ -55,6 +57,8 @@
 		088AA0481B563CE300766E70 /* FoundSomeoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundSomeoneViewController.swift; sourceTree = "<group>"; };
 		08AE67F61B51EA990054E004 /* FindingSomeoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindingSomeoneViewController.swift; sourceTree = "<group>"; };
 		08B4821D1B4CDF2D00E8C0D2 /* long-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "long-button.png"; sourceTree = "<group>"; };
+		2B641B841B60501300692352 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		2B641B861B6059CB00692352 /* FoundSomeoneToChatTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundSomeoneToChatTransition.swift; sourceTree = "<group>"; };
 		2B68EA011B4F0711005D843F /* TellMeMoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TellMeMoreViewController.swift; sourceTree = "<group>"; };
 		2B6D3C8F1B5713F600466779 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 		2B6D3C911B582DFD00466779 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				2F741CF61B5F634800ED3D20 /* SearchToTellMeMoreTransition.swift */,
+				2B641B861B6059CB00692352 /* FoundSomeoneToChatTransition.swift */,
 				2F741CF81B5F68D700ED3D20 /* DefaultFadeTransition.swift */,
 			);
 			name = Transitions;
@@ -247,6 +252,7 @@
 				2B68EA011B4F0711005D843F /* TellMeMoreViewController.swift */,
 				2B6D3C8F1B5713F600466779 /* KDCircularProgress.swift */,
 				2F741CEF1B5E169B00ED3D20 /* ChatNavigationController.swift */,
+				2B641B841B60501300692352 /* ChatViewController.swift */,
 			);
 			name = Chat;
 			sourceTree = "<group>";
@@ -418,6 +424,8 @@
 			files = (
 				2B6D3C901B5713F600466779 /* KDCircularProgress.swift in Sources */,
 				2F741CE91B5D823A00ED3D20 /* LaunchViewController.swift in Sources */,
+				2B641B851B60501300692352 /* ChatViewController.swift in Sources */,
+				2B641B871B6059CB00692352 /* FoundSomeoneToChatTransition.swift in Sources */,
 				2FA30C7D1B41DBAB00FC1D27 /* AppDelegate.swift in Sources */,
 				2F741CF71B5F634800ED3D20 /* SearchToTellMeMoreTransition.swift in Sources */,
 				2FADF64E1B59B1A7005EED53 /* MainTabBarController.swift in Sources */,
