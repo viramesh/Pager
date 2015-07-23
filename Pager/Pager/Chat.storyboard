@@ -309,6 +309,64 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="speech-bubble-green" translatesAutoresizingMaskIntoConstraints="NO" id="6Vg-le-aqa">
+                                <rect key="frame" x="204" y="137" width="155" height="35"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yjm-PN-k0B">
+                                <rect key="frame" x="218" y="144" width="126" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xt9-Ez-QDW">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82u-85-3Hx">
+                                        <rect key="frame" x="321" y="11" width="49" height="30"/>
+                                        <state key="normal" title="Send">
+                                            <color key="titleColor" red="0.3529411764705882" green="0.83921568627450982" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sendButtonPressed:" destination="gPG-sV-7vO" eventType="touchUpInside" id="zLq-L9-iae"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OYb-0j-tnR">
+                                        <rect key="frame" x="8" y="11" width="310" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="speech-bubble-green-big" translatesAutoresizingMaskIntoConstraints="NO" id="qiP-s2-ojE">
+                                <rect key="frame" x="81" y="180" width="278" height="76"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7aZ-i4-cNh">
+                                <rect key="frame" x="93" y="189" width="251" height="61"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Plg-nf-8PP">
+                                <rect key="frame" x="0.0" y="258" width="350" height="116"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="expert-photo" translatesAutoresizingMaskIntoConstraints="NO" id="dlJ-xP-pIW">
+                                        <rect key="frame" x="20" y="69" width="35" height="35"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="speech-bubble-gray-big" translatesAutoresizingMaskIntoConstraints="NO" id="GeB-cP-xAw">
+                                        <rect key="frame" x="52" y="8" width="278" height="96"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Great! I’ll be happy to guide you through the process. Would you like to video chat and show me what we’ve got?" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9bx-Q3-Oke">
+                                        <rect key="frame" x="72" y="16" width="248" height="80"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -319,8 +377,14 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="backgroundBubble1" destination="6Vg-le-aqa" id="iKD-GT-YMK"/>
+                        <outlet property="backgroundBubble2" destination="qiP-s2-ojE" id="07y-zS-8mw"/>
+                        <outlet property="bubble3" destination="Plg-nf-8PP" id="qJ5-lW-2AY"/>
                         <outlet property="chatExpertPhoto" destination="gQi-wl-iFP" id="GHY-9R-gVT"/>
                         <outlet property="dateLabel" destination="6u8-e2-6iO" id="XLt-7e-vbt"/>
+                        <outlet property="responseLabel1" destination="yjm-PN-k0B" id="83S-51-j6y"/>
+                        <outlet property="responseLabel2" destination="7aZ-i4-cNh" id="hKn-eI-Iki"/>
+                        <outlet property="textInputLabel" destination="OYb-0j-tnR" id="2IE-Wi-0ov"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g3I-Pt-Ay5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -334,6 +398,9 @@
         <image name="expert-photo" width="108" height="108"/>
         <image name="long-button.png" width="680" height="111"/>
         <image name="speech-bubble-gray" width="184" height="35"/>
+        <image name="speech-bubble-gray-big" width="278" height="96"/>
+        <image name="speech-bubble-green" width="155" height="35"/>
+        <image name="speech-bubble-green-big" width="278" height="76"/>
         <image name="video-icon" width="28" height="15"/>
     </resources>
 </document>

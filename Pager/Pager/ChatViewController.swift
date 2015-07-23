@@ -13,6 +13,13 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var chatExpertPhoto: UIImageView!
     
+    @IBOutlet weak var responseLabel1: UILabel!
+    @IBOutlet weak var backgroundBubble1: UIImageView!
+    
+    @IBOutlet weak var responseLabel2: UILabel!
+    @IBOutlet weak var backgroundBubble2: UIImageView!
+    @IBOutlet weak var bubble3: UIView!
+    @IBOutlet weak var textInputLabel: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +27,11 @@ class ChatViewController: UIViewController {
         
         let timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .MediumStyle, timeStyle: .ShortStyle)
             dateLabel.text = timestamp
+        
+        // Make background bubbles hidden
+        backgroundBubble1.alpha = 0
+        backgroundBubble2.alpha = 0
+        bubble3.alpha = 0
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,7 +51,36 @@ class ChatViewController: UIViewController {
     */
     @IBAction func pressEndChatButton(sender: AnyObject) {
         self.navigationController?.popToRootViewControllerAnimated(true)
+    }
 
+    @IBAction func sendButtonPressed(sender: AnyObject) {
+        
+        if (responseLabel1.text == "") {
+            println("Field is blank")
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                self.responseLabel1.text = self.textInputLabel.text
+                self.backgroundBubble1.alpha = 1
+            })
+            textInputLabel.text.removeAll(keepCapacity: true)
+        } else {
+            println("Field has text")
+            
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                self.responseLabel2.text = self.textInputLabel.text
+                self.backgroundBubble2.alpha = 1
+                
+            }, completion: { (Bool) -> Void in
+                UIView.animateWithDuration(0.3, delay: 1.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: { () -> Void in
+                    self.bubble3.alpha = 1
+                }, completion: nil)
+            })
+            
+            textInputLabel.text.removeAll(keepCapacity: true)
+            
+        }
+        
+
+        
     }
 
 }
