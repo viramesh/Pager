@@ -28,6 +28,8 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let attributesFontSelected = [NSFontAttributeName:UIFont(name: "Avenir", size: 16)!, NSForegroundColorAttributeName:UIColor(red: (102/255), green: (194/255), blue: (172/255), alpha: 1)]
         itemAppearance.setTitleTextAttributes(attributesFontSelected, forState: UIControlState.Selected)
         
+        self.tabBarItem.imageInsets = UIEdgeInsetsMake(6, -20, -6, 20)
+        
         self.delegate = self
         //println("aaa")
         var middleImage:UIImage = UIImage(named:"tab_search")!
@@ -73,10 +75,16 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     func addCenterButtonWithImage(buttonImage: UIImage, highlightImage:UIImage?)
     {
         
-        let frame = CGRectMake(0.0, 0.0, buttonImage.size.width, buttonImage.size.height)
+        let frame = CGRectMake(0.0, 0.0, buttonImage.size.width, self.tabBar.frame.height)
         button = UIButton(frame: frame)
-        button.setBackgroundImage(buttonImage, forState: UIControlState.Normal)
-        button.setBackgroundImage(highlightImage, forState: UIControlState.Highlighted)
+        //button.setBackgroundImage(buttonImage, forState: UIControlState.Normal)
+        //button.setBackgroundImage(highlightImage, forState: UIControlState.Highlighted)
+        button.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
+        button.setTitle("Page a Pro", forState: UIControlState.Normal)
+        button.titleLabel!.font = UIFont(name: "Avenir", size: 16)
+        button.setTitleColor(UIColor(red: (119/255), green: (119/255), blue: (119/255), alpha: 1), forState: UIControlState.Normal)
+        button.setTitleColor(UIColor(red: (102/255), green: (194/255), blue: (172/255), alpha: 1), forState: UIControlState.Highlighted)
+        button.layer.cornerRadius = 6.0
         button.layer.shadowColor = UIColor.blackColor().CGColor
         button.layer.shadowOffset = CGSizeMake(0, 0)
         button.layer.shadowRadius = 0
