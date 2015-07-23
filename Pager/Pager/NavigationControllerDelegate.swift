@@ -12,7 +12,7 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
     
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
-        println("animating from \(fromVC) to \(toVC)")
+        //println("animating from \(fromVC) to \(toVC)")
         
         if fromVC is SearchViewController && toVC is TellMeMoreViewController {
             return SearchToTellMeMoreTransition()

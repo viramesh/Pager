@@ -32,8 +32,6 @@ func convertValue(value: Float, r1Min: Float, r1Max: Float, r2Min: Float, r2Max:
 
 func setTabBarVisible(visible:Bool, animated:Bool, searchTabVisible:Bool, controller: UIViewController) {
     
-    //* This cannot be called before viewDidLayoutSubviews(), because the frame is not set before this time
-    
     // bail if the current state matches the desired state
     if (tabBarIsVisible(controller) == visible) { return }
     
@@ -49,7 +47,7 @@ func setTabBarVisible(visible:Bool, animated:Bool, searchTabVisible:Bool, contro
     }
     else {
         if(searchTabVisible) {
-            searchButtonOffsetY = -100
+            searchButtonOffsetY = -80
         }
         else {
             searchButtonOffsetY = height
