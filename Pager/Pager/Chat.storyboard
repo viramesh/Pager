@@ -325,28 +325,6 @@
                                 <color key="textColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xt9-Ez-QDW">
-                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82u-85-3Hx">
-                                        <rect key="frame" x="321" y="11" width="49" height="30"/>
-                                        <state key="normal" title="Send">
-                                            <color key="titleColor" red="0.3529411764705882" green="0.83921568627450982" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="sendButtonPressed:" destination="gPG-sV-7vO" eventType="touchUpInside" id="zLq-L9-iae"/>
-                                        </connections>
-                                    </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OYb-0j-tnR">
-                                        <rect key="frame" x="8" y="11" width="310" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="speech-bubble-green-big" translatesAutoresizingMaskIntoConstraints="NO" id="qiP-s2-ojE">
                                 <rect key="frame" x="81" y="180" width="278" height="76"/>
                             </imageView>
@@ -374,12 +352,40 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xt9-Ez-QDW">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82u-85-3Hx">
+                                        <rect key="frame" x="321" y="11" width="49" height="30"/>
+                                        <state key="normal" title="Send">
+                                            <color key="titleColor" red="0.3529411764705882" green="0.83921568627450982" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sendButtonPressed:" destination="gPG-sV-7vO" eventType="touchUpInside" id="zLq-L9-iae"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OYb-0j-tnR">
+                                        <rect key="frame" x="8" y="11" width="310" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="apT-aW-MUY"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="RV9-en-fYa" firstAttribute="leading" secondItem="8yi-c2-UpJ" secondAttribute="leading" id="BnM-69-6wO"/>
                             <constraint firstItem="RV9-en-fYa" firstAttribute="top" secondItem="8yi-c2-UpJ" secondAttribute="top" id="chp-q4-guQ"/>
+                            <constraint firstAttribute="trailing" secondItem="Xt9-Ez-QDW" secondAttribute="trailing" id="hyn-E4-HDN"/>
+                            <constraint firstItem="B4r-8x-7Mm" firstAttribute="bottom" secondItem="Xt9-Ez-QDW" secondAttribute="bottom" id="jm3-3U-g3G"/>
+                            <constraint firstItem="Xt9-Ez-QDW" firstAttribute="leading" secondItem="8yi-c2-UpJ" secondAttribute="leading" id="kcc-ys-oN1"/>
                             <constraint firstAttribute="trailing" secondItem="RV9-en-fYa" secondAttribute="trailing" id="uxd-P4-i5I"/>
                         </constraints>
                     </view>
@@ -393,6 +399,8 @@
                         <outlet property="responseLabel1" destination="yjm-PN-k0B" id="83S-51-j6y"/>
                         <outlet property="responseLabel2" destination="7aZ-i4-cNh" id="hKn-eI-Iki"/>
                         <outlet property="textInputLabel" destination="OYb-0j-tnR" id="2IE-Wi-0ov"/>
+                        <outlet property="textInputView" destination="Xt9-Ez-QDW" id="Uiq-Os-nVy"/>
+                        <outlet property="textInputViewBottomConstraint" destination="jm3-3U-g3G" id="fkv-7j-as1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g3I-Pt-Ay5" userLabel="First Responder" sceneMemberID="firstResponder"/>

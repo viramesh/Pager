@@ -21,6 +21,10 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var bubble3: UIView!
     @IBOutlet weak var textInputLabel: UITextField!
     
+    @IBOutlet weak var textInputView: UIView!
+    @IBOutlet weak var textInputViewBottomConstraint: NSLayoutConstraint!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,6 +38,9 @@ class ChatViewController: UIViewController {
         backgroundBubble2.alpha = 0
         bubble3.alpha = 0
         
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,16 +48,51 @@ class ChatViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func keyboardWillShow(notification: NSNotification!) {
+        var userInfo = notification.userInfo!
+        
+        // Get the keyboard height and width from the notification
+        // Size varies depending on OS, language, orientation
+        var kbSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().size
+        var durationValue = userInfo[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
+        var animationDuration = durationValue.doubleValue
+        var curveValue = userInfo[UIKeyboardAnimationCurveUserInfoKey] as! NSNumber
+        var animationCurve = curveValue.integerValue
+        
+        UIView.animateWithDuration(animationDuration, delay: 0.0, options: UIViewAnimationOptions(UInt(animationCurve << 16)), animations: {
+            
+            // Set view properties in here that you want to match with the animation of the keyboard
+            // If you need it, you can use the kbSize property above to get the keyboard width and height.
+            self.textInputViewBottomConstraint.constant = kbSize.height
+            self.textInputView.layoutIfNeeded()
+            
+            }, completion: nil)
     }
-    */
+    
+    func keyboardWillHide(notification: NSNotification!) {
+        var userInfo = notification.userInfo!
+        
+        // Get the keyboard height and width from the notification
+        // Size varies depending on OS, language, orientation
+        var kbSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().size
+        var durationValue = userInfo[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
+        var animationDuration = durationValue.doubleValue
+        var curveValue = userInfo[UIKeyboardAnimationCurveUserInfoKey] as! NSNumber
+        var animationCurve = curveValue.integerValue
+        
+        UIView.animateWithDuration(animationDuration, delay: 0.0, options: UIViewAnimationOptions(UInt(animationCurve << 16)), animations: {
+            
+            // Set view properties in here that you want to match with the animation of the keyboard
+            // If you need it, you can use the kbSize property above to get the keyboard width and height.
+            self.textInputViewBottomConstraint.constant = 0
+            self.textInputView.layoutIfNeeded()
+            
+            }, completion: nil)
+    }
+    
+
+    
     @IBAction func pressEndChatButton(sender: AnyObject) {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
