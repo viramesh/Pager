@@ -40,21 +40,26 @@ func setTabBarVisible(visible:Bool, animated:Bool, searchTabVisible:Bool, contro
     let height = frame?.size.height
     let offsetY = (visible ? -height! : height)
     
-    // figure out searchButtonOffsetY
+    // figure out searchButtonOffsetY and shadowRadius
     var searchButtonOffsetY:CGFloat! = 0
+    var searchButtonShadowRadius: CGFloat! = 0
+    
     if(visible) {
-        searchButtonOffsetY = -10
+        searchButtonOffsetY = 0
+        searchButtonShadowRadius = 0
     }
     else {
         if(searchTabVisible) {
-            searchButtonOffsetY = -80
+            searchButtonOffsetY = -60
+            searchButtonShadowRadius = 2
         }
         else {
             searchButtonOffsetY = height
+            searchButtonShadowRadius = 0
         }
     }
     
-    //let searchButtonShadowRadius = (visible ? 0 : 2)
+    
     
     // zero duration means no animation
     let duration:NSTimeInterval = (animated ? 0.3 : 0.0)
@@ -66,7 +71,7 @@ func setTabBarVisible(visible:Bool, animated:Bool, searchTabVisible:Bool, contro
         UIView.animateWithDuration(duration) {
             tabBarC.tabBar.frame = CGRectOffset(frame!, 0, offsetY!)
             tabBarC.button.frame.origin.y = tabBarC.tabBar.frame.origin.y + searchButtonOffsetY
-            //tabBarC.button.layer.shadowRadius = CGFloat(searchButtonShadowRadius)
+            tabBarC.button.layer.shadowRadius = CGFloat(searchButtonShadowRadius)
             
             return
         }

@@ -80,7 +80,7 @@
             </objects>
             <point key="canvasLocation" x="1861.5" y="1473.5"/>
         </scene>
-        <!--My Account-->
+        <!--Account-->
         <scene sceneID="zyW-pm-DbR">
             <objects>
                 <viewController id="P3y-Of-lIu" customClass="TabBarAccountViewController" customModule="Pager" customModuleProvider="target" sceneMemberID="viewController">
@@ -101,7 +101,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.30196078430000001" green="0.80392156859999997" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Account" id="y0n-1N-jfk"/>
+                    <tabBarItem key="tabBarItem" title="Account" id="y0n-1N-jfk"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="contentView" destination="b3h-4D-lzR" id="jhL-Ac-dL3"/>
