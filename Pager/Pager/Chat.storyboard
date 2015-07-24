@@ -37,8 +37,11 @@
                                     <action selector="editingChanged:" destination="EVT-2a-Pfa" eventType="editingChanged" id="6kL-5D-bUf"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vBF-l2-3kN">
-                                <rect key="frame" x="28" y="475" width="318" height="51"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vBF-l2-3kN">
+                                <rect key="frame" x="20" y="477" width="335" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="uye-eb-UeZ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
                                 <state key="normal" title="Skip" backgroundImage="long-button.png">
                                     <color key="titleColor" red="0.22352941179999999" green="0.73725490199999999" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -85,11 +88,14 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="LZI-wv-bRp" secondAttribute="trailing" constant="20" id="Cyi-Ew-tdC"/>
+                            <constraint firstItem="vBF-l2-3kN" firstAttribute="leading" secondItem="YEV-SC-B0t" secondAttribute="leading" constant="20" id="GlU-Cm-3Bg"/>
                             <constraint firstItem="pTx-CM-hGB" firstAttribute="leading" secondItem="YEV-SC-B0t" secondAttribute="leading" constant="20" id="LU4-Gt-h7j"/>
+                            <constraint firstItem="0tB-4n-feL" firstAttribute="bottom" secondItem="vBF-l2-3kN" secondAttribute="bottom" constant="140" id="O8e-Sk-SPD"/>
                             <constraint firstAttribute="trailing" secondItem="kzH-vm-OWL" secondAttribute="trailing" id="QOM-C9-h3P"/>
                             <constraint firstItem="LZI-wv-bRp" firstAttribute="leading" secondItem="YEV-SC-B0t" secondAttribute="leading" constant="20" id="Tsn-NB-8eX"/>
                             <constraint firstItem="kzH-vm-OWL" firstAttribute="top" secondItem="YEV-SC-B0t" secondAttribute="top" id="hu4-dO-Gkt"/>
                             <constraint firstAttribute="trailing" secondItem="pTx-CM-hGB" secondAttribute="trailing" constant="20" id="l6j-hy-AXw"/>
+                            <constraint firstAttribute="trailing" secondItem="vBF-l2-3kN" secondAttribute="trailing" constant="20" id="vee-ks-4A5"/>
                             <constraint firstItem="LZI-wv-bRp" firstAttribute="top" secondItem="kzH-vm-OWL" secondAttribute="bottom" constant="27" id="xXW-nR-3F6"/>
                             <constraint firstItem="kzH-vm-OWL" firstAttribute="leading" secondItem="YEV-SC-B0t" secondAttribute="leading" id="xe5-e0-0k4"/>
                         </constraints>
@@ -101,6 +107,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="findSomeoneButton" destination="vBF-l2-3kN" id="pjC-s8-6bB"/>
+                        <outlet property="findSomeoneButtonBottomConstraint" destination="O8e-Sk-SPD" id="9GY-aU-R3z"/>
                         <outlet property="tellMeMoreLabelTitle" destination="nkA-LE-o67" id="Lun-b1-rtg"/>
                         <outlet property="tellMoreInputField" destination="pTx-CM-hGB" id="TXM-mo-BQR"/>
                         <segue destination="qd6-NI-ByQ" kind="show" identifier="findingSomeoneSegue" id="2yc-5U-om3"/>

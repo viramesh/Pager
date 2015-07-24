@@ -63,14 +63,6 @@
                                     <action selector="didPressResultButton:" destination="YMS-Mf-2o1" eventType="touchUpInside" id="yfm-RQ-gpS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T3T-1P-grP">
-                                <rect key="frame" x="28" y="475" width="318" height="51"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
-                                <state key="normal" title="Next" backgroundImage="long-button.png">
-                                    <color key="titleColor" red="0.22352941179999999" green="0.73725490199999999" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6RW-ea-YfH">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                 <subviews>
@@ -94,16 +86,30 @@
                                     <constraint firstItem="RDe-yO-w2e" firstAttribute="leading" secondItem="6RW-ea-YfH" secondAttribute="leading" id="sf2-TR-pex"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T3T-1P-grP">
+                                <rect key="frame" x="20" y="477" width="335" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="XEl-jh-r8s"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                <state key="normal" title="Next" backgroundImage="long-button.png">
+                                    <color key="titleColor" red="0.22352941179999999" green="0.73725490199999999" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="5DY-X5-ccd" firstAttribute="leading" secondItem="xrz-jW-f1q" secondAttribute="leading" constant="20" id="AWV-gM-XqL"/>
                             <constraint firstItem="pXx-fO-8cw" firstAttribute="leading" secondItem="xrz-jW-f1q" secondAttribute="leading" constant="20" id="NnL-Mw-lgZ"/>
+                            <constraint firstItem="gDh-hT-Xqn" firstAttribute="bottom" secondItem="T3T-1P-grP" secondAttribute="bottom" constant="140" id="Oci-ux-d2y"/>
                             <constraint firstAttribute="trailing" secondItem="5DY-X5-ccd" secondAttribute="trailing" constant="20" id="PT7-KQ-FeD"/>
                             <constraint firstItem="6RW-ea-YfH" firstAttribute="leading" secondItem="xrz-jW-f1q" secondAttribute="leading" id="TPv-hn-J9i"/>
                             <constraint firstAttribute="trailing" secondItem="pXx-fO-8cw" secondAttribute="trailing" constant="20" id="WZT-01-3Ok"/>
                             <constraint firstItem="1k0-8h-L1a" firstAttribute="leading" secondItem="xrz-jW-f1q" secondAttribute="leading" constant="20" id="Wuu-2Z-8EJ"/>
+                            <constraint firstAttribute="trailing" secondItem="T3T-1P-grP" secondAttribute="trailing" constant="20" id="Zbj-Ea-fjz"/>
+                            <constraint firstItem="T3T-1P-grP" firstAttribute="leading" secondItem="xrz-jW-f1q" secondAttribute="leading" constant="20" id="b6j-yI-b6u"/>
                             <constraint firstItem="feK-2f-UP6" firstAttribute="leading" secondItem="xrz-jW-f1q" secondAttribute="leading" constant="20" id="bW9-uu-rFP"/>
                             <constraint firstItem="1k0-8h-L1a" firstAttribute="top" secondItem="6RW-ea-YfH" secondAttribute="bottom" constant="27" id="c6J-UI-wJe"/>
                             <constraint firstAttribute="trailing" secondItem="TKF-yl-iV5" secondAttribute="trailing" constant="20" id="k3i-f3-QYt"/>
@@ -121,6 +127,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="findButton" destination="T3T-1P-grP" id="Abb-o0-Al1"/>
+                        <outlet property="findButtonBottomContraint" destination="Oci-ux-d2y" id="yeO-yC-LdJ"/>
                         <outlet property="searchResultButton1" destination="5DY-X5-ccd" id="CeC-v9-lWh"/>
                         <outlet property="searchResultButton2" destination="feK-2f-UP6" id="hiL-fN-UFj"/>
                         <outlet property="searchResultButton3" destination="TKF-yl-iV5" id="tWe-oi-RPg"/>

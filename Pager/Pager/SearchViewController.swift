@@ -16,12 +16,13 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchResultButton2: UIButton!
     @IBOutlet weak var searchResultButton3: UIButton!
     @IBOutlet weak var findButton: UIButton!
+    @IBOutlet weak var findButtonBottomContraint: NSLayoutConstraint!
     
     var textString: String!
     var button: UIButton!
     
-    var initialY: CGFloat!
-    let offset: CGFloat = -130
+    var initialBottom: CGFloat!
+    let offset: CGFloat = 130
     
     var isPresenting: Bool = true
 
@@ -44,7 +45,7 @@ class SearchViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
         
         //set the initial y position of findButton
-        initialY = findButton.frame.origin.y
+        initialBottom = findButtonBottomContraint.constant
 
     }
     
@@ -108,8 +109,8 @@ class SearchViewController: UIViewController {
             
             // Set view properties in here that you want to match with the animation of the keyboard
             // If you need it, you can use the kbSize property above to get the keyboard width and height.
-            self.findButton.frame.origin = CGPoint(x: self.findButton.frame.origin.x, y: self.initialY + self.offset)
-
+            self.findButtonBottomContraint.constant = self.initialBottom + self.offset
+            self.findButton.layoutIfNeeded()
             
             }, completion: nil)
     }
@@ -129,8 +130,9 @@ class SearchViewController: UIViewController {
             
             // Set view properties in here that you want to match with the animation of the keyboard
             // If you need it, you can use the kbSize property above to get the keyboard width and height.
-            self.findButton.frame.origin = CGPoint(x: self.findButton.frame.origin.x, y: self.initialY)
-
+            self.findButtonBottomContraint.constant = self.initialBottom
+            self.findButton.layoutIfNeeded()
+            
             }, completion: nil)
     }
 
