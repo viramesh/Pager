@@ -124,6 +124,10 @@ class ChatViewController: UIViewController {
         }
     }
     
+
+    @IBAction func onTap(sender: AnyObject) {
+        textInputLabel.endEditing(true)
+    }
     
     
 

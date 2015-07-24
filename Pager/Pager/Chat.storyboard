@@ -388,6 +388,9 @@
                             <constraint firstItem="Xt9-Ez-QDW" firstAttribute="leading" secondItem="8yi-c2-UpJ" secondAttribute="leading" id="kcc-ys-oN1"/>
                             <constraint firstAttribute="trailing" secondItem="RV9-en-fYa" secondAttribute="trailing" id="uxd-P4-i5I"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ls0-Vk-gV2" appends="YES" id="IXE-Kf-oYa"/>
+                        </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -404,6 +407,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g3I-Pt-Ay5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ls0-Vk-gV2">
+                    <connections>
+                        <action selector="onTap:" destination="gPG-sV-7vO" id="urA-NJ-Ue9"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2729.5" y="416.5"/>
         </scene>
