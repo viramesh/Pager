@@ -20,6 +20,7 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var backgroundBubble2: UIImageView!
     @IBOutlet weak var bubble3: UIView!
     @IBOutlet weak var textInputLabel: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,6 +33,7 @@ class ChatViewController: UIViewController {
         backgroundBubble1.alpha = 0
         backgroundBubble2.alpha = 0
         bubble3.alpha = 0
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,9 +80,9 @@ class ChatViewController: UIViewController {
             textInputLabel.text.removeAll(keepCapacity: true)
             
         }
-        
-
-        
     }
+    
+    
+    
 
 }
