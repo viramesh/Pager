@@ -70,7 +70,7 @@ func setTabBarVisible(visible:Bool, animated:Bool, searchTabVisible:Bool, contro
         
         UIView.animateWithDuration(duration) {
             tabBarC.tabBar.frame = CGRectOffset(frame!, 0, offsetY!)
-            tabBarC.button.frame.origin.y = tabBarC.tabBar.frame.origin.y + searchButtonOffsetY
+            tabBarC.button.center.y = tabBarC.tabBar.center.y + searchButtonOffsetY
             tabBarC.button.layer.shadowRadius = CGFloat(searchButtonShadowRadius)
             
             return

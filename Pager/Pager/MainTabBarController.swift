@@ -11,11 +11,12 @@ import UIKit
 class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
 
     var button: UIButton = UIButton()
+    let buttonHeightPercentage = 0.8
     var isHighLighted:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.tabBar.tintColor = UIColor(red: (102/255), green: (194/255), blue: (172/255), alpha: 1)
         self.tabBar.barTintColor = UIColor.whiteColor()
         //self.tabBar.clipsToBounds = true
@@ -75,16 +76,14 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     func addCenterButtonWithImage(buttonImage: UIImage, highlightImage:UIImage?)
     {
         
-        let frame = CGRectMake(0.0, 0.0, buttonImage.size.width, self.tabBar.frame.height)
+        let frame = CGRectMake(0.0, 0.0, self.tabBar.frame.width / 3 - 10, self.tabBar.frame.height * CGFloat(self.buttonHeightPercentage))
         button = UIButton(frame: frame)
-        //button.setBackgroundImage(buttonImage, forState: UIControlState.Normal)
-        //button.setBackgroundImage(highlightImage, forState: UIControlState.Highlighted)
         button.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
         button.setTitle("Page a Pro", forState: UIControlState.Normal)
         button.titleLabel!.font = UIFont(name: "Avenir", size: 16)
         button.setTitleColor(UIColor(red: (119/255), green: (119/255), blue: (119/255), alpha: 1), forState: UIControlState.Normal)
         button.setTitleColor(UIColor(red: (102/255), green: (194/255), blue: (172/255), alpha: 1), forState: UIControlState.Highlighted)
-        button.layer.cornerRadius = 6.0
+        button.layer.cornerRadius = self.tabBar.frame.height * CGFloat( self.buttonHeightPercentage / 2)
         button.layer.shadowColor = UIColor.blackColor().CGColor
         button.layer.shadowOffset = CGSizeMake(0, 0)
         button.layer.shadowRadius = 0
@@ -102,7 +101,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
 //        }
         
         self.button.center.x = self.tabBar.center.x
-        self.button.frame.origin.y = self.tabBar.frame.origin.y
+        self.button.frame.origin.y = self.tabBar.frame.origin.y + self.tabBar.frame.height * CGFloat( (1-self.buttonHeightPercentage) / 2)
         
         button.addTarget(self, action: "changeTabToMiddleTab:", forControlEvents: UIControlEvents.TouchUpInside)
         
