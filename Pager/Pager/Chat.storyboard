@@ -287,6 +287,9 @@
                                         <state key="normal" image="video-icon">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="videoPressed:" destination="gPG-sV-7vO" eventType="touchUpInside" id="80V-Lz-chV"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -404,6 +407,7 @@
                         <outlet property="textInputLabel" destination="OYb-0j-tnR" id="2IE-Wi-0ov"/>
                         <outlet property="textInputView" destination="Xt9-Ez-QDW" id="Uiq-Os-nVy"/>
                         <outlet property="textInputViewBottomConstraint" destination="jm3-3U-g3G" id="fkv-7j-as1"/>
+                        <segue destination="PNt-5r-XwZ" kind="show" identifier="videoSegue" id="zfy-wP-IhP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g3I-Pt-Ay5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -415,11 +419,60 @@
             </objects>
             <point key="canvasLocation" x="2729.5" y="416.5"/>
         </scene>
+        <!--Video View Controller-->
+        <scene sceneID="MTa-BX-2dE">
+            <objects>
+                <viewController id="PNt-5r-XwZ" customClass="VideoViewController" customModule="Pager" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Q4P-LE-XPs"/>
+                        <viewControllerLayoutGuide type="bottom" id="xQS-aM-afn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6Cq-h5-SL4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgE-NN-IC6">
+                                <rect key="frame" x="304" y="581" width="55" height="55"/>
+                                <state key="normal" image="close">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeButtonPressed:" destination="PNt-5r-XwZ" eventType="touchUpInside" id="4Pv-D7-yw3"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OSz-YV-dqy">
+                                <rect key="frame" x="141" y="563" width="90" height="89"/>
+                                <subviews>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="green-circle" translatesAutoresizingMaskIntoConstraints="NO" id="fLR-iB-Cm9">
+                                        <rect key="frame" x="8" y="7" width="77" height="77"/>
+                                    </imageView>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="expert-photo" translatesAutoresizingMaskIntoConstraints="NO" id="bpW-VM-FoF">
+                                        <rect key="frame" x="9" y="8" width="75" height="75"/>
+                                    </imageView>
+                                </subviews>
+                                <gestureRecognizers/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="closeButton" destination="AgE-NN-IC6" id="qxv-2J-jUh"/>
+                        <outlet property="expertBackgroundGreen" destination="fLR-iB-Cm9" id="el1-HV-ixw"/>
+                        <outlet property="expertPhoto" destination="bpW-VM-FoF" id="BCE-k2-QEo"/>
+                        <outlet property="expertView" destination="OSz-YV-dqy" id="evN-LP-Xmq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RVD-3r-2pz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3130.5" y="416.5"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Loading-000" width="64" height="64"/>
         <image name="close" width="55" height="55"/>
         <image name="expert-photo" width="108" height="108"/>
+        <image name="green-circle" width="221" height="221"/>
         <image name="long-button.png" width="680" height="111"/>
         <image name="speech-bubble-gray" width="184" height="35"/>
         <image name="speech-bubble-gray-big" width="278" height="96"/>

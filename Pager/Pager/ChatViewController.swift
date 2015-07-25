@@ -123,12 +123,16 @@ class ChatViewController: UIViewController {
             
         }
     }
-    
 
     @IBAction func onTap(sender: AnyObject) {
         textInputLabel.endEditing(true)
     }
     
     
+    @IBAction func videoPressed(sender: AnyObject) {
+        performSegueWithIdentifier("videoSegue", sender: self)
+
+    }
+
 
 }
