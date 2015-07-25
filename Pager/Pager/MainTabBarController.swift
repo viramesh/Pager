@@ -10,9 +10,9 @@ import UIKit
 
 class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
 
-    var button: UIButton = UIButton()
-    let buttonHeightPercentage = 0.8
-    var isHighLighted:Bool = false
+    let buttonHeightPercentage = 0.66
+    var isHighLighted: [Bool] = [false, false, false]
+    var button: [UIButton] = [UIButton(), UIButton(), UIButton()]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,12 +32,10 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         self.tabBarItem.imageInsets = UIEdgeInsetsMake(6, -20, -6, 20)
         
         self.delegate = self
-        //println("aaa")
-        var middleImage:UIImage = UIImage(named:"tab_search")!
-        var highlightedMiddleImage:UIImage = UIImage(named:"tab_search_selected")!
         
-        
-        addCenterButtonWithImage(middleImage, highlightImage: highlightedMiddleImage)
+        addButton(0, buttonLabel: "Explore")
+        addButton(1, buttonLabel: "Page a Pro")
+        addButton(2, buttonLabel: "Account")
 
 
     }
@@ -47,19 +45,42 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidLayoutSubviews() {
+        
+    }
     
     //MARK: TABBAR DELEAGATE
     func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
-        if !viewController.isKindOfClass(TabBarSearchViewController)
-        {
-            button.userInteractionEnabled = true
-            button.highlighted = false
-            button.selected = false
-            isHighLighted = false
+        if viewController.isKindOfClass(TabBarExploreViewController) {
+            highlightButton(0)
+            deselectButton(1)
+            deselectButton(2)
+        }
+        else if viewController.isKindOfClass(TabBarSearchViewController) {
+            deselectButton(0)
+            highlightButton(1)
+            deselectButton(2)
         }
         else {
-            button.userInteractionEnabled = false
+            deselectButton(0)
+            deselectButton(1)
+            highlightButton(2)
         }
+    }
+    
+    func deselectButton(i: Int) {
+        button[i].userInteractionEnabled = true
+        isHighLighted[i] = false
+        button[i].backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        button[i].setTitleColor(UIColor(red: (119/255), green: (119/255), blue: (119/255), alpha: 1), forState: UIControlState.Normal)
+    }
+    
+    func highlightButton(i: Int) {
+        button[i].userInteractionEnabled = false
+        isHighLighted[i] = true
+        button[i].backgroundColor = UIColor(red: (102/255), green: (194/255), blue: (172/255), alpha: 1)
+        button[i].setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), forState: UIControlState.Normal)
+
     }
     
     func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
@@ -72,61 +93,58 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     }
     
     //MARK: MIDDLE TAB BAR HANDLER
-    
-    func addCenterButtonWithImage(buttonImage: UIImage, highlightImage:UIImage?)
+    func addButton(pos: Int, buttonLabel: String)
     {
         
         let frame = CGRectMake(0.0, 0.0, self.tabBar.frame.width / 3 - 10, self.tabBar.frame.height * CGFloat(self.buttonHeightPercentage))
-        button = UIButton(frame: frame)
-        button.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
-        button.setTitle("Page a Pro", forState: UIControlState.Normal)
-        button.titleLabel!.font = UIFont(name: "Avenir", size: 16)
-        button.setTitleColor(UIColor(red: (119/255), green: (119/255), blue: (119/255), alpha: 1), forState: UIControlState.Normal)
-        button.setTitleColor(UIColor(red: (102/255), green: (194/255), blue: (172/255), alpha: 1), forState: UIControlState.Highlighted)
-        button.layer.cornerRadius = self.tabBar.frame.height * CGFloat( self.buttonHeightPercentage / 2)
-        button.layer.shadowColor = UIColor.blackColor().CGColor
-        button.layer.shadowOffset = CGSizeMake(0, 0)
-        button.layer.shadowRadius = 0
-        button.layer.shadowOpacity = 0.15
+        button[pos] = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+        button[pos].frame = frame
+        button[pos].tag = pos
+        button[pos].clipsToBounds = true
+        button[pos].backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
+        button[pos].setTitle(buttonLabel, forState: UIControlState.Normal)
+        button[pos].titleLabel!.font = UIFont(name: "Avenir", size: 16)
+        button[pos].setTitleColor(UIColor(red: (119/255), green: (119/255), blue: (119/255), alpha: 1), forState: UIControlState.Normal)
+        button[pos].layer.cornerRadius = self.tabBar.frame.height * CGFloat( self.buttonHeightPercentage / 2)
+        button[pos].layer.shadowColor = UIColor.blackColor().CGColor
+        button[pos].layer.shadowOffset = CGSizeMake(0, 0)
+        button[pos].layer.shadowRadius = 0
+        button[pos].layer.shadowOpacity = 0.15
+
+        button[pos].center.x = 5 + self.button[pos].frame.width / 2 + ((self.tabBar.frame.width / 3) * CGFloat(pos))
+        button[pos].frame.origin.y = self.tabBar.frame.origin.y + self.tabBar.frame.height * CGFloat((1-self.buttonHeightPercentage)/2)
         
-//        var heightDifference:CGFloat = buttonImage.size.height - self.tabBar.frame.size.height
-//        if heightDifference < 0 {
-//            button.center = self.tabBar.center;
-//        }
-//        else
-//        {
-//            var center:CGPoint = self.tabBar.center;
-//            center.y = center.y - heightDifference/2.0;
-//            button.center = center;
-//        }
+        button[pos].addTarget(self, action: "changeTab:", forControlEvents: UIControlEvents.TouchUpInside)
         
-        self.button.center.x = self.tabBar.center.x
-        self.button.frame.origin.y = self.tabBar.frame.origin.y + self.tabBar.frame.height * CGFloat( (1-self.buttonHeightPercentage) / 2)
-        
-        button.addTarget(self, action: "changeTabToMiddleTab:", forControlEvents: UIControlEvents.TouchUpInside)
-        
-        self.view.addSubview(button)
+        self.view.addSubview(button[pos])
+        if(pos == 0) {
+            highlightButton(pos)
+        }
+        else {
+            deselectButton(pos)
+        }
     }
     
     
-    func changeTabToMiddleTab(sender:UIButton)
+    func changeTab(sender:UIButton)
     {
         
-        var selectedIndex = Int(self.viewControllers!.count/2)
-        self.selectedIndex = selectedIndex
+        self.selectedIndex = sender.tag
         self.selectedViewController = (self.viewControllers as [AnyObject]?)?[selectedIndex] as? UIViewController
         dispatch_async(dispatch_get_main_queue(), {
             
-            if self.isHighLighted == false{
-                sender.highlighted = true;
-                self.isHighLighted = true
-            }else{
-                sender.highlighted = false;
-                self.isHighLighted = false
+            for i in 0...2 {
+                if i == self.selectedIndex {
+                    self.highlightButton(i)
+                    sender.highlighted = true
+                }
+                else {
+                    self.deselectButton(i)
+                }
             }
+            
         });
         
-        sender.userInteractionEnabled = false
         
     }
     
