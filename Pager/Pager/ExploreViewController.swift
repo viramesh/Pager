@@ -28,8 +28,8 @@ class ExploreViewController: UIViewController, UIPageViewControllerDataSource, U
     
     var exploreImageLabels = [
         ["Yard work", "Gardening", "Fix doors", "Repair windows", "Deck work", "Garage Doors", "Fix cracks", "Patch holes", "Fix leaks", "Change locks", "Plumbing Issues", "Paint walls", "Home decor", "Appliances", "Hang curtains", "Electrical issues", "Fix lighting", "Wiring issues", "Internet Problems"],
-        ["Yard work", "Gardening", "Fix doors", "Repair windows", "Deck work", "Garage Doors", "Fix cracks", "Patch holes", "Fix leaks", "Change locks", "Plumbing Issues", "Paint walls", "Home decor", "Appliances", "Hang curtains", "Electrical issues", "Fix lighting", "Wiring issues", "Internet Problems"],
-        ["Yard work", "Gardening", "Fix doors", "Repair windows", "Deck work", "Garage Doors", "Fix cracks", "Patch holes", "Fix leaks", "Change locks", "Plumbing Issues", "Paint walls", "Home decor", "Appliances", "Hang curtains", "Electrical issues", "Fix lighting", "Wiring issues", "Internet Problems"]
+        ["Food #1", "Food #2", "Food #3", "Repair windows", "Deck work", "Garage Doors", "Fix cracks", "Patch holes", "Fix leaks", "Change locks", "Plumbing Issues", "Paint walls", "Home decor", "Appliances", "Hang curtains", "Electrical issues", "Fix lighting", "Wiring issues", "Internet Problems"],
+        ["Auto #1", "Auto #2", "Auto #3", "Repair windows", "Deck work", "Garage Doors", "Fix cracks", "Patch holes", "Fix leaks", "Change locks", "Plumbing Issues", "Paint walls", "Home decor", "Appliances", "Hang curtains", "Electrical issues", "Fix lighting", "Wiring issues", "Internet Problems"]
         ]
     
 
@@ -39,7 +39,7 @@ class ExploreViewController: UIViewController, UIPageViewControllerDataSource, U
         /* Getting the page View controller */
         pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("explorePageViewController") as! UIPageViewController
         self.pageViewController.dataSource = self
-        
+        self.pageViewController.delegate = self
         
         let exploreTableViewController: ExploreTableViewController = self.viewControllerAtIndex(0) as! ExploreTableViewController
         self.pageViewController.setViewControllers([exploreTableViewController], direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
@@ -93,7 +93,29 @@ class ExploreViewController: UIViewController, UIPageViewControllerDataSource, U
         return exploreTableViewController
     }
     
+    func pageViewController(pageViewController: UIPageViewController, willTransitionToViewControllers pendingViewControllers: [AnyObject]) {
+        
+//        let toVC = pendingViewControllers[0] as! ExploreTableViewController
+//        println("will transition to \(toVC.pageIndex)")
+    }
     
+    func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [AnyObject], transitionCompleted completed: Bool) {
+        
+        let previousVC = previousViewControllers[0] as! ExploreTableViewController
+        let previousLabel = self.headerView.viewWithTag(previousVC.pageIndex!+1) as? UILabel
+        
+        let currentVC = self.pageViewController.viewControllers[0] as! ExploreTableViewController
+        let currentLabel = self.headerView.viewWithTag(currentVC.pageIndex!+1) as? UILabel
+        
+        UIView.transitionWithView(previousLabel!, duration: 0.2, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
+            previousLabel?.textColor = self.COLOR_GRAY
+        }, completion: nil)
+        
+        UIView.transitionWithView(currentLabel!, duration: 0.2, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
+            currentLabel?.textColor = self.COLOR_GREEN
+        }, completion: nil)
+        
+    }
     
 //    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
 //        return self.exploreImages.count
