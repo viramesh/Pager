@@ -24,6 +24,7 @@
 		2F741CF41B5F616100ED3D20 /* NavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F741CF31B5F616100ED3D20 /* NavigationControllerDelegate.swift */; };
 		2F741CF71B5F634800ED3D20 /* SearchToTellMeMoreTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F741CF61B5F634800ED3D20 /* SearchToTellMeMoreTransition.swift */; };
 		2F741CF91B5F68D700ED3D20 /* DefaultFadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F741CF81B5F68D700ED3D20 /* DefaultFadeTransition.swift */; };
+		2F741D011B67403900ED3D20 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F741D001B67403900ED3D20 /* ExploreViewController.swift */; };
 		2FA30C7D1B41DBAB00FC1D27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA30C7C1B41DBAB00FC1D27 /* AppDelegate.swift */; };
 		2FA30C821B41DBAB00FC1D27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FA30C801B41DBAB00FC1D27 /* Main.storyboard */; };
 		2FA30C841B41DBAB00FC1D27 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FA30C831B41DBAB00FC1D27 /* Images.xcassets */; };
@@ -33,7 +34,7 @@
 		2FA30CA51B42591F00FC1D27 /* Explore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FA30CA41B42591F00FC1D27 /* Explore.storyboard */; };
 		2FA30CA71B42592600FC1D27 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FA30CA61B42592600FC1D27 /* Search.storyboard */; };
 		2FA30CA91B42592D00FC1D27 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FA30CA81B42592D00FC1D27 /* Login.storyboard */; };
-		2FA30CAD1B4266CE00FC1D27 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA30CAC1B4266CE00FC1D27 /* ExploreViewController.swift */; };
+		2FA30CAD1B4266CE00FC1D27 /* ExploreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA30CAC1B4266CE00FC1D27 /* ExploreTableViewController.swift */; };
 		2FA30CAF1B42672000FC1D27 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA30CAE1B42672000FC1D27 /* SearchViewController.swift */; };
 		2FADF64C1B58D8DF005EED53 /* TabBarExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FADF64B1B58D8DF005EED53 /* TabBarExploreViewController.swift */; };
 		2FADF64E1B59B1A7005EED53 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FADF64D1B59B1A7005EED53 /* MainTabBarController.swift */; };
@@ -73,6 +74,7 @@
 		2F741CF31B5F616100ED3D20 /* NavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerDelegate.swift; sourceTree = "<group>"; };
 		2F741CF61B5F634800ED3D20 /* SearchToTellMeMoreTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchToTellMeMoreTransition.swift; sourceTree = "<group>"; };
 		2F741CF81B5F68D700ED3D20 /* DefaultFadeTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultFadeTransition.swift; sourceTree = "<group>"; };
+		2F741D001B67403900ED3D20 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		2FA30C771B41DBAB00FC1D27 /* Pager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FA30C7B1B41DBAB00FC1D27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FA30C7C1B41DBAB00FC1D27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,7 +88,7 @@
 		2FA30CA41B42591F00FC1D27 /* Explore.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Explore.storyboard; sourceTree = "<group>"; };
 		2FA30CA61B42592600FC1D27 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		2FA30CA81B42592D00FC1D27 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		2FA30CAC1B4266CE00FC1D27 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		2FA30CAC1B4266CE00FC1D27 /* ExploreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreTableViewController.swift; sourceTree = "<group>"; };
 		2FA30CAE1B42672000FC1D27 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		2FADF64B1B58D8DF005EED53 /* TabBarExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarExploreViewController.swift; sourceTree = "<group>"; };
 		2FADF64D1B59B1A7005EED53 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -241,7 +243,8 @@
 			isa = PBXGroup;
 			children = (
 				2FA30CA41B42591F00FC1D27 /* Explore.storyboard */,
-				2FA30CAC1B4266CE00FC1D27 /* ExploreViewController.swift */,
+				2F741D001B67403900ED3D20 /* ExploreViewController.swift */,
+				2FA30CAC1B4266CE00FC1D27 /* ExploreTableViewController.swift */,
 				2FD97D981B43A639000F7342 /* ExploreTableViewCell.swift */,
 				2FBEBC281B4F99B500504FD3 /* ExploreTableViewHeader.swift */,
 			);
@@ -441,6 +444,7 @@
 				2FADF6521B59CBB9005EED53 /* TabBarAccountViewController.swift in Sources */,
 				2F741CF41B5F616100ED3D20 /* NavigationControllerDelegate.swift in Sources */,
 				2FBEBC291B4F99B500504FD3 /* ExploreTableViewHeader.swift in Sources */,
+				2F741D011B67403900ED3D20 /* ExploreViewController.swift in Sources */,
 				08AE67F71B51EA990054E004 /* FindingSomeoneViewController.swift in Sources */,
 				2F741CF21B5EA89700ED3D20 /* SearchNavigationController.swift in Sources */,
 				2FADF6501B59BA6F005EED53 /* TabBarSearchViewController.swift in Sources */,
@@ -452,7 +456,7 @@
 				088AA0491B563CE300766E70 /* FoundSomeoneViewController.swift in Sources */,
 				2B6D3C921B582DFD00466779 /* LoginViewController.swift in Sources */,
 				2F741CF91B5F68D700ED3D20 /* DefaultFadeTransition.swift in Sources */,
-				2FA30CAD1B4266CE00FC1D27 /* ExploreViewController.swift in Sources */,
+				2FA30CAD1B4266CE00FC1D27 /* ExploreTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

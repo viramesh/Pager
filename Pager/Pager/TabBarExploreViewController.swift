@@ -29,7 +29,7 @@ class TabBarExploreViewController: UIViewController {
         screenWidth = screenSize.width
      
         var storyboard = UIStoryboard(name: "Explore", bundle: nil)
-        exploreVC = storyboard.instantiateViewControllerWithIdentifier("ExploreVC") as! ExploreViewController
+        exploreVC = storyboard.instantiateViewControllerWithIdentifier("exploreVC") as! ExploreViewController
         
         displayViewController(exploreVC)
 
