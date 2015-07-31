@@ -21,14 +21,14 @@ class ExploreViewController: UIViewController, UIPageViewControllerDataSource, U
 
     var exploreImages = [
         ["landscaping", "gardening", "doors", "windows", "deck", "garage", "crack", "holes", "leak", "locks", "plumbing", "wallpainting", "decor", "appliances", "curtains", "electrical", "lighting", "wiring", "internet"],
-        ["landscaping", "gardening", "doors", "windows", "deck", "garage", "crack", "holes", "leak", "locks", "plumbing", "wallpainting", "decor", "appliances", "curtains", "electrical", "lighting", "wiring", "internet"],
+        ["french", "italian", "indian", "bread", "pizza", "mexican", "grill", "cake", "sushi", "thai", "kebabs", "chinese", "korean", "icecream", "macaroons", "beer", "dessert", "burger", "ethiopian"],
         ["flat", "taillight", "battery", "sparkplug", "sidemirror", "oilchange", "belt", "alternator", "radiator", "breaks", "wipers", "lockedout", "carkeys", "checkengine", "window", "dent", "license", "insurance", "carbuy"]
         ]
     
     
     var exploreImageLabels = [
         ["Yard work", "Gardening", "Fix doors", "Repair windows", "Deck work", "Garage Doors", "Fix cracks", "Patch holes", "Fix leaks", "Change locks", "Plumbing Issues", "Paint walls", "Home decor", "Appliances", "Hang curtains", "Electrical issues", "Fix lighting", "Wiring issues", "Internet Problems"],
-        ["Food #1", "Food #2", "Food #3", "Repair windows", "Deck work", "Garage Doors", "Fix cracks", "Patch holes", "Fix leaks", "Change locks", "Plumbing Issues", "Paint walls", "Home decor", "Appliances", "Hang curtains", "Electrical issues", "Fix lighting", "Wiring issues", "Internet Problems"],
+        ["French", "Italian", "Indian", "Breads", "Pizza", "Mexican", "Grilled", "Cake", "Sushi", "Thai", "Kebabs", "Chinese", "Korean", "Ice Cream", "Macaroons", "Beer", "Dessert", "Burger", "Ethiopian"],
         ["Flat Tire", "Head or Tail Lights", "Dead Battery", "Spark Plugs", "Side-View Mirror", "Oil Change", "Squeaky Belts", "Dead Alternator", "Leaky Radiator", "Break Pads", "Wipers", "Locked Out", "Lost Keys", "Check Engine", "Windows", "Scratch and Dents", "License Experiation", "Car Insurance", "Lease versus Buy"]
         ]
     
