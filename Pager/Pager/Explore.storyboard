@@ -120,12 +120,16 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="gradient-overlay" translatesAutoresizingMaskIntoConstraints="NO" id="ktb-Dd-XNI">
                                                             <rect key="frame" x="20" y="115" width="240" height="128"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wK-iq-UyJ">
-                                                            <rect key="frame" x="40" y="175" width="295" height="31"/>
-                                                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="28"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wK-iq-UyJ" customClass="ExploreTileLabel" customModule="Pager" customModuleProvider="target">
+                                                            <rect key="frame" x="40" y="175" width="295" height="40"/>
+                                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="40" id="RbN-wS-ZOh"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
-                                                            <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                            <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                                                             <size key="shadowOffset" width="0.0" height="1"/>
                                                         </label>
                                                     </subviews>
@@ -134,9 +138,9 @@
                                                         <constraint firstAttribute="trailing" secondItem="ktb-Dd-XNI" secondAttribute="trailing" id="4vg-AF-fRR"/>
                                                         <constraint firstAttribute="bottom" secondItem="ktb-Dd-XNI" secondAttribute="bottom" id="T1L-e5-msV"/>
                                                         <constraint firstItem="ktb-Dd-XNI" firstAttribute="leading" secondItem="RtO-l2-Pmy" secondAttribute="leading" id="UCH-dG-W5e"/>
-                                                        <constraint firstAttribute="trailing" secondItem="0wK-iq-UyJ" secondAttribute="trailing" constant="20" id="Xjr-tz-yim"/>
-                                                        <constraint firstItem="0wK-iq-UyJ" firstAttribute="leading" secondItem="RtO-l2-Pmy" secondAttribute="leading" constant="20" id="kMt-KX-iB2"/>
-                                                        <constraint firstAttribute="bottom" secondItem="0wK-iq-UyJ" secondAttribute="bottom" constant="25" id="yns-aK-3kv"/>
+                                                        <constraint firstAttribute="trailing" secondItem="0wK-iq-UyJ" secondAttribute="trailing" id="Xjr-tz-yim"/>
+                                                        <constraint firstItem="0wK-iq-UyJ" firstAttribute="leading" secondItem="RtO-l2-Pmy" secondAttribute="leading" id="kMt-KX-iB2"/>
+                                                        <constraint firstAttribute="bottom" secondItem="0wK-iq-UyJ" secondAttribute="bottom" id="yns-aK-3kv"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -183,6 +187,13 @@
                                                     <exclude reference="61D-2N-0TO"/>
                                                 </mask>
                                             </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExploreTableViewEmptyHeaderid" rowHeight="100" id="oha-RO-MWq">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oha-RO-MWq" id="5la-qt-T6c">
+                                            <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>

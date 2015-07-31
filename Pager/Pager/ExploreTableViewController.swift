@@ -12,8 +12,8 @@ class ExploreTableViewController: UIViewController, UITableViewDataSource, UITab
 
     //pageviewcontroller values
     var pageIndex: Int?
-    var showTableHeader:Bool = true
-    var tableHeaderOffset:Int = 0
+    var showTableHeader:Bool = false
+    var tableHeaderOffset:Int = 1
     
     //UI Components
     @IBOutlet var exploreView: UIView!
@@ -24,7 +24,7 @@ class ExploreTableViewController: UIViewController, UITableViewDataSource, UITab
     var exploreImageLabels = [String]()
     
     //Table cell properties
-    let ROUNDED_CORNER:CGFloat = 2
+    let ROUNDED_CORNER:CGFloat = 6
     
     //screensize
     var screenSize: CGRect = CGRectZero
@@ -32,13 +32,13 @@ class ExploreTableViewController: UIViewController, UITableViewDataSource, UITab
     var screenWidth:CGFloat = 0
     
     //for parallax-ing the images
-    var topIndexRow:Int = 0
-    let TOP_MARGIN:CGFloat = 0
+    var topIndexRow:Int = 1
+    var TOP_MARGIN:CGFloat = 0
     let YPOS_START:CGFloat = -120
     let YPOS_END:CGFloat = -140
     var newYPos:CGFloat = -140
-    let GRADIENT_ALPHA_START:CGFloat = 0.3
-    let GRADIENT_ALPHA_END:CGFloat = 0
+    let GRADIENT_ALPHA_START:CGFloat = 0.5
+    let GRADIENT_ALPHA_END:CGFloat = 0.2
     var newGradientAlpha:CGFloat = 0
     
     
@@ -54,6 +54,7 @@ class ExploreTableViewController: UIViewController, UITableViewDataSource, UITab
     
     //for the prompt label
     let TABLE_HEADER_HEIGHT:CGFloat = 120
+    let TABLE_EMPTY_HEADER_HEIGHT:CGFloat = 64
     
     //for hiding tab bar in mainVC
     var tabBarExploreVC:TabBarExploreViewController!
@@ -76,10 +77,6 @@ class ExploreTableViewController: UIViewController, UITableViewDataSource, UITab
         TABLE_CELL_MIN_HEIGHT = screenHeight * TABLE_CELL_MIN_HEIGHT_PERCENTAGE
         newHeight = CGFloat(convertValue(Float(TABLE_HEADER_HEIGHT), Float(TOP_MARGIN), Float(TOP_MARGIN + TABLE_CELL_MAX_HEIGHT), Float(TABLE_CELL_MAX_HEIGHT), Float(TABLE_CELL_MIN_HEIGHT)))
         
-        if(showTableHeader) {
-            tableHeaderOffset = 1
-            topIndexRow = 1
-        }
     }
 
     override func viewDidLayoutSubviews() {
@@ -106,11 +103,19 @@ class ExploreTableViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         //first load the header prompt
-        if(indexPath.row == 0 && showTableHeader) {
-            exploreTableViewHeader = tableView.dequeueReusableCellWithIdentifier("ExploreTableViewHeaderid") as! ExploreTableViewHeader
-            exploreTableViewHeader.backgroundColor = UIColor.clearColor()
+        if(indexPath.row == 0) {
             
-            return exploreTableViewHeader
+            if (showTableHeader) {
+                exploreTableViewHeader = tableView.dequeueReusableCellWithIdentifier("ExploreTableViewHeaderid") as! ExploreTableViewHeader
+                exploreTableViewHeader.backgroundColor = UIColor.clearColor()
+            
+                return exploreTableViewHeader
+            }
+            else {
+                let emptyHeader = tableView.dequeueReusableCellWithIdentifier("ExploreTableViewEmptyHeaderid") as! UITableViewCell
+                emptyHeader.backgroundColor = UIColor.clearColor()
+                return emptyHeader
+            }
         }
         
         //then load all other cells
@@ -156,8 +161,13 @@ class ExploreTableViewController: UIViewController, UITableViewDataSource, UITab
         
         var heightForRow:CGFloat = self.TABLE_CELL_MIN_HEIGHT
         
-        if(indexPath.row == 0 && showTableHeader) {
-            heightForRow = self.TABLE_HEADER_HEIGHT
+        if(indexPath.row == 0) {
+            if(showTableHeader) {
+                heightForRow = self.TABLE_HEADER_HEIGHT
+            }
+            else {
+                heightForRow = self.TABLE_EMPTY_HEADER_HEIGHT
+            }
         }
         else if(indexPath.row < topIndexRow) {
             heightForRow = self.TABLE_CELL_MAX_HEIGHT
