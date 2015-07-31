@@ -19,17 +19,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         
         self.tabBar.tintColor = UIColor(red: (102/255), green: (194/255), blue: (172/255), alpha: 1)
         self.tabBar.barTintColor = UIColor.whiteColor()
-        //self.tabBar.clipsToBounds = true
-        
-        let itemAppearance = UITabBarItem.appearance()
-        let attributesFont = [NSFontAttributeName:UIFont(name: "Avenir", size: 16)!, NSForegroundColorAttributeName:UIColor(red: (119/255), green: (119/255), blue: (119/255), alpha: 1)]
-        itemAppearance.setTitleTextAttributes(attributesFont, forState: UIControlState.Normal)
-        itemAppearance.setTitlePositionAdjustment(UIOffset(horizontal: 0, vertical: -12))
-        
-        let attributesFontSelected = [NSFontAttributeName:UIFont(name: "Avenir", size: 16)!, NSForegroundColorAttributeName:UIColor(red: (102/255), green: (194/255), blue: (172/255), alpha: 1)]
-        itemAppearance.setTitleTextAttributes(attributesFontSelected, forState: UIControlState.Selected)
-        
-        self.tabBarItem.imageInsets = UIEdgeInsetsMake(6, -20, -6, 20)
+        self.tabBar.translucent = false
         
         self.delegate = self
         
@@ -46,7 +36,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     }
     
     override func viewDidLayoutSubviews() {
-        
+
     }
     
     //MARK: TABBAR DELEAGATE

@@ -56,7 +56,7 @@ class ExploreTableViewController: UIViewController, UITableViewDataSource, UITab
     let TABLE_HEADER_HEIGHT:CGFloat = 120
     
     //for hiding tab bar in mainVC
-    //var parentVC:TabBarExploreViewController!
+    var tabBarExploreVC:TabBarExploreViewController!
     
     
     override func viewDidLoad() {
@@ -80,9 +80,6 @@ class ExploreTableViewController: UIViewController, UITableViewDataSource, UITab
             tableHeaderOffset = 1
             topIndexRow = 1
         }
-        
-        //parentVC = self.parentViewController as! TabBarExploreViewController
-        
     }
 
     override func viewDidLayoutSubviews() {
@@ -206,10 +203,10 @@ class ExploreTableViewController: UIViewController, UITableViewDataSource, UITab
         
         var velocity:CGPoint = scrollView.panGestureRecognizer.velocityInView(scrollView)
         if(velocity.y < 0) {
-            //setTabBarVisible(false, true, true, parentVC)
+            setTabBarVisible(false, true, true, self.tabBarExploreVC)
         }
         else if(velocity.y > 0) {
-            //setTabBarVisible(true, true, true, parentVC)
+            setTabBarVisible(true, true, true, self.tabBarExploreVC)
         }
     }
     

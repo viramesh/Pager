@@ -89,7 +89,7 @@ class ExploreViewController: UIViewController, UIPageViewControllerDataSource, U
         exploreTableViewController.exploreImages = self.exploreImages[index]
         exploreTableViewController.exploreImageLabels = self.exploreImageLabels[index]
         exploreTableViewController.pageIndex = index
-        
+        exploreTableViewController.tabBarExploreVC = self.parentViewController as! TabBarExploreViewController
         return exploreTableViewController
     }
     

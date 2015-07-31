@@ -58,9 +58,7 @@ func setTabBarVisible(visible:Bool, animated:Bool, searchTabVisible:Bool, contro
             searchButtonShadowRadius = 0
         }
     }
-    
-    
-    
+
     // zero duration means no animation
     let duration:NSTimeInterval = (animated ? 0.3 : 0.0)
     
@@ -75,12 +73,11 @@ func setTabBarVisible(visible:Bool, animated:Bool, searchTabVisible:Bool, contro
             tabBarC.button[1].center.y = tabBarC.button[1].center.y + offsetY!
             //tabBarC.button[1].center.y = tabBarC.tabBar.center.y + searchButtonOffsetY
             //tabBarC.button[1].layer.shadowRadius = CGFloat(searchButtonShadowRadius)
-            
             return
         }
     }
 }
 
 func tabBarIsVisible(controller: UIViewController) ->Bool {
-    return controller.tabBarController?.tabBar.frame.origin.y < CGRectGetMaxY(controller.view.frame)
+    return controller.tabBarController?.tabBar.frame.origin.y <= CGRectGetMaxY(controller.view.frame)
 }
