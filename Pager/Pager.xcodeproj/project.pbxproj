@@ -10,6 +10,7 @@
 		088AA0491B563CE300766E70 /* FoundSomeoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088AA0481B563CE300766E70 /* FoundSomeoneViewController.swift */; };
 		08AE67F71B51EA990054E004 /* FindingSomeoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE67F61B51EA990054E004 /* FindingSomeoneViewController.swift */; };
 		08B4821E1B4CDF2D00E8C0D2 /* long-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B4821D1B4CDF2D00E8C0D2 /* long-button.png */; };
+		2B19DCC71B6E16AA00E303F3 /* ChatEndedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B19DCC61B6E16AA00E303F3 /* ChatEndedViewController.swift */; };
 		2B641B851B60501300692352 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B641B841B60501300692352 /* ChatViewController.swift */; };
 		2B641B871B6059CB00692352 /* FoundSomeoneToChatTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B641B861B6059CB00692352 /* FoundSomeoneToChatTransition.swift */; };
 		2B68EA021B4F0711005D843F /* TellMeMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B68EA011B4F0711005D843F /* TellMeMoreViewController.swift */; };
@@ -60,6 +61,7 @@
 		088AA0481B563CE300766E70 /* FoundSomeoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundSomeoneViewController.swift; sourceTree = "<group>"; };
 		08AE67F61B51EA990054E004 /* FindingSomeoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindingSomeoneViewController.swift; sourceTree = "<group>"; };
 		08B4821D1B4CDF2D00E8C0D2 /* long-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "long-button.png"; sourceTree = "<group>"; };
+		2B19DCC61B6E16AA00E303F3 /* ChatEndedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatEndedViewController.swift; sourceTree = "<group>"; };
 		2B641B841B60501300692352 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		2B641B861B6059CB00692352 /* FoundSomeoneToChatTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundSomeoneToChatTransition.swift; sourceTree = "<group>"; };
 		2B68EA011B4F0711005D843F /* TellMeMoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TellMeMoreViewController.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				2FA30CA21B42591500FC1D27 /* Chat.storyboard */,
+				2B19DCC61B6E16AA00E303F3 /* ChatEndedViewController.swift */,
 				08AE67F61B51EA990054E004 /* FindingSomeoneViewController.swift */,
 				088AA0481B563CE300766E70 /* FoundSomeoneViewController.swift */,
 				2B68EA011B4F0711005D843F /* TellMeMoreViewController.swift */,
@@ -439,6 +442,7 @@
 				2B641B871B6059CB00692352 /* FoundSomeoneToChatTransition.swift in Sources */,
 				2FA30C7D1B41DBAB00FC1D27 /* AppDelegate.swift in Sources */,
 				2F741CF71B5F634800ED3D20 /* SearchToTellMeMoreTransition.swift in Sources */,
+				2B19DCC71B6E16AA00E303F3 /* ChatEndedViewController.swift in Sources */,
 				2FADF64E1B59B1A7005EED53 /* MainTabBarController.swift in Sources */,
 				2FD97D991B43A639000F7342 /* ExploreTableViewCell.swift in Sources */,
 				2FADF6521B59CBB9005EED53 /* TabBarAccountViewController.swift in Sources */,

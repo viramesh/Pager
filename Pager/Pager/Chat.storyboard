@@ -408,6 +408,7 @@
                         <outlet property="textInputView" destination="Xt9-Ez-QDW" id="Uiq-Os-nVy"/>
                         <outlet property="textInputViewBottomConstraint" destination="jm3-3U-g3G" id="fkv-7j-as1"/>
                         <segue destination="PNt-5r-XwZ" kind="show" identifier="videoSegue" id="zfy-wP-IhP"/>
+                        <segue destination="1Qd-fV-SrZ" kind="show" identifier="chatEndedSegue" id="fLm-g0-UZl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g3I-Pt-Ay5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -418,6 +419,49 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2729.5" y="416.5"/>
+        </scene>
+        <!--Chat Ended View Controller-->
+        <scene sceneID="XQb-JA-YRe">
+            <objects>
+                <viewController id="1Qd-fV-SrZ" customClass="ChatEndedViewController" customModule="Pager" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ona-1M-NyQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="MpN-Gm-cLV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8OV-nB-FX7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u9L-ed-yej" customClass="CosmosView" customModule="Cosmos">
+                                <rect key="frame" x="75" y="167" width="225" height="52"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                        <real key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="colorFilled">
+                                        <color key="value" red="0.35294117650000001" green="0.83921568629999999" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColorEmpty">
+                                        <color key="value" red="0.35294117650000001" green="0.83921568629999999" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidthEmpty">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jw3-Ek-TLa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3160.5" y="857.5"/>
         </scene>
         <!--Video View Controller-->
         <scene sceneID="MTa-BX-2dE">
@@ -465,7 +509,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RVD-3r-2pz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3130.5" y="416.5"/>
+            <point key="canvasLocation" x="3160.5" y="134.5"/>
         </scene>
     </scenes>
     <resources>
