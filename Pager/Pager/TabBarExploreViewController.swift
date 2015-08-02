@@ -40,7 +40,7 @@ class TabBarExploreViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        setTabBarVisible(true, true, true, self)
+        //setTabBarVisible(true, true, true, self)
     }
 
     override func didReceiveMemoryWarning() {

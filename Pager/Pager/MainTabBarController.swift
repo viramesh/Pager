@@ -10,7 +10,8 @@ import UIKit
 
 class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
 
-    let buttonHeightPercentage = 0.66
+    let buttonHeightPercentage = 0.6
+    let buttonWidthPercentage = 0.85
     var isHighLighted: [Bool] = [false, false, false]
     var button: [UIButton] = [UIButton(), UIButton(), UIButton()]
     
@@ -19,23 +20,13 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         
         self.tabBar.tintColor = UIColor(red: (102/255), green: (194/255), blue: (172/255), alpha: 1)
         self.tabBar.barTintColor = UIColor.whiteColor()
-        //self.tabBar.clipsToBounds = true
-        
-        let itemAppearance = UITabBarItem.appearance()
-        let attributesFont = [NSFontAttributeName:UIFont(name: "Avenir", size: 16)!, NSForegroundColorAttributeName:UIColor(red: (119/255), green: (119/255), blue: (119/255), alpha: 1)]
-        itemAppearance.setTitleTextAttributes(attributesFont, forState: UIControlState.Normal)
-        itemAppearance.setTitlePositionAdjustment(UIOffset(horizontal: 0, vertical: -12))
-        
-        let attributesFontSelected = [NSFontAttributeName:UIFont(name: "Avenir", size: 16)!, NSForegroundColorAttributeName:UIColor(red: (102/255), green: (194/255), blue: (172/255), alpha: 1)]
-        itemAppearance.setTitleTextAttributes(attributesFontSelected, forState: UIControlState.Selected)
-        
-        self.tabBarItem.imageInsets = UIEdgeInsetsMake(6, -20, -6, 20)
+        self.tabBar.translucent = false
         
         self.delegate = self
         
-        addButton(0, buttonLabel: "Explore")
-        addButton(1, buttonLabel: "Page a Pro")
-        addButton(2, buttonLabel: "Account")
+        addButton(0, buttonLabel: "EXPLORE")
+        addButton(1, buttonLabel: "PAGE A PRO")
+        addButton(2, buttonLabel: "ACCOUNT")
 
 
     }
@@ -46,7 +37,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     }
     
     override func viewDidLayoutSubviews() {
-        
+
     }
     
     //MARK: TABBAR DELEAGATE
@@ -96,14 +87,14 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     func addButton(pos: Int, buttonLabel: String)
     {
         
-        let frame = CGRectMake(0.0, 0.0, self.tabBar.frame.width / 3 - 10, self.tabBar.frame.height * CGFloat(self.buttonHeightPercentage))
+        let frame = CGRectMake(0.0, 0.0, self.tabBar.frame.width / 3 * CGFloat(self.buttonWidthPercentage), self.tabBar.frame.height * CGFloat(self.buttonHeightPercentage))
         button[pos] = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
         button[pos].frame = frame
         button[pos].tag = pos
         button[pos].clipsToBounds = true
         button[pos].backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
         button[pos].setTitle(buttonLabel, forState: UIControlState.Normal)
-        button[pos].titleLabel!.font = UIFont(name: "Avenir", size: 16)
+        button[pos].titleLabel!.font = UIFont(name: "Avenir", size: 12)
         button[pos].setTitleColor(UIColor(red: (119/255), green: (119/255), blue: (119/255), alpha: 1), forState: UIControlState.Normal)
         button[pos].layer.cornerRadius = self.tabBar.frame.height * CGFloat( self.buttonHeightPercentage / 2)
         button[pos].layer.shadowColor = UIColor.blackColor().CGColor
@@ -111,7 +102,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         button[pos].layer.shadowRadius = 0
         button[pos].layer.shadowOpacity = 0.15
 
-        button[pos].center.x = 5 + self.button[pos].frame.width / 2 + ((self.tabBar.frame.width / 3) * CGFloat(pos))
+        button[pos].center.x = (self.tabBar.frame.width / 3) * (CGFloat(pos) + 0.5)
         button[pos].frame.origin.y = self.tabBar.frame.origin.y + self.tabBar.frame.height * CGFloat((1-self.buttonHeightPercentage)/2)
         
         button[pos].addTarget(self, action: "changeTab:", forControlEvents: UIControlEvents.TouchUpInside)

@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--Explore-->
+        <!--Tab Bar Explore View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="TabBarExploreViewController" customModule="Pager" customModuleProvider="target" sceneMemberID="viewController">
@@ -39,7 +39,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Explore" id="rCN-8D-Ut8"/>
+                    <tabBarItem key="tabBarItem" title="" id="rCN-8D-Ut8"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="contentView" destination="Zp4-XZ-EvS" id="hfW-ja-NTY"/>
@@ -80,7 +80,7 @@
             </objects>
             <point key="canvasLocation" x="1861.5" y="1473.5"/>
         </scene>
-        <!--Account-->
+        <!--Tab Bar Account View Controller-->
         <scene sceneID="zyW-pm-DbR">
             <objects>
                 <viewController id="P3y-Of-lIu" customClass="TabBarAccountViewController" customModule="Pager" customModuleProvider="target" sceneMemberID="viewController">
@@ -101,7 +101,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.30196078430000001" green="0.80392156859999997" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Account" id="y0n-1N-jfk"/>
+                    <tabBarItem key="tabBarItem" title="" id="y0n-1N-jfk"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="contentView" destination="b3h-4D-lzR" id="jhL-Ac-dL3"/>
@@ -149,7 +149,6 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <tabBar key="tabBar" contentMode="scaleAspectFill" itemPositioning="fill" id="4oB-fL-W20">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.30196078430000001" green="0.80392156859999997" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" red="0.30196078430000001" green="0.80392156859999997" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
