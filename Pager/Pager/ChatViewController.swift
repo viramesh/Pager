@@ -97,7 +97,7 @@ class ChatViewController: UIViewController {
     
     @IBAction func pressEndChatButton(sender: AnyObject) {
         var storyboard = UIStoryboard(name: "Payment", bundle: nil)
-        var controller = storyboard.instantiateViewControllerWithIdentifier("paymentVC") as! ChatEndedViewController
+        var controller = storyboard.instantiateViewControllerWithIdentifier("paymentVC") as! PaymentViewController
         self.navigationController?.pushViewController(controller, animated: true)
 
     }
