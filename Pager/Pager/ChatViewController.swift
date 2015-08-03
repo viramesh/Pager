@@ -96,7 +96,10 @@ class ChatViewController: UIViewController {
 
     
     @IBAction func pressEndChatButton(sender: AnyObject) {
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        var storyboard = UIStoryboard(name: "Payment", bundle: nil)
+        var controller = storyboard.instantiateViewControllerWithIdentifier("paymentVC") as! ChatEndedViewController
+        self.navigationController?.pushViewController(controller, animated: true)
+
     }
 
     @IBAction func sendButtonPressed(sender: AnyObject) {
@@ -135,6 +138,7 @@ class ChatViewController: UIViewController {
         performSegueWithIdentifier("videoSegue", sender: self)
 
     }
+
 
 
 }
