@@ -16,7 +16,7 @@ class TellMeMoreViewController: UIViewController {
     @IBOutlet weak var findSomeoneButtonBottomConstraint: NSLayoutConstraint!
     
     var initialBottom: CGFloat!
-    let offset: CGFloat = 130
+    let offset: CGFloat = 20
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +48,7 @@ class TellMeMoreViewController: UIViewController {
             
             // Set view properties in here that you want to match with the animation of the keyboard
             // If you need it, you can use the kbSize property above to get the keyboard width and height.
-            self.findSomeoneButtonBottomConstraint.constant = self.initialBottom + self.offset
+            self.findSomeoneButtonBottomConstraint.constant = kbSize.height + self.offset
             self.findSomeoneButton.layoutIfNeeded()
             
             }, completion: nil)

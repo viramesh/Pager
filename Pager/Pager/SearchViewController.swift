@@ -22,7 +22,7 @@ class SearchViewController: UIViewController {
     var button: UIButton!
     
     var initialBottom: CGFloat!
-    let offset: CGFloat = 130
+    let offset: CGFloat = 20
     
     var isPresenting: Bool = true
 
@@ -103,13 +103,13 @@ class SearchViewController: UIViewController {
         var curveValue = userInfo[UIKeyboardAnimationCurveUserInfoKey] as! NSNumber
         var animationCurve = curveValue.integerValue
         
-        println(kbSize)
+        //println(kbSize)
         
         UIView.animateWithDuration(animationDuration, delay: 0.0, options: UIViewAnimationOptions(UInt(animationCurve << 16)), animations: {
             
             // Set view properties in here that you want to match with the animation of the keyboard
             // If you need it, you can use the kbSize property above to get the keyboard width and height.
-            self.findButtonBottomContraint.constant = self.initialBottom + self.offset
+            self.findButtonBottomContraint.constant = kbSize.height + self.offset
             self.findButton.layoutIfNeeded()
             
             }, completion: nil)

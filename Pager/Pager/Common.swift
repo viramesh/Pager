@@ -66,7 +66,14 @@ func setTabBarVisible(visible:Bool, animated:Bool, searchTabVisible:Bool, contro
     if frame != nil {
         let tabBarC = controller.tabBarController as! MainTabBarController
         
-        UIView.animateWithDuration(duration) {
+        if visible==true {
+            tabBarC.tabBar.alpha = 1
+            tabBarC.tabBar.hidden = false
+            tabBarC.tabBar.userInteractionEnabled = true
+            println("preparing to show tab bar")
+        }
+        
+        UIView.animateWithDuration(duration, animations: { () -> Void in
             tabBarC.tabBar.frame = CGRectOffset(frame!, 0, offsetY!)
             tabBarC.button[0].center.y = tabBarC.button[0].center.y + offsetY!
             tabBarC.button[2].center.y = tabBarC.button[2].center.y + offsetY!
@@ -74,7 +81,17 @@ func setTabBarVisible(visible:Bool, animated:Bool, searchTabVisible:Bool, contro
             //tabBarC.button[1].center.y = tabBarC.tabBar.center.y + searchButtonOffsetY
             //tabBarC.button[1].layer.shadowRadius = CGFloat(searchButtonShadowRadius)
             return
-        }
+
+        }, completion: { (Bool) -> Void in
+            if visible==false {
+                tabBarC.tabBar.alpha = 0
+                tabBarC.tabBar.hidden = true
+                tabBarC.tabBar.userInteractionEnabled = false
+                println("hid the tabbar")
+            }
+        })
+        
+        
     }
 }
 

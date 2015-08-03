@@ -71,7 +71,13 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         isHighLighted[i] = true
         button[i].backgroundColor = UIColor(red: (102/255), green: (194/255), blue: (172/255), alpha: 1)
         button[i].setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), forState: UIControlState.Normal)
-
+        
+        if(i==0) {
+            self.tabBar.translucent = false
+        }
+        else {
+            self.tabBar.translucent = true
+        }
     }
     
     func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
