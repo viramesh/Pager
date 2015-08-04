@@ -18,8 +18,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var findButton: UIButton!
     @IBOutlet weak var findButtonBottomContraint: NSLayoutConstraint!
     
-    var textString: String!
-    var button: UIButton!
+    var searchString: String!
     
     var initialBottom: CGFloat!
     let offset: CGFloat = 20
@@ -49,7 +48,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool
     {
-        println("checking")
         autocompleteTableView.hidden = false
         var substring = (textField.text as NSString).stringByReplacingCharactersInRange(range, withString: string)
         
@@ -73,7 +71,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
         
-        println("found \(autocompleteSuggestions.count) matches")
         if(autocompleteSuggestions.count > 0) {
             autocompleteTableView.hidden = false
             autocompleteTableView.reloadData()
@@ -107,6 +104,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let selectedCell : AutocompleteTableViewCell = tableView.cellForRowAtIndexPath(indexPath) as! AutocompleteTableViewCell
         searchTextField.text = selectedCell.autocompleteSuggestionLabel.text
+        autocompleteTableView.hidden = true
+        
     }
     
     func keyboardWillShow(notification: NSNotification!) {
@@ -153,12 +152,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }, completion: nil)
     }
 
-    
-    @IBAction func onTap(sender: AnyObject) {
-        searchTextField.endEditing(true)
-
-    }
-
     func showMainTabBar() {
         let parentVC = self.parentViewController as! SearchNavigationController
         let grandParentVC = parentVC.parentViewController as! TabBarSearchViewController
@@ -171,6 +164,25 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         setTabBarVisible(false, true, false, grandParentVC)
     }
 
+    @IBAction func nextBtnDidPress(sender: AnyObject) {
+        
+        self.searchString = searchTextField.text!
+        
+        //transition to TellMeMoreViewController
+        var storyboard = UIStoryboard(name: "Chat", bundle: nil)
+        var controller = storyboard.instantiateViewControllerWithIdentifier("tellMeMoreVC") as! TellMeMoreViewController
+        //        controller.tellMeMoreLabelTitle.text = textString
+        self.navigationController?.pushViewController(controller, animated: true)
+        
+        hideMainTabBar()
+        resetSearchView()
+
+    }
     
+    func resetSearchView() {
+        searchTextField.text = ""
+        autocompleteSuggestions.removeAll(keepCapacity: false)
+    }
+
 
 }

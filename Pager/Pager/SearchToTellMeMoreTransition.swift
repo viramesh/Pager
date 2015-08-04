@@ -29,13 +29,13 @@ class SearchToTellMeMoreTransition: NSObject, UIViewControllerAnimatedTransition
         containerView.addSubview(toViewController.view)
         toViewController.view.alpha = 0
         
-        fromViewController.button.hidden = true
+        fromViewController.searchTextField.hidden = true
         toViewController.tellMeMoreLabelTitle.hidden = true
         
-        var movingTextLabel = UILabel(frame: fromViewController.button.frame)
-        movingTextLabel.text = fromViewController.textString
+        var movingTextLabel = UILabel(frame: fromViewController.searchTextField.frame)
+        movingTextLabel.text = fromViewController.searchString
         containerView.addSubview(movingTextLabel)
-        toViewController.tellMeMoreLabelTitle.text = fromViewController.textString!
+        toViewController.tellMeMoreLabelTitle.text = fromViewController.searchString
         
         UIView.animateWithDuration(self.duration, animations: { () -> Void in
             toViewController.view.alpha = 1
@@ -46,7 +46,7 @@ class SearchToTellMeMoreTransition: NSObject, UIViewControllerAnimatedTransition
             }) { (finished: Bool) -> Void in
                 transitionContext.completeTransition(true)
                 toViewController.tellMeMoreLabelTitle.hidden = false
-                fromViewController.button.hidden = false
+                fromViewController.searchTextField.hidden = false
                 movingTextLabel.removeFromSuperview()
                 
         }
