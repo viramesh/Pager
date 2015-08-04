@@ -9,10 +9,12 @@
 import UIKit
 import Cosmos
 
-class PaymentViewController: UIViewController {
+class PaymentViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var dateTimeLabel: UILabel!
     
+    @IBOutlet weak var feedbackTextView: UITextView!
+    @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var paymentExpertPhoto: UIImageView!
     @IBOutlet weak var starRatingView: CosmosView!
     override func viewDidLoad() {
@@ -30,6 +32,11 @@ class PaymentViewController: UIViewController {
         paymentExpertPhoto.clipsToBounds = true
         paymentExpertPhoto.layer.borderWidth = 2.0
         paymentExpertPhoto.layer.borderColor = CGColorCreateCopy(UIColor.whiteColor().CGColor)
+        
+        starRatingView.didTouchCosmos = touchedTheStar
+        feedbackTextView.hidden = true
+        feedbackTextView.delegate = self
+        setFeedbackTextView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,5 +54,36 @@ class PaymentViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    private func touchedTheStar(rating: Double) {
+        
+        if starRatingView.rating < 3 {
+            println("Rating is 1")
+            self.ratingLabel.text = "Oh no, let us know what went wrong."
+            feedbackTextView.hidden = false
+        } else {
+            self.ratingLabel.text = "Woohoo! Awesome."
+            feedbackTextView.hidden = true
+        }
+//        self.ratingLabel.text = String(stringInterpolationSegment: rating)
+    }
+    
+    func setFeedbackTextView(){
+        feedbackTextView.hidden = true
+        feedbackTextView.text = "Please leave feedback here."
+        feedbackTextView.textColor = UIColor.lightGrayColor()
+    }
 
+    func textViewDidBeginEditing(textView: UITextView) {
+        if feedbackTextView.textColor == UIColor.lightGrayColor() {
+            feedbackTextView.text = nil
+            feedbackTextView.textColor = UIColor.blackColor()
+        }
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        if feedbackTextView.text.isEmpty {
+            feedbackTextView.text = "Please leave feedback here."
+            feedbackTextView.textColor = UIColor.lightGrayColor()
+        }
+    }
 }
