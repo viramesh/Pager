@@ -12,7 +12,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var autocompleteTableView: UITableView!
-    var searchStrings = ["mount a tv", "mount a frame", "mow the lawn"]
     var autocompleteSuggestions = [String]()
     
     @IBOutlet weak var findButton: UIButton!

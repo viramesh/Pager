@@ -21,6 +21,7 @@
 		2BCBED961B63050200E34B41 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCBED951B63050200E34B41 /* VideoViewController.swift */; };
 		2F253EA31B6B47910020395D /* ExploreTileLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F253EA21B6B47910020395D /* ExploreTileLabel.swift */; };
 		2F253EA51B708C3A0020395D /* AutocompleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F253EA41B708C3A0020395D /* AutocompleteTableViewCell.swift */; };
+		2F253EA71B7094250020395D /* SearchStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F253EA61B7094250020395D /* SearchStrings.swift */; };
 		2F741CE91B5D823A00ED3D20 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F741CE81B5D823A00ED3D20 /* LaunchViewController.swift */; };
 		2F741CEC1B5D830D00ED3D20 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 2F741CEB1B5D830D00ED3D20 /* Podfile */; };
 		2F741CF01B5E169B00ED3D20 /* ChatNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F741CEF1B5E169B00ED3D20 /* ChatNavigationController.swift */; };
@@ -75,6 +76,7 @@
 		2BCBED951B63050200E34B41 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		2F253EA21B6B47910020395D /* ExploreTileLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreTileLabel.swift; sourceTree = "<group>"; };
 		2F253EA41B708C3A0020395D /* AutocompleteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutocompleteTableViewCell.swift; sourceTree = "<group>"; };
+		2F253EA61B7094250020395D /* SearchStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchStrings.swift; sourceTree = "<group>"; };
 		2F741CE81B5D823A00ED3D20 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		2F741CEB1B5D830D00ED3D20 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2F741CEF1B5E169B00ED3D20 /* ChatNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatNavigationController.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				2FA30CAE1B42672000FC1D27 /* SearchViewController.swift */,
 				2F741CF11B5EA89700ED3D20 /* SearchNavigationController.swift */,
 				2F253EA41B708C3A0020395D /* AutocompleteTableViewCell.swift */,
+				2F253EA61B7094250020395D /* SearchStrings.swift */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 				2B68EA021B4F0711005D843F /* TellMeMoreViewController.swift in Sources */,
 				2FD97D9B1B43B712000F7342 /* Common.swift in Sources */,
 				088AA0491B563CE300766E70 /* FoundSomeoneViewController.swift in Sources */,
+				2F253EA71B7094250020395D /* SearchStrings.swift in Sources */,
 				2B6D3C921B582DFD00466779 /* LoginViewController.swift in Sources */,
 				2F741CF91B5F68D700ED3D20 /* DefaultFadeTransition.swift in Sources */,
 				2FA30CAD1B4266CE00FC1D27 /* ExploreTableViewController.swift in Sources */,
