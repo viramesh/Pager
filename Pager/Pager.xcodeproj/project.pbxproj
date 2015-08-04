@@ -20,6 +20,7 @@
 		2BCBED941B63047900E34B41 /* video-sharing.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 2BCBED931B63047900E34B41 /* video-sharing.MOV */; };
 		2BCBED961B63050200E34B41 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCBED951B63050200E34B41 /* VideoViewController.swift */; };
 		2F253EA31B6B47910020395D /* ExploreTileLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F253EA21B6B47910020395D /* ExploreTileLabel.swift */; };
+		2F253EA51B708C3A0020395D /* AutocompleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F253EA41B708C3A0020395D /* AutocompleteTableViewCell.swift */; };
 		2F741CE91B5D823A00ED3D20 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F741CE81B5D823A00ED3D20 /* LaunchViewController.swift */; };
 		2F741CEC1B5D830D00ED3D20 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 2F741CEB1B5D830D00ED3D20 /* Podfile */; };
 		2F741CF01B5E169B00ED3D20 /* ChatNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F741CEF1B5E169B00ED3D20 /* ChatNavigationController.swift */; };
@@ -73,6 +74,7 @@
 		2BCBED931B63047900E34B41 /* video-sharing.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "video-sharing.MOV"; sourceTree = "<group>"; };
 		2BCBED951B63050200E34B41 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		2F253EA21B6B47910020395D /* ExploreTileLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreTileLabel.swift; sourceTree = "<group>"; };
+		2F253EA41B708C3A0020395D /* AutocompleteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutocompleteTableViewCell.swift; sourceTree = "<group>"; };
 		2F741CE81B5D823A00ED3D20 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		2F741CEB1B5D830D00ED3D20 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2F741CEF1B5E169B00ED3D20 /* ChatNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatNavigationController.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				2FA30CA61B42592600FC1D27 /* Search.storyboard */,
 				2FA30CAE1B42672000FC1D27 /* SearchViewController.swift */,
 				2F741CF11B5EA89700ED3D20 /* SearchNavigationController.swift */,
+				2F253EA41B708C3A0020395D /* AutocompleteTableViewCell.swift */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				2B6D3C901B5713F600466779 /* KDCircularProgress.swift in Sources */,
 				2F741CE91B5D823A00ED3D20 /* LaunchViewController.swift in Sources */,
 				2BCBED961B63050200E34B41 /* VideoViewController.swift in Sources */,
+				2F253EA51B708C3A0020395D /* AutocompleteTableViewCell.swift in Sources */,
 				2B641B851B60501300692352 /* ChatViewController.swift in Sources */,
 				2B641B871B6059CB00692352 /* FoundSomeoneToChatTransition.swift in Sources */,
 				2FA30C7D1B41DBAB00FC1D27 /* AppDelegate.swift in Sources */,
