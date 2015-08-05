@@ -17,6 +17,7 @@
 		2B68EA021B4F0711005D843F /* TellMeMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B68EA011B4F0711005D843F /* TellMeMoreViewController.swift */; };
 		2B6D3C901B5713F600466779 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D3C8F1B5713F600466779 /* KDCircularProgress.swift */; };
 		2B6D3C921B582DFD00466779 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D3C911B582DFD00466779 /* LoginViewController.swift */; };
+		2B9682701B720F1D002367C3 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B96826F1B720F1D002367C3 /* RatingViewController.swift */; };
 		2BCBED941B63047900E34B41 /* video-sharing.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 2BCBED931B63047900E34B41 /* video-sharing.MOV */; };
 		2BCBED961B63050200E34B41 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCBED951B63050200E34B41 /* VideoViewController.swift */; };
 		2F253EA31B6B47910020395D /* ExploreTileLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F253EA21B6B47910020395D /* ExploreTileLabel.swift */; };
@@ -72,6 +73,7 @@
 		2B68EA011B4F0711005D843F /* TellMeMoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TellMeMoreViewController.swift; sourceTree = "<group>"; };
 		2B6D3C8F1B5713F600466779 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 		2B6D3C911B582DFD00466779 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2B96826F1B720F1D002367C3 /* RatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		2BCBED931B63047900E34B41 /* video-sharing.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "video-sharing.MOV"; sourceTree = "<group>"; };
 		2BCBED951B63050200E34B41 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		2F253EA21B6B47910020395D /* ExploreTileLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreTileLabel.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			children = (
 				2B1A75E61B6E994200D65136 /* Payment.storyboard */,
 				2B19DCC61B6E16AA00E303F3 /* PaymentViewController.swift */,
+				2B96826F1B720F1D002367C3 /* RatingViewController.swift */,
 			);
 			name = Payment;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				2FADF6501B59BA6F005EED53 /* TabBarSearchViewController.swift in Sources */,
 				2F741CF01B5E169B00ED3D20 /* ChatNavigationController.swift in Sources */,
 				2FA30CAF1B42672000FC1D27 /* SearchViewController.swift in Sources */,
+				2B9682701B720F1D002367C3 /* RatingViewController.swift in Sources */,
 				2FADF64C1B58D8DF005EED53 /* TabBarExploreViewController.swift in Sources */,
 				2B68EA021B4F0711005D843F /* TellMeMoreViewController.swift in Sources */,
 				2FD97D9B1B43B712000F7342 /* Common.swift in Sources */,
