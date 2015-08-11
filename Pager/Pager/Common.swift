@@ -70,7 +70,7 @@ func setTabBarVisible(visible:Bool, animated:Bool, searchTabVisible:Bool, contro
             tabBarC.tabBar.alpha = 1
             tabBarC.tabBar.hidden = false
             tabBarC.tabBar.userInteractionEnabled = true
-            println("preparing to show tab bar")
+            //println("preparing to show tab bar")
         }
         
         UIView.animateWithDuration(duration, animations: { () -> Void in
@@ -84,10 +84,10 @@ func setTabBarVisible(visible:Bool, animated:Bool, searchTabVisible:Bool, contro
 
         }, completion: { (Bool) -> Void in
             if visible==false {
-                tabBarC.tabBar.alpha = 0
-                tabBarC.tabBar.hidden = true
-                tabBarC.tabBar.userInteractionEnabled = false
-                println("hid the tabbar")
+                //tabBarC.tabBar.alpha = 0
+                //tabBarC.tabBar.hidden = true
+                //tabBarC.tabBar.userInteractionEnabled = false
+                //println("hid the tabbar")
             }
         })
         
@@ -95,6 +95,14 @@ func setTabBarVisible(visible:Bool, animated:Bool, searchTabVisible:Bool, contro
     }
 }
 
+func setTabBarTranslucent(translucency:Bool, controller: UIViewController) {
+    controller.tabBarController?.tabBar.translucent = translucency
+}
+
 func tabBarIsVisible(controller: UIViewController) ->Bool {
     return controller.tabBarController?.tabBar.frame.origin.y <= CGRectGetMaxY(controller.view.frame)
+}
+
+func getTabBarHeight(controller: UIViewController) -> CGFloat {
+    return controller.tabBarController!.tabBar.frame.height
 }

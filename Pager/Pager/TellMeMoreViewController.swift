@@ -17,7 +17,7 @@ class TellMeMoreViewController: UIViewController {
     
     var initialBottom: CGFloat!
     let offset: CGFloat = 20
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,6 +27,12 @@ class TellMeMoreViewController: UIViewController {
         initialBottom = findSomeoneButtonBottomConstraint.constant
         
     }
+    
+    override func viewDidLayoutSubviews() {
+        let screenSize = UIScreen.mainScreen().bounds
+        self.view.frame = CGRectMake(0, 0, screenSize.width, screenSize.height)
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

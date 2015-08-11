@@ -45,6 +45,10 @@ class PaymentViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidLayoutSubviews() {
+        let screenSize = UIScreen.mainScreen().bounds
+        self.view.frame = CGRectMake(0, 0, screenSize.width, screenSize.height)
+    }
 
 
     @IBAction func submitButtonPressed(sender: AnyObject) {

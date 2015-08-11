@@ -28,6 +28,11 @@ class VideoViewController: UIViewController {
 
     }
 
+    override func viewDidLayoutSubviews() {
+        let screenSize = UIScreen.mainScreen().bounds
+        self.view.frame = CGRectMake(0, 0, screenSize.width, screenSize.height)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

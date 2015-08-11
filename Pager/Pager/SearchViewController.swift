@@ -41,6 +41,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     }
     
+    override func viewDidLayoutSubviews() {
+        let screenSize = UIScreen.mainScreen().bounds
+        self.view.frame = CGRectMake(0, 0, screenSize.width, screenSize.height)
+    }
+    
     override func viewWillAppear(animated: Bool) {
         showMainTabBar()
     }
@@ -118,8 +123,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         var curveValue = userInfo[UIKeyboardAnimationCurveUserInfoKey] as! NSNumber
         var animationCurve = curveValue.integerValue
         
-        //println(kbSize)
-        self.hideMainTabBar()
+        let parentVC = self.parentViewController as! SearchNavigationController
+        let tabBarChildVC = parentVC.parentViewController as! TabBarSearchViewController
         
         UIView.animateWithDuration(animationDuration, delay: 0.0, options: UIViewAnimationOptions(UInt(animationCurve << 16)), animations: {
             
@@ -142,7 +147,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         var animationDuration = durationValue.doubleValue
         var curveValue = userInfo[UIKeyboardAnimationCurveUserInfoKey] as! NSNumber
         var animationCurve = curveValue.integerValue
-        
+                
         UIView.animateWithDuration(animationDuration, delay: 0.0, options: UIViewAnimationOptions(UInt(animationCurve << 16)), animations: {
             
             // Set view properties in here that you want to match with the animation of the keyboard
@@ -155,27 +160,27 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     func showMainTabBar() {
         let parentVC = self.parentViewController as! SearchNavigationController
-        let grandParentVC = parentVC.parentViewController as! TabBarSearchViewController
-        setTabBarVisible(true, true, true, grandParentVC)
+        let tabBarChildVC = parentVC.parentViewController as! TabBarSearchViewController
+        setTabBarVisible(true, true, true, tabBarChildVC)
     }
     
     func hideMainTabBar() {
         let parentVC = self.parentViewController as! SearchNavigationController
-        let grandParentVC = parentVC.parentViewController as! TabBarSearchViewController
-        setTabBarVisible(false, true, false, grandParentVC)
+        let tabBarChildVC = parentVC.parentViewController as! TabBarSearchViewController
+        setTabBarVisible(false, true, false, tabBarChildVC)
     }
 
     @IBAction func nextBtnDidPress(sender: AnyObject) {
         
         self.searchString = searchTextField.text!
-        
+        hideMainTabBar()
+
         //transition to TellMeMoreViewController
         var storyboard = UIStoryboard(name: "Chat", bundle: nil)
         var controller = storyboard.instantiateViewControllerWithIdentifier("tellMeMoreVC") as! TellMeMoreViewController
         //        controller.tellMeMoreLabelTitle.text = textString
         self.navigationController?.pushViewController(controller, animated: true)
         
-        hideMainTabBar()
         resetSearchView()
 
     }

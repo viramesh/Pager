@@ -61,19 +61,4 @@ class TabBarExploreViewController: UIViewController {
         content.removeFromParentViewController()
     }
     
-
-    func exploreViewDidPan(sender: UIPanGestureRecognizer) {
-        var point = sender.locationInView(view)
-        var velocity = sender.velocityInView(view)
-        println("\(point) & \(velocity)")
-        
-        if sender.state == UIGestureRecognizerState.Began {
-            println("Gesture began at: \(point)")
-        } else if sender.state == UIGestureRecognizerState.Changed {
-            println("Gesture changed at: \(point)")
-        } else if sender.state == UIGestureRecognizerState.Ended {
-            println("Gesture ended at: \(point)")
-        }
-    }
-
 }

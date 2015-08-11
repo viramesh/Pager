@@ -27,6 +27,10 @@ class FoundSomeoneViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
+        
+        let screenSize = UIScreen.mainScreen().bounds
+        self.view.frame = CGRectMake(0, 0, screenSize.width, screenSize.height)
+        
         UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 3.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: { () -> Void in
             
                 self.expertPhoto.transform = CGAffineTransformMakeScale(1, 1)

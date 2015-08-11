@@ -40,6 +40,11 @@ class FindingSomeoneViewController: UIViewController {
 
     }
     
+    override func viewDidLayoutSubviews() {
+        let screenSize = UIScreen.mainScreen().bounds
+        self.view.frame = CGRectMake(0, 0, screenSize.width, screenSize.height)
+    }
+    
     override func viewDidAppear(animated: Bool) {
         
         timer = NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: "toFoundSomeoneVC", userInfo: nil, repeats: false)

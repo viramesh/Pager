@@ -30,11 +30,11 @@ class TabBarSearchViewController: UIViewController {
         
         var storyboard = UIStoryboard(name: "Search", bundle: nil)
         searchNC = storyboard.instantiateViewControllerWithIdentifier("searchNC") as! SearchNavigationController
-        displayViewController(searchNC)
     }
     
     override func viewDidLayoutSubviews() {
         contentView.frame = CGRectMake(0, 0, screenWidth, screenHeight)
+        displayViewController(searchNC)
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,16 +54,5 @@ class TabBarSearchViewController: UIViewController {
         content.removeFromParentViewController()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 
 }
